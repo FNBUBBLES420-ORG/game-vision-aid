@@ -8,7 +8,7 @@ if %errorlevel% neq 0 (
 
 echo Installing PyTorch and related packages...
 
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install torch==2.2.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
 if %errorlevel% neq 0 (
     echo Installation failed.
