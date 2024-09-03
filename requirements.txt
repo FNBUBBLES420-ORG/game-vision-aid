@@ -1,9 +1,9 @@
 opencv-python
 torch==2.2.0
-torchvision==0.19.0
-onnxruntime==1.19.0
+torchvision
+onnxruntime
 pandas
-numpy==2.1.1 
+numpy
 gitpython>=3.1.30
 tk
 mss
