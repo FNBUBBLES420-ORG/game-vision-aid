@@ -30,8 +30,8 @@ Follow these steps to set up and run **GameVisionAid**:
 
 2. **Set up a virtual environment (optional but recommended)**:
     ```
-    python -m venv gamevisionaid_env
-    source gamevisionaid_env/bin/activate  # On Windows use: gamevisionaid_env\Scripts\activate
+    python -m venv game-vision-aid_env
+    source game-vision-aid_env/bin/activate  # On Windows use: game-vision-aid_env\Scripts\activate
     ```
 
 3. **Install dependencies**:
