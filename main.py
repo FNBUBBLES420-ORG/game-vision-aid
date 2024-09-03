@@ -30,6 +30,7 @@ def load_model(model_path='ultralytics/yolov5s'):
         print(f"Model loaded in {end_time - start_time:.2f} seconds")  # Print the loading time
         print("Model loaded and ready.")
         print("You can now use the script.")
+        print("if you have any issues using this join the discord https://discord.fnbubbles420.org/invite HEAD TO 🧑🏫-teaching_tutoring")
         return model, model_type    # Return the loaded model and model type
     except Exception as e:  # Catch any exceptions during model loading
         print(f"Error loading model: {e}")  # Print the error message
