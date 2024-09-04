@@ -122,8 +122,9 @@ If you have a custom-trained YOLOv5 model specifically for your game:
 
 ## 📧 Contact
 
-- [Bubbles The Dev](kernferm@gmail.com)
-- [Main Office](mainoffice@fnbubbles420.org)
+- **[Bubbles The Dev](kernferm@gmail.com)**
+- **[Main Office](mainoffice@fnbubbles420.org)**
+
 ## 🙏 Acknowledgements
 
 ### Thanks to the developers of:
