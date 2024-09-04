@@ -99,6 +99,12 @@ game-vision-aid/
     └── fn_v5.onnx               # Custom ONNX model (if available)
 ```
 
+## Installing Rust to view notes
+- Make sure to have `RUST` installed 
+- The application was Built on `64-bit` system
+- Follow the `Instructions` on the screen when installing `RUST`
+- [64-bit](https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe)
+
 
 ## 🤖 Custom YOLOv5 Model (Optional)
 
