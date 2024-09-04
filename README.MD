@@ -104,6 +104,19 @@ game-vision-aid/
 - The application was Built on `64-bit` system
 - Follow the `Instructions` on the screen when installing `RUST`
 - [64-bit](https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe)
+```
+Build the project:
+```
+
+- For `32-Bit` you will have to `cargo build` then `cargo run`
+- Follow the `Instructions` on the screen when installing `RUST`
+- [32-Bit](https://static.rust-lang.org/rustup/dist/i686-pc-windows-msvc/rustup-init.exe)
+```
+cargo build
+```
+```
+cargo run
+```
 
 
 ## 🤖 Custom YOLOv5 Model (Optional)
