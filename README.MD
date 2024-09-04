@@ -11,7 +11,7 @@
 
 ## 🖥️ System Requirements
 
-- **Operating System**: Windows, Linux, or macOS
+- **Operating System**: Windows
 - **Python Version**: [Python 3.11.6](https://github.com/KernFerm/Py3.11.6installer)
 - **Hardware**:
   - **CPU**: Multi-core processor (Intel i5 or equivalent)
