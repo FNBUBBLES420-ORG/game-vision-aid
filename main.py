@@ -60,7 +60,7 @@ def detect_objects(model, model_type, frame, device):
             results = model(frame_tensor)
         elif model_type == 'onnx':
             frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            frame_resized = cv2.resize(frame_rgb, (640, 640))
+            frame_resized = cv2.resize(frame_rgb, (320, 320))
             input_tensor = frame_resized.astype(np.float32)
             input_tensor = np.expand_dims(input_tensor, axis=0).transpose(0, 3, 1, 2)
             input_tensor /= 255.0
@@ -140,7 +140,7 @@ def main():
     # Use relative paths to ensure cross-platform compatibility.
     # Assume the model file is in the same directory as the script.
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    model_path = os.path.join(script_dir, 'model.onnx')  # Change to your custom model path if needed
+    model_path = os.path.join(script_dir, 'models\FN_v5.pt')  # Change to your custom model path if needed
     
     start_time = time.time()  # Start timing for model loading
     model, model_type = load_model(model_path)
