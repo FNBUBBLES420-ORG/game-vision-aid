@@ -7,3 +7,4 @@ numpy
 gitpython>==5.0.1
 tk
 mss
+colorama
