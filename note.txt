@@ -1,3 +1,9 @@
+NOTE
+THIS IS NOT A AI AIMBOT 
+ITS ONLY OVERLAY THAY DISPLAYS BOXES AROUND THE ENEMY FOR ENHANCED VISUALS FOR DISABLED THE CODE COMPLIES WITH ANY GAMES TOS
+RUNS PARALLEL WITH THE GAME LIKE CROSSHAIR X 
+
+
 more pt and onnx models coming soon 
 
 if you have your own pt and onnx model you can use right away in code 
