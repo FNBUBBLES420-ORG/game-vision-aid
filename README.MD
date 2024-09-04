@@ -115,7 +115,7 @@ If you have a custom-trained YOLOv5 model specifically for your game:
 - ***Contributions are welcome! Feel free to submit a pull request or open an issue to discuss improvements, bugs, or new features.***
 
 ## 🎮 Discord
-- **If you have any issues [Join the Discord](https://discord.fnbubbles420.org/invite) and head to `gaming-vision-aid channel` **
+- **If you have any issues [Join the Discord](https://discord.fnbubbles420.org/invite) and head to `gaming-vision-aid channel`.**
 
 ## 📜 License
 
