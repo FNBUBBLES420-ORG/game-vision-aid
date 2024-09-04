@@ -12,7 +12,7 @@
 ## 🖥️ System Requirements
 
 - **Operating System**: Windows, Linux, or macOS
-- **Python Version**: [Python 3.11.6]()
+- **Python Version**: [Python 3.11.6](https://github.com/KernFerm/Py3.11.6installer)
 - **Hardware**:
   - **CPU**: Multi-core processor (Intel i5 or equivalent)
   - **GPU** (Optional, but recommended for better performance): NVIDIA GPU with CUDA support
