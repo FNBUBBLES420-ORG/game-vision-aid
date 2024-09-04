@@ -113,6 +113,9 @@ If you have a custom-trained YOLOv5 model specifically for your game:
 
 - Contributions are welcome! Feel free to submit a pull request or open an issue to discuss improvements, bugs, or new features.
 
+## 🎮 Discord
+- If you have any issues [Join the Discord](https://discord.fnbubbles420.org/invite) and head to gaming-vision-aid channel
+
 ## 📜 License
 
 This project is proprietary and all rights are reserved by the author. Unauthorized copying, distribution, or modification of this project is strictly prohibited. Unless You have written permission from the Developer or the FNBUBBLES420 ORG.  
