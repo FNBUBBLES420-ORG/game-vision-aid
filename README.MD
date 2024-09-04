@@ -12,7 +12,7 @@
 ## 🖥️ System Requirements
 
 - **Operating System**: Windows, Linux, or macOS
-- **Python Version**: Python 3.7 or higher
+- **Python Version**: [Python 3.11.6]()
 - **Hardware**:
   - **CPU**: Multi-core processor (Intel i5 or equivalent)
   - **GPU** (Optional, but recommended for better performance): NVIDIA GPU with CUDA support
@@ -30,8 +30,8 @@ Follow these steps to set up and run **GameVisionAid**:
 
 2. **Set up a virtual environment (optional but recommended)**:
     ```
-    python -m venv game-vision-aid_env
-    source game-vision-aid_env/bin/activate  # On Windows use: game-vision-aid_env\Scripts\activate
+    python -m venv gamevisionaid_env
+    source gamevisionaid_env/bin/activate  # On Windows use: gamevisionaid_env\Scripts\activate
     ```
 
 3. **Install dependencies**:
@@ -47,7 +47,7 @@ Follow these steps to set up and run **GameVisionAid**:
 4. **For GPU Support (Optional)**:
    - If you have a CUDA-enabled GPU, install the version of PyTorch that supports your CUDA version:
      ```
-     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+     pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 -f https://download.pytorch.org/whl/torch_stable.html
      ```
      Replace `cu118` with your CUDA version. 
      - Use the `install_pytorch.bat` is tied to `cu118`.
@@ -124,7 +124,3 @@ Thanks to the developers of:
 **GameVisionAid** is designed to assist visually impaired or color-blind gamers by enhancing visual cues in video games. It uses real-time object detection to create customizable overlays around enemy players, making it easier to identify and engage with them during gameplay.
 
 This tool runs in parallel with any game and does not modify the game files or violate any terms of service. It captures the screen and provides an overlay to help users better perceive in-game elements. The developer is not responsible for any misuse of this tool.
-
-## Issues 
-- if you have any issues using this join the discord HEAD TO 🧑🏫-teaching_tutoring
-[FNBUBBLES420 ORG COMMUNITY](https://discord.fnbubbles420.org/invite)
