@@ -4,6 +4,6 @@ torchvision==0.15.2
 onnxruntime
 pandas
 numpy
-gitpython>=3.1.30
+gitpython>==5.0.1
 tk
 mss
