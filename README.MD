@@ -14,9 +14,9 @@
 - **Operating System**: Windows
 - **Python Version**: [Python 3.11.6](https://github.com/KernFerm/Py3.11.6installer)
 - **Hardware**:
-  - **CPU**: Multi-core processor (Intel i5 or equivalent)
+  - **CPU**: Multi-core processor (Intel i5 or Better)
   - **GPU** (Optional, but recommended for better performance): NVIDIA GPU with CUDA support
-  - **RAM**: 8 GB or more
+  - **RAM**: 16 GB or more
 
 ## 📦 Installation
 
