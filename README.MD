@@ -50,7 +50,7 @@ Follow these steps to set up and run **GameVisionAid**:
      Replace `cu118` with your CUDA version. 
      - Use the `important-build.bat` is tied to `cu118`.
 
-5. # **CUDA & Cudnn** 
+5. # **CUDA & cuDNN** 
 - You will have to `Download` and `Install` Cuda & cuDNN manually and install extract the zip file 
 - You will have to create a `Nvidia Developer Account`
 - Make sure to have `Node.js` installed [Node JS](https://nodejs.org/dist/v20.17.0/node-v20.17.0-x64.msi)
