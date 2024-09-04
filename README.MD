@@ -106,8 +106,8 @@ If you have a custom-trained YOLOv5 model specifically for your game:
 
 
 ## ❗ Known Issues
-- **Performance on CPU:** The overlay may run slower on systems without a GPU. Using a CUDA-enabled GPU is recommended for real-time performance.
-- **Compatibility:** This tool is intended for games that allow screen capturing and do not violate any terms of service.
+- `Performance on CPU:` **The overlay may run slower on systems without a GPU. Using a CUDA-enabled GPU is recommended for real-time performance.**
+- `Compatibility:` **This tool is intended for games that allow screen capturing and do not violate any terms of service.**
 
 ## 🛠️ Contributing
 
