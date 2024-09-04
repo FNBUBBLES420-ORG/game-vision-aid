@@ -20,7 +20,6 @@ torch and torchvision
 
 - we know there is an issue with those two version
 - we do support these two versions
-- if you know a verison that is compatible open an Issues Rquest and Lmk or Start a Discussions!
 ---------------------------------
 
 
