@@ -84,8 +84,8 @@ game-vision-aid/
 ├── requirements.bat             # installs list of required Python packages
 ├── requirements.txt             # List of required Python packages 
 └── model/                       # Directory to store custom YOLOv5 models (if any) 
-    └── FN_v5.pt                 # Custom YOLOv5 model (if available)
-    └── model.onnx               # Custom ONNX model (if available)
+    └── fn_v5.pt                 # Custom YOLOv5 model (if available)
+    └── fn_v5.onnx               # Custom ONNX model (if available)
 ```
 
 
