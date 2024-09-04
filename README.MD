@@ -53,7 +53,11 @@ Follow these steps to set up and run **GameVisionAid**:
 5. # **CUDA & Cudnn** 
 - You will have to `Download` and `Install` Cuda & cuDNN manually and install extract the zip file 
 - You will have to create a `Nvidia Developer Account`
-- [cuDNN 8.9.7](https://developer.nvidia.com/downloads/compute/cudnn/secure/8.9.7/local_installers/11.x/cudnn-windows-x86_64-8.9.7.29_cuda11-archive.zip/) `Extract the zip file 
+- Make sure to have `Node.js` installed [Node JS](https://nodejs.org/dist/v20.17.0/node-v20.17.0-x64.msi)
+- [cuDNN 8.9.7](https://developer.nvidia.com/downloads/compute/cudnn/secure/8.9.7/local_installers/11.x/cudnn-windows-x86_64-8.9.7.29_cuda11-archive.zip/) `run the cudnn_instruction.js` 
+```
+node cudnn_instruction.js
+```
 - [CUDA 11.8.0](https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_522.06_windows.exe)
 
 ## 📝 Usage
