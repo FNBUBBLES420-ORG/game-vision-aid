@@ -16,7 +16,7 @@
 - **Hardware**:
   - **CPU**: Multi-core processor (Intel i5 or Better)
   - **GPU** (Optional, but recommended for better performance): NVIDIA GPU with CUDA support
-  - **RAM**: 16 GB or more
+  - **RAM**: 16 GB or more (games you have on your pc recommended RAM 16GB)
 
 ## 📦 Installation
 
