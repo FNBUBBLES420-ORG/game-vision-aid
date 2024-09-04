@@ -92,10 +92,12 @@ game-vision-aid/
 ├── Cargo.toml                    # Part of RUST Application
 ├── CODE_OF_CONDUCT.md            # CODE_OF_CONDUCT.md
 ├── LICENSE                       # LICENSE
-├── README.md                     # Project documentation 
+├── README.md                     # Project documentation
+├── cudnn_instructions.js         # Instructions in JavaScript
 ├── important-build.bat           # Build wheel for the script
 ├── main.py                       # Main script file 
 ├── models.zip                    # models are zipped to compress
+├── nodejs-instructions.ps1       # Instructions in Powershell
 ├── requirements.bat              # installs list of required Python packages
 ├── requirements.txt              # List of required Python packages 
 └── model/                        # Directory to store custom YOLOv5 models (if any) 
