@@ -52,6 +52,7 @@ Follow these steps to set up and run **GameVisionAid**:
 
 5. # **CUDA & Cudnn** 
 - for cuda enabled  `install_cuda_cudnn.bat` 
+- you may have to make a `Nvidia Developer Account`
 
 ## 📝 Usage
 
