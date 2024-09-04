@@ -7,7 +7,7 @@
 - 🖥️ **Real-Time Screen Capture**: Captures your screen in real-time using `mss` for fast and efficient screen capturing.
 - 🎯 **Object Detection**: Utilizes `YOLOv5` for detecting enemies in video games.
 - 🟩 **Customizable Overlays**: Allows users to choose the `color of the overlay boxes` around detected enemies.
-- 🛠️ **GPU Acceleration**: Supports GPU acceleration for faster processing with CUDA-enabled GPUs.
+- 🛠️ **GPU Acceleration**: Supports `GPU acceleration` for faster processing with `CUDA-enabled GPUs`.
 
 ## 🖥️ System Requirements
 
