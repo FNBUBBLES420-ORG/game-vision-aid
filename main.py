@@ -5,6 +5,7 @@ import torch  # PyTorch for running YOLOv5 models
 import onnxruntime as ort  # ONNX Runtime for running ONNX models
 import time
 import mss  # MSS for fast screen capturing
+import os  # For handling OS-specific paths
 
 def load_model(model_path='ultralytics/yolov5s'):
     """
@@ -28,9 +29,6 @@ def load_model(model_path='ultralytics/yolov5s'):
             model_type = 'torch'    # YOLOv5 model
         end_time = time.time()  # End timing
         print(f"Model loaded in {end_time - start_time:.2f} seconds")  # Print the loading time
-        print("Model loaded and ready.")
-        print("You can now use the script.")
-        print("if you have any issues using this join the discord https://discord.fnbubbles420.org/invite HEAD TO 🧑🏫-teaching_tutoring")
         return model, model_type    # Return the loaded model and model type
     except Exception as e:  # Catch any exceptions during model loading
         print(f"Error loading model: {e}")  # Print the error message
@@ -139,7 +137,11 @@ def main():
         print("No CUDA-enabled NVIDIA GPU found. Using CPU.")
 
     # Load YOLOv5 or ONNX model
-    model_path = 'models/custom_model.onnx'  # Change to your custom model path if needed
+    # Use relative paths to ensure cross-platform compatibility.
+    # Assume the model file is in the same directory as the script.
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(script_dir, 'model.onnx')  # Change to your custom model path if needed
+    
     start_time = time.time()  # Start timing for model loading
     model, model_type = load_model(model_path)
     if model_type == 'torch':
@@ -170,8 +172,8 @@ def main():
             frame_with_boxes = draw_bounding_boxes(frame, results, overlay_color, model_type)
             print("Bounding boxes drawn.")
 
-            # Save the frame with the overlay to disk (optional)
-            # cv2.imwrite("output_frame.jpg", frame_with_boxes)
+            # Display the frame with the overlay
+            cv2.imshow("Overlay", frame_with_boxes)
 
             # Exit if 'q' is pressed
             if cv2.waitKey(1) & 0xFF == ord("q"):
