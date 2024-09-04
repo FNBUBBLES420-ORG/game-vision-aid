@@ -39,11 +39,6 @@ Follow these steps to set up and run **GameVisionAid**:
     pip install -r requirements.txt
     ```
 
-   If you don't have a `requirements.txt` file, you can install dependencies manually:
-    ```
-    pip install opencv-python torch torchvision onnxruntime numpy pandas gitpython tk mss
-    ```
-
 4. **For GPU Support (Optional)**:
    - If you have a CUDA-enabled GPU, install the version of PyTorch that supports your CUDA version:
      ```
