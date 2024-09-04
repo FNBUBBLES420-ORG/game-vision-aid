@@ -30,9 +30,12 @@ Follow these steps to set up and run **GameVisionAid**:
 
 2. **Set up a virtual environment (optional but recommended)**:
     ```
-    python -m venv gamevisionaid_env
-    source gamevisionaid_env/bin/activate  # On Windows use: gamevisionaid_env\Scripts\activate
+    python -m venv game-vision-aid_env
     ```
+   # On Windows use: 
+  ```
+  gamevisionaid_env\Scripts\activate
+  ```
 
 3. **Install dependencies**:
     ```
@@ -45,7 +48,7 @@ Follow these steps to set up and run **GameVisionAid**:
      pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 -f https://download.pytorch.org/whl/torch_stable.html
      ```
      Replace `cu118` with your CUDA version. 
-     - Use the `install_pytorch.bat` is tied to `cu118`.
+     - Use the `important-build.bat` is tied to `cu118`.
 
 ## 📝 Usage
 
