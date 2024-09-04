@@ -1,0 +1,6 @@
+[package]
+name = "Game_Vision_Aid_Info"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
