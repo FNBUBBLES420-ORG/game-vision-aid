@@ -70,12 +70,21 @@ Follow these steps to set up and run **GameVisionAid**:
 
 ```
 game-vision-aid/ 
-│ 
-├── README.md                # Project documentation 
-├── game_overlay.py          # Main script file 
-├── requirements.txt         # List of required Python packages 
-└── model/                   # Directory to store custom YOLOv5 models (if any) 
-    └── best.pt              # Custom YOLOv5 model (if available)
+│
+├── .github folder               # For Issues
+├── models folder                # Where the models go
+├── where_to_put_models folder   # where models go in code
+├──.gitignore                    # gitignore
+├── CODE_OF_CONDUCT.md           # CODE_OF_CONDUCT.md
+├── LICENSE                      # LICENSE
+├── README.md                    # Project documentation 
+├── important-build.bat          # Build wheel for the script
+├── main.py                      # Main script file 
+├── requirements.bat             # installs list of required Python packages
+├── requirements.txt             # List of required Python packages 
+└── model/                       # Directory to store custom YOLOv5 models (if any) 
+    └── FN_v5.pt                 # Custom YOLOv5 model (if available)
+    └── model.onnx               # Custom ONNX model (if available)
 ```
 
 
