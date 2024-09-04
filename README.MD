@@ -50,6 +50,9 @@ Follow these steps to set up and run **GameVisionAid**:
      Replace `cu118` with your CUDA version. 
      - Use the `important-build.bat` is tied to `cu118`.
 
+5. **CUDA & cudNN 
+- for cuda enabled  `install_cuda_cudnn.bat` 
+
 ## 📝 Usage
 
 1. **Run the GameVisionAid script**:
