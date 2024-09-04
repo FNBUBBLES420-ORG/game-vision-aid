@@ -80,6 +80,7 @@ game-vision-aid/
 ├── README.md                    # Project documentation 
 ├── important-build.bat          # Build wheel for the script
 ├── main.py                      # Main script file 
+├── models.zip                   # models are zipped to compress
 ├── requirements.bat             # installs list of required Python packages
 ├── requirements.txt             # List of required Python packages 
 └── model/                       # Directory to store custom YOLOv5 models (if any) 
@@ -97,6 +98,8 @@ If you have a custom-trained YOLOv5 model specifically for your game:
     ```
     model_path = 'model/FN_v5.pt'  # or 'model/FN_v5.onnx'
     ```
+- ❗ MAKE SURE TO UNZIP THE `models.zip` in the same directiory as the `main.py` script 
+
 
 ## ❗ Known Issues
 - **Performance on CPU:** The overlay may run slower on systems without a GPU. Using a CUDA-enabled GPU is recommended for real-time performance.
