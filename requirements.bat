@@ -82,6 +82,14 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
+echo Installing colorama...
+pip install colorama
+if %errorlevel% neq 0 (
+    echo Failed to install colorama
+    pause
+    exit /b 1
+)
+
 echo All packages installed successfully.
 endlocal
 pause
