@@ -83,7 +83,6 @@ game-vision-aid/
 ├── LICENSE                      # LICENSE
 ├── README.md                    # Project documentation 
 ├── important-build.bat          # Build wheel for the script
-├── install_cuda_cudnn.bat       # Cuda & Cudnn
 ├── main.py                      # Main script file 
 ├── models.zip                   # models are zipped to compress
 ├── requirements.bat             # installs list of required Python packages
