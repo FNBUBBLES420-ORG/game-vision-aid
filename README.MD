@@ -82,21 +82,23 @@ node cudnn_instruction.js
 ```
 game-vision-aid/ 
 │
-├── .github folder               # For Issues
-├── models folder                # Where the models go
-├── where_to_put_models folder   # where models go in code
-├──.gitignore                    # gitignore
-├── CODE_OF_CONDUCT.md           # CODE_OF_CONDUCT.md
-├── LICENSE                      # LICENSE
-├── README.md                    # Project documentation 
-├── important-build.bat          # Build wheel for the script
-├── main.py                      # Main script file 
-├── models.zip                   # models are zipped to compress
-├── requirements.bat             # installs list of required Python packages
-├── requirements.txt             # List of required Python packages 
-└── model/                       # Directory to store custom YOLOv5 models (if any) 
-    └── fn_v5.pt                 # Custom YOLOv5 model (if available)
-    └── fn_v5.onnx               # Custom ONNX model (if available)
+├── .github folder                # For Issues
+├── models folder                 # Where the models go
+├── where_to_put_models folder    # where models go in code
+├── .gitignore                    # gitignore
+├── Cargo.lock                    # Part of RUST Application
+├── Cargo.toml                    # Part of RUST Application
+├── CODE_OF_CONDUCT.md            # CODE_OF_CONDUCT.md
+├── LICENSE                       # LICENSE
+├── README.md                     # Project documentation 
+├── important-build.bat           # Build wheel for the script
+├── main.py                       # Main script file 
+├── models.zip                    # models are zipped to compress
+├── requirements.bat              # installs list of required Python packages
+├── requirements.txt              # List of required Python packages 
+└── model/                        # Directory to store custom YOLOv5 models (if any) 
+    └── fn_v5.pt                  # Custom YOLOv5 model (if available)
+    └── fn_v5.onnx                # Custom ONNX model (if available)
 ```
 
 ## Installing Rust to view notes
