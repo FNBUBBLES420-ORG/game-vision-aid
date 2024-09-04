@@ -62,7 +62,7 @@ Follow these steps to set up and run **GameVisionAid**:
     ```
 
 2. **Select the overlay color**:
-   - A prompt will appear. Enter the color name you want for the overlay boxes around detected enemies. You can type "exit" or "q" to quit the program.
+   - A prompt will appear. Enter the color name you want for the overlay boxes around detected enemies. You can type `exit` or `q` to quit the program.
 
 3. **Start your game**:
    - The overlay will run in parallel with your game, highlighting detected enemies with the chosen color.
