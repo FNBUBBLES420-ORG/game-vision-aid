@@ -118,7 +118,7 @@ If you have a custom-trained YOLOv5 model specifically for your game:
 
 ## 📜 License
 
-This project is proprietary and all rights are reserved by the author. Unauthorized copying, distribution, or modification of this project is strictly prohibited. Unless You have written permission from the Developer or the FNBUBBLES420 ORG.  
+**This project is proprietary and all rights are reserved by the author. Unauthorized copying, distribution, or modification of this project is strictly prohibited. Unless You have written permission from the Developer or the FNBUBBLES420 ORG.** 
 
 ## 📧 Contact
 
@@ -132,12 +132,12 @@ Thanks to the developers of:
 
 -----
 
-# 👨‍💻 Developed by [Bubbles The Dev](https://github.com/kernferm) - Making gaming more accessible for everyone!
+# **👨‍💻 Developed by [Bubbles The Dev](https://github.com/kernferm) - Making gaming more accessible for everyone!**
 
 -----
 
 ## ⚠️ Disclaimer
 
-**GameVisionAid** is designed to assist visually impaired or color-blind gamers by enhancing visual cues in video games. It uses real-time object detection to create customizable overlays around enemy players, making it easier to identify and engage with them during gameplay.
+`GameVisionAid` **is designed to assist visually impaired or color-blind gamers by enhancing visual cues in video games. It uses real-time object detection to create customizable overlays around enemy players, making it easier to identify and engage with them during gameplay.**
 
-This tool runs in parallel with any game and does not modify the game files or violate any terms of service. It captures the screen and provides an overlay to help users better perceive in-game elements. The developer is not responsible for any misuse of this tool.
+**This tool runs in parallel with any game and does not modify the game files or violate any terms of service. It captures the screen and provides an overlay to help users better perceive in-game elements. The developer is not responsible for any misuse of this tool.**
