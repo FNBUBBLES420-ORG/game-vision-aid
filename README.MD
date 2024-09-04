@@ -34,7 +34,7 @@ Follow these steps to set up and run **GameVisionAid**:
     ```
    # On Windows use: 
   ```
-  gamevisionaid_env\Scripts\activate
+  game-vision-aid_env\Scripts\activate
   ```
 
 3. **Install dependencies**:
