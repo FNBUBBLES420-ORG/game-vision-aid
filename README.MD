@@ -101,7 +101,7 @@ If you have a custom-trained YOLOv5 model specifically for your game:
 1. Place your `.pt` or `.onnx` file in the `model/` directory.
 2. Update the `main.py` script to load your custom model:
     ```
-    model_path = 'model/FN_v5.pt'  # or 'model/FN_v5.onnx'
+    model_path = 'model/fn_v5.pt'  # or 'model/fn_v5.onnx'
     ```
 - ❗ MAKE SURE TO UNZIP THE `models.zip` in the same directiory as the `main.py` script 
 
