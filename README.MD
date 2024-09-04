@@ -83,6 +83,8 @@ node cudnn_instruction.js
 game-vision-aid/ 
 │
 ├── .github folder                # For Issues
+├── src                           # Part of RUST Application
+    └── main.rs                   # Part of RUST Application
 ├── models folder                 # Where the models go
 ├── where_to_put_models folder    # where models go in code
 ├── .gitignore                    # gitignore
