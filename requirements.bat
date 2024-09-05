@@ -66,14 +66,6 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-echo Installing tk...
-pip install tk
-if %errorlevel% neq 0 (
-    echo Failed to install tk
-    pause
-    exit /b 1
-)
-
 echo Installing mss...
 pip install mss
 if %errorlevel% neq 0 (
@@ -86,6 +78,14 @@ echo Installing colorama...
 pip install colorama
 if %errorlevel% neq 0 (
     echo Failed to install colorama
+    pause
+    exit /b 1
+)
+
+echo Installing bettercam...
+pip install bettercam
+if %errorlevel% neq 0 (
+    echo Failed to install bettercam
     pause
     exit /b 1
 )
