@@ -4,9 +4,10 @@ import cv2  # OpenCV for image processing and displaying the overlay
 import torch  # PyTorch for running YOLOv5 models
 import onnxruntime as ort  # ONNX Runtime for running ONNX models
 import time
-import mss  # MSS for fast screen capturing
+import bettercam  # Replacing MSS with BetterCam for screen capturing
 import os  # For handling OS-specific paths
 from colorama import Fore, Style, init  # For colored text output
+import config  # Import config file for screen size and confidence threshold
 
 def load_model(model_path='ultralytics/yolov5s'):
     """
@@ -15,36 +16,40 @@ def load_model(model_path='ultralytics/yolov5s'):
     :return: Loaded YOLOv5 model or ONNX session.
     """
     try:
-        start_time = time.time()  # Start timing
+        start_time = time.time()
         if model_path.endswith('.pt'):
             print(Fore.WHITE + "Loading PyTorch model...")
-            model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=True)  # Custom model
-            model_type = 'torch'    # YOLOv5 model
-        elif model_path.endswith('.onnx'):  # ONNX model
+            model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=True)
+            model_type = 'torch'
+        elif model_path.endswith('.onnx'):
             print(Fore.WHITE + "Loading ONNX model...")
-            model = ort.InferenceSession(model_path)    # ONNX model
+            model = ort.InferenceSession(model_path)
             model_type = 'onnx'
         else:
             print(Fore.WHITE + "Loading YOLOv5 model from repository...")
-            model = torch.hub.load('ultralytics/yolov5', model_path, force_reload=True) # YOLOv5 model from the repository
-            model_type = 'torch'    # YOLOv5 model
-        end_time = time.time()  # End timing
-        print(Fore.WHITE + f"Model loaded in {end_time - start_time:.2f} seconds")  # Print the loading time
-        return model, model_type    # Return the loaded model and model type
-    except Exception as e:  # Catch any exceptions during model loading
-        print(Fore.WHITE + f"Error loading model: {e}")  # Print the error message
+            model = torch.hub.load('ultralytics/yolov5', model_path, force_reload=True)
+            model_type = 'torch'
+        end_time = time.time()
+        print(Fore.WHITE + f"Model loaded in {end_time - start_time:.2f} seconds")
+        return model, model_type
+    except Exception as e:
+        print(Fore.WHITE + f"Error loading model: {e}")
         sys.exit(1)
 
-def capture_screen():
+def capture_screen(camera, region=None):
     """
-    Captures the screen using MSS.
+    Captures the screen using BetterCam.
+    :param camera: The BetterCam camera instance.
+    :param region: Optional region of the screen to capture.
     :return: Captured screen frame as a numpy array.
     """
-    with mss.mss() as sct:
-        monitor = sct.monitors[1]  # Capture the primary monitor
-        img = sct.grab(monitor)
-        img_np = np.array(img)
-        return cv2.cvtColor(img_np, cv2.COLOR_BGRA2BGR)
+    try:
+        frame = camera.grab(region=region)  # Capture a frame using BetterCam
+        frame_bgr = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)  # Convert BGRA to BGR for OpenCV
+        return frame_bgr
+    except Exception as e:
+        print(Fore.WHITE + f"Error capturing screen: {e}")
+        return None
 
 def detect_objects(model, model_type, frame, device):
     """
@@ -61,7 +66,7 @@ def detect_objects(model, model_type, frame, device):
             results = model(frame_tensor)
         elif model_type == 'onnx':
             frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            frame_resized = cv2.resize(frame_rgb, (320, 320))
+            frame_resized = cv2.resize(frame_rgb, (config.screenWidth, config.screenHeight))  # Using config for screen size
             input_tensor = frame_resized.astype(np.float32)
             input_tensor = np.expand_dims(input_tensor, axis=0).transpose(0, 3, 1, 2)
             input_tensor /= 255.0
@@ -84,14 +89,15 @@ def draw_bounding_boxes(frame, results, color, model_type):
     if results is not None:
         if model_type == 'torch':
             for i, (xmin, ymin, xmax, ymax, conf, cls) in enumerate(results.xyxy[0]):
-                cv2.rectangle(frame, (int(xmin), int(ymin)), (int(xmax), int(ymax)), color, 2)
+                if conf > config.confidenceThreshold:  # Apply confidence threshold from config
+                    cv2.rectangle(frame, (int(xmin), int(ymin)), (int(xmax), int(ymax)), color, 2)
         elif model_type == 'onnx':
             for i in range(len(results)):
-                if len(results[i]) >= 5:  # Ensure there are at least 5 values to unpack
+                if len(results[i]) >= 5 and results[i][4] > config.confidenceThreshold:  # Apply confidence threshold from config
                     xmin, ymin, xmax, ymax, conf = results[i][:5]
                     cv2.rectangle(frame, (int(xmin), int(ymin)), (int(xmax), int(ymax)), color, 2)
                 else:
-                    print(Fore.WHITE + f"Skipping result {i} due to insufficient values: {results[i]}")
+                    print(Fore.WHITE + f"Skipping result {i} due to insufficient values or low confidence.")
     return frame
 
 def get_color_from_input():
@@ -132,9 +138,8 @@ def main():
     # Ensure the game is running and visible on the screen before starting the script
     input(Fore.MAGENTA + "Make sure the game is running and visible on the screen. Press Enter to continue...")
     
-    print(Fore.RED + "Any issues Join our Discord Server: https://discord.fnbubbles420.org/invite head to gaming-vision-aid channel for help. ping @game-vision-aid-devs for help.")
-    print(Fore.GREEN + "The program was created & developed by Bubbles The Dev for FNBUBBLES420 ORG. for those with visual impairments and color blindness")
-    print(Fore.BLUE + "This is a Accessible Gaming Vision Aid Tool for the visually impaired and color blind.")
+    print(Fore.RED + "Any issues? Join our Discord Server: https://discord.fnbubbles420.org/invite")
+    print(Fore.GREEN + "The program was created & developed by Bubbles The Dev for FNBUBBLES420 ORG.")
 
     # Check for NVIDIA GPU availability with CUDA support
     if torch.cuda.is_available():
@@ -144,32 +149,27 @@ def main():
         device = 'cpu'
         print(Fore.YELLOW + "No CUDA-enabled NVIDIA GPU found. Using CPU.")
 
+    # Set up BetterCam
+    camera = bettercam.create()  # Initialize the camera
+    camera.start()  # Start capturing
+
     # Load YOLOv5 or ONNX model
-    # Use relative paths to ensure cross-platform compatibility.
-    # Assume the model file is in the same directory as the script.
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    model_path = os.path.join(script_dir, 'models', 'FN_v5.pt')  # Change to your custom model path if needed
+    model_path = os.path.join(script_dir, 'models', 'fn_v5.pt')  # Change to your custom model path if needed
     
-    start_time = time.time()  # Start timing for model loading
     model, model_type = load_model(model_path)
     if model_type == 'torch':
         model = model.to(device)
-    end_time = time.time()  # End timing for model loading
-    print(Fore.WHITE + f"Model loading time: {end_time - start_time:.2f} seconds")
 
     # Get a color for the overlay from user input
-    print(Fore.BLUE +"Getting overlay color from user input...")
-    start_time = time.time()  # Start timing for color input
     overlay_color = get_color_from_input()
-    end_time = time.time()  # End timing for color input
-    print(Fore.YELLOW + f"Color input time: {end_time - start_time:.2f} seconds")
-    print(Fore.WHITE + "Overlay color selected.")
 
-    # Main loop
     try:
-        while True:
+        while camera.is_capturing:
             # Capture the screen
-            frame = capture_screen()
+            frame = capture_screen(camera)
+            if frame is None:
+                continue
             print(Fore.RED + "Screen captured.")
 
             # Detect objects in the frame
@@ -192,6 +192,7 @@ def main():
 
     finally:
         # Clean up
+        camera.stop()  # Stop BetterCam
         cv2.destroyAllWindows()
 
 if __name__ == "__main__":
