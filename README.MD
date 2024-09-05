@@ -1,10 +1,10 @@
 # 🎮 GameVisionAid
 
-**GameVisionAid** `is an accessibility tool designed to assist visually impaired gamers by enhancing visual cues in video games. It uses real-time object detection to create customizable overlays around enemy players, making it easier to identify and engage with them during gameplay.`
+**GameVisionAid** is an accessibility tool designed to assist visually impaired gamers by enhancing visual cues in video games. It uses real-time object detection to create customizable overlays around enemy players, making it easier to identify and engage with them during gameplay.
 
 ## 🚀 Features
 
-- 🖥️ **Real-Time Screen Capture**: Captures your screen in real-time using `mss` for fast and efficient screen capturing.
+- 🖥️ **Real-Time Screen Capture**: Captures your screen in real-time using `BetterCam` for fast and efficient screen capturing.
 - 🎯 **Object Detection**: Utilizes `YOLOv5` for detecting enemies in video games.
 - 🟩 **Customizable Overlays**: Allows users to choose the `color of the overlay boxes` around detected enemies.
 - 🛠️ **GPU Acceleration**: Supports `GPU acceleration` for faster processing with `CUDA-enabled GPUs`.
@@ -16,7 +16,7 @@
 - **Hardware**:
   - **CPU**: Multi-core processor (Intel i5 or Better)
   - **GPU** (Optional, but recommended for better performance): `NVIDIA GPU with CUDA support`
-  - **RAM**: 16 GB or more (games you have on your pc recommended RAM 16GB)
+  - **RAM**: 16 GB or more (games you have on your PC recommended RAM 16GB)
 
 ## 📦 Installation
 
@@ -32,10 +32,11 @@ Follow these steps to set up and run **GameVisionAid**:
     ```
     python -m venv game-vision-aid_env
     ```
-   # On Windows use: 
-  ```
-  game-vision-aid_env\Scripts\activate
-  ```
+
+   On Windows use:
+    ```
+    game-vision-aid_env\Scripts\activate
+    ```
 
 3. **Install dependencies**:
     ```
@@ -47,19 +48,19 @@ Follow these steps to set up and run **GameVisionAid**:
      ```
      pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 -f https://download.pytorch.org/whl/torch_stable.html
      ```
-     Replace `cu118` with your CUDA version. 
-     - Use the `important-build.bat` is tied to `cu118`.
+     Replace `cu118` with your CUDA version.
+   - Use the `important-build.bat` as it is tied to `cu118`.
 
-5. # **CUDA & cuDNN** 
-- You will have to `Download` and `Install` Cuda & cuDNN manually and install extract the zip file 
-- You will have to create a `Nvidia Developer Account`
-- Make sure to have `Node.js` installed [Node JS](https://nodejs.org/dist/v20.17.0/node-v20.17.0-x64.msi)
-- Run the `nodejs-instructions.ps1` in `NON ADMIN`
-- [cuDNN 8.9.7](https://developer.nvidia.com/downloads/compute/cudnn/secure/8.9.7/local_installers/11.x/cudnn-windows-x86_64-8.9.7.29_cuda11-archive.zip/) `run the cudnn_instruction.js` 
-```
-node cudnn_instruction.js
-```
-- [CUDA 11.8.0](https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_522.06_windows.exe)
+5. **CUDA & cuDNN**:
+   - You will have to **Download** and **Install** CUDA & cuDNN manually and extract the zip file.
+   - You will have to create a **Nvidia Developer Account**.
+   - Make sure to have **Node.js** installed from [Node JS](https://nodejs.org/dist/v20.17.0/node-v20.17.0-x64.msi).
+   - Run the `nodejs-instructions.ps1` in **NON ADMIN**.
+   - [cuDNN 8.9.7](https://developer.nvidia.com/downloads/compute/cudnn/secure/8.9.7/local_installers/11.x/cudnn-windows-x86_64-8.9.7.29_cuda11-archive.zip/):
+     ```
+     node cudnn_instruction.js
+     ```
+   - [CUDA 11.8.0](https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_522.06_windows.exe).
 
 ## 📝 Usage
 
@@ -81,93 +82,91 @@ node cudnn_instruction.js
 
 ```
 game-vision-aid/ 
-│
-├── .github folder                # For Issues
-├── src                           # Part of RUST Application
-    └── main.rs                   # Part of RUST Application
-├── models folder                 # Where the models go
-├── where_to_put_models folder    # where models go in code
-├── .gitignore                    # gitignore
-├── Cargo.lock                    # Part of RUST Application
-├── Cargo.toml                    # Part of RUST Application
-├── CODE_OF_CONDUCT.md            # CODE_OF_CONDUCT.md
-├── LICENSE                       # LICENSE
-├── README.md                     # Project documentation
-├── cudnn_instructions.js         # Instructions in JavaScript
-├── important-build.bat           # Build wheel for the script
-├── main.py                       # Main script file 
-├── models.zip                    # models are zipped to compress
-├── nodejs-instructions.ps1       # Instructions in Powershell
-├── requirements.bat              # installs list of required Python packages
-├── requirements.txt              # List of required Python packages 
-└── model/                        # Directory to store custom YOLOv5 models (if any) 
-    └── fn_v5.pt                  # Custom YOLOv5 model (if available)
-    └── fn_v5.onnx                # Custom ONNX model (if available)
+├── .github/                 # For Issues
+├── src/                     # Part of RUST Application
+│   └── main.rs              # Part of RUST Application
+├── models/                  # Where the models go
+│   └── fn_v5.pt             # Custom YOLOv5 model (if available)
+│   └── fn_v5.onnx           # Custom ONNX model (if available)
+├── .gitignore               # gitignore
+├── Cargo.lock               # Part of RUST Application
+├── Cargo.toml               # Part of RUST Application
+├── CODE_OF_CONDUCT.md       # CODE_OF_CONDUCT.md
+├── LICENSE                  # LICENSE
+├── README.md                # Project documentation
+├── cudnn_instructions.js    # Instructions in JavaScript
+├── important-build.bat      # Build wheel for the script
+├── main.py                  # Main script file
+├── models.zip               # Compressed models
+├── nodejs-instructions.ps1  # Instructions in Powershell
+├── requirements.bat         # Installs list of required Python packages
+├── requirements.txt         # List of required Python packages
 ```
 
-## Installing Rust to view notes
-- Make sure to have `RUST` installed 
-- The application was Built on `64-bit` system
-- Follow the `Instructions` on the screen when installing `RUST`
-- [64-bit](https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe)
+## Installing Rust to View Notes
 
-## Build the project:
+Make sure to have `RUST` installed.
+The application was built on a `64-bit system`.
+Follow the instructions on the screen when installing `RUST`
 
+- [Official 64 Bit Installer](https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe)
 
-- For `32-Bit` you will have to `cargo build` then `cargo run`
-- Follow the `Instructions` on the screen when installing `RUST`
-- [32-Bit](https://static.rust-lang.org/rustup/dist/i686-pc-windows-msvc/rustup-init.exe)
+## Build the Project:
+
+- For `32-bit` systems:
 ```
 cargo build
-```
-```
 cargo run
 ```
 
+- For `64-bit` systems:
+
+```
+cargo build --target=i686-pc-windows-msvc
+```
 
 ## 🤖 Custom YOLOv5 Model (Optional)
 
-If you have a custom-trained YOLOv5 model specifically for your game:
+- If you have a custom-trained YOLOv5 model specifically for your game:
 
-1. Place your `.pt` or `.onnx` file in the `model/` directory.
+1. Place your `.pt` or `.onnx` file in the model/ directory.
+
 2. Update the `main.py` script to load your custom model:
-    ```
-    model_path = 'model/fn_v5.pt'  # or 'model/fn_v5.onnx'
-    ```
-- ❗ MAKE SURE TO UNZIP THE `models.zip` in the same directiory as the `main.py` script 
 
+```
+model_path = 'model/fn_v5.pt'  # or 'model/fn_v5.onnx'
+```
+
+#### ❗ MAKE SURE TO UNZIP THE `models.zip` in the same directory as the `main.py` script.
 
 ## ❗ Known Issues
-- `Performance on CPU:` **The overlay may run slower on systems without a GPU. Using a CUDA-enabled GPU is recommended for real-time performance.**
-- `Compatibility:` **This tool is intended for games that allow screen capturing and do not violate any terms of service.**
+
+- **Performance on CPU:** The overlay may run slower on systems without a GPU. Using a CUDA-enabled GPU is recommended for real-time performance.
+
+- **Compatibility:** This tool is intended for games that allow screen capturing and do not violate any terms of service.
 
 ## 🛠️ Contributing
 
-- ***Contributions are welcome! Feel free to submit a pull request or open an issue to discuss improvements, bugs, or new features.***
-
-## 🎮 Discord
-- **If you have any issues [Join the Discord](https://discord.fnbubbles420.org/invite) and head to `gaming-vision-aid channel`.**
+Contributions are welcome! Feel free to submit a pull request or open an issue to discuss improvements, bugs, or new features.
 
 ## 📜 License
 
-**This project is proprietary and all rights are reserved by the author. Unauthorized copying, distribution, or modification of this project is strictly prohibited. Unless You have written permission from the Developer or the FNBUBBLES420 ORG.** 
+**This project is proprietary, and all rights are reserved by the author. Unauthorized copying, distribution, or modification of this project is strictly prohibited unless you have written permission from the developer or the FNBUBBLES420 ORG.**
 
 ## 📧 Contact
 
-- **[Bubbles The Dev](kernferm@gmail.com)**
-- **[Main Office](mainoffice@fnbubbles420.org)**
+[Bubbles The Dev](kernferm@gmail.com)
+[mainoffice](mainoffice@fnbubbles420.org)
 
 ## 🙏 Acknowledgements
 
-### Thanks to the developers of:
-- **[YOLOv5](https://github.com/ultralytics/yolov5)**
-- **[mss](https://github.com/BoboTiG/python-mss)**
+Thanks to the developers of:
 
------
+- [Bettercam](https://github.com/RootKit-Org/BetterCam)
+- [Yolo v5](https://github.com/ultralytics/yolov5)
 
-# **👨‍💻 Developed by [Bubbles The Dev](https://github.com/kernferm) - Making gaming more accessible for everyone!**
 
------
+### 👨‍💻 Developed by [Bubbles The Dev](https://github.com/kernferm) - Making gaming more accessible for everyone!
 
 ## ⚠️ Disclaimer
 
