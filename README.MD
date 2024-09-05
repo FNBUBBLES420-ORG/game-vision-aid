@@ -94,6 +94,7 @@ game-vision-aid/
 ├── CODE_OF_CONDUCT.md       # CODE_OF_CONDUCT.md
 ├── LICENSE                  # LICENSE
 ├── README.md                # Project documentation
+├── SECURITY.md              # Security documentation
 ├── cudnn_instructions.js    # Instructions in JavaScript
 ├── important-build.bat      # Build wheel for the script
 ├── main.py                  # Main script file
