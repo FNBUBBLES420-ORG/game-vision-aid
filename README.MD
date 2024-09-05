@@ -99,6 +99,7 @@ game-vision-aid/
 ├── main.py                  # Main script file
 ├── models.zip               # Compressed models
 ├── nodejs-instructions.ps1  # Instructions in Powershell
+├── notes.txt                # Read Notes.txt
 ├── requirements.bat         # Installs list of required Python packages
 ├── requirements.txt         # List of required Python packages
 ```
