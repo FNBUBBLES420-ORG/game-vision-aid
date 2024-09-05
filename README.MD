@@ -95,6 +95,7 @@ game-vision-aid/
 ├── LICENSE                  # LICENSE
 ├── README.md                # Project documentation
 ├── SECURITY.md              # Security documentation
+├── config.py                # Configuration file 
 ├── cudnn_instructions.js    # Instructions in JavaScript
 ├── important-build.bat      # Build wheel for the script
 ├── main.py                  # Main script file
