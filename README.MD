@@ -110,9 +110,9 @@ game-vision-aid/
 - The application was Built on `64-bit` system
 - Follow the `Instructions` on the screen when installing `RUST`
 - [64-bit](https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe)
-```
-Build the project:
-```
+
+## Build the project:
+
 
 - For `32-Bit` you will have to `cargo build` then `cargo run`
 - Follow the `Instructions` on the screen when installing `RUST`
