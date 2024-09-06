@@ -30,23 +30,23 @@
 Follow these steps to set up and run **GameVisionAid**:
 
 1. **Clone the repository**:
-    ```bash
+    ```
     git clone https://github.com/kernferm/game-vision-aid.git
     cd game-vision-aid
     ```
 
 2. **Set up a virtual environment (optional but recommended)**:
-    ```bash
+    ```
     python -m venv game-vision-aid_env
     ```
 
    On Windows use:
-    ```bash
+    ```
     game-vision-aid_env\Scripts\activate
     ```
 
 3. **Install dependencies**:
-    ```bash
+    ```
     pip install -r requirements.txt
     ```
 
@@ -114,6 +114,15 @@ highlightColor = (0, 0, 255)  # Color for highlighted objects
 6. Customize the `boundingBoxColor` and `highlightColor` to match your preference for object detection overlays.
 
 7. Save the changes, and the settings will automatically be applied when you run the program
+
+### 🖼️ Region Capture
+
+- **Region for Capture** (`config.region` in `config.py`): This setting defines the area of the screen that BetterCam will capture for object detection.
+  - `None`: Captures the entire screen.
+  - `(x1, y1, x2, y2)`: Captures a specific portion of the screen defined by the coordinates `(x1, y1)` as the top-left corner and `(x2, y2)` as the bottom-right corner (e.g., `(100, 100, 800, 600)` will capture a section from (100,100) to (800,600)).
+  
+By adjusting this setting, you can focus the capture on a particular region of the screen, which can help reduce processing load and ignore unnecessary areas. It’s especially useful for games or applications where you only need to detect objects in a specific portion of the display.
+
 
 ## 📝 Usage
 
