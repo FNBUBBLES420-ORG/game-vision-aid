@@ -25,12 +25,5 @@ torch and torchvision torchaudio
 ## Reporting a Vulnerability
 
 Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
-torch             2.4.1+cu118
-torchaudio    2.4.1+cu118
-torchvision   0.19.1+cu118
-torch    2.4.1+cu118
-
+[Report Issue n Details Thanks](https://github.com/FNBUBBLES420-ORG/game-vision-aid/issues)
+[Official Pytorch.org Contact](https://pytorch.org/contact-us)
