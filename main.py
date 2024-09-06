@@ -1,13 +1,13 @@
 import sys
 import numpy as np
-import cv2  # OpenCV for image processing and displaying the overlay
-import torch  # PyTorch for running YOLOv5 models
-import onnxruntime as ort  # ONNX Runtime for running ONNX models
+import cv2
+import torch
+import onnxruntime as ort
 import time
-import bettercam  # Replacing MSS with BetterCam for screen capturing
-import os  # For handling OS-specific paths
-from colorama import Fore, Style, init  # For colored text output
-import config  # Import config file for screen size and confidence threshold
+import bettercam
+import os
+from colorama import Fore, Style, init
+import config
 
 # Enhanced BetterCam Initialization with multiple device support, error handling, and live feed
 class BetterCamEnhanced:
