@@ -4,6 +4,7 @@ import cv2
 import torch
 import onnxruntime as ort
 import time
+import torch.backends.mps  # Metal Performance Shaders for AMD ROCm and Apple Silicon
 import bettercam
 import os
 from colorama import Fore, Style, init
