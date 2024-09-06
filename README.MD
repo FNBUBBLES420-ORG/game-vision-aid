@@ -27,10 +27,11 @@
 - **Command Prompt** - Comes standard with `ALL` windows computers. 
   - click `start menu` in the `search bar` type `cmd.exe` click enter. :) 
   - to make sure you have installed `Python 3.11.6` correctly:
-      - type in `cmd.exe`
-      ```
-      python --version 
-      ```
+    - type in `cmd.exe`
+
+    ```
+    python --version 
+    ```
 
 ## 📦 Installation
 
