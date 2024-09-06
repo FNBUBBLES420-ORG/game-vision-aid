@@ -24,6 +24,5 @@ torch and torchvision torchaudio
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
 - **[Report Issue n Details Thanks](https://github.com/FNBUBBLES420-ORG/game-vision-aid/issues)**
 - **[Official Pytorch.org Contact](https://pytorch.org/contact-us)**
