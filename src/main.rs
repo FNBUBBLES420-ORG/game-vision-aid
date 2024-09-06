@@ -1,14 +1,14 @@
 fn main() {
     // 🎮 GameVisionAid
     println!("GameVisionAid is an accessibility tool designed to assist visually impaired gamers by enhancing visual cues in video games.");
-    println!("It uses real-time object detection to create customizable overlays around enemy players, making it easier to identify and engage with them during gameplay.\n");
+    println!("It uses real-time object detection to create customizable overlays around enemy players, making it easier to identify and engage with them during gameplay.");
 
     // 🚀 Features
     println!("🚀 Features:");
     println!("🖥️ Real-Time Screen Capture: Captures your screen in real-time using `bettercam` for fast and efficient screen capturing.");
     println!("🎯 Object Detection: Utilizes YOLOv5 for detecting enemies in video games.");
     println!("🟩 Customizable Overlays: Allows users to choose the color of the overlay boxes around detected enemies.");
-    println!("🛠️ GPU Acceleration: Supports GPU acceleration for faster processing with CUDA-enabled GPUs.\n");
+    println!("🛠️ GPU Acceleration: Supports GPU acceleration for faster processing with CUDA-enabled GPUs.");
     println!("🎥 Live Feed Support: Displays a real-time live feed with object detection overlays.");
 
     // 🖥️ System Requirements
@@ -18,7 +18,7 @@ fn main() {
     println!("- Hardware:");
     println!("  - CPU: Multi-core processor (Intel i5 or equivalent)");
     println!("  - GPU (Optional, but recommended for better performance): NVIDIA GPU with CUDA support");
-    println!("  - RAM: 16 GB or more\n");
+    println!("  - RAM: 16 GB or more");
 
     // 📦 Installation
     println!("📦 Installation:");
@@ -32,33 +32,33 @@ fn main() {
     println!("2. Install CUDA and cuDNN:");
     println!("   - Follow the instructions to install CUDA 11.8 from the NVIDIA website.");
     println!("   - Download and install cuDNN 8.9.7 manually from the NVIDIA cuDNN download page.");
-    println!("   - Ensure that the paths to CUDA and cuDNN are correctly set in your system environment variables.\n");
+    println!("   - Ensure that the paths to CUDA and cuDNN are correctly set in your system environment variables.");
 
     println!("3. Install Python Dependencies:");
     println!("   pip install -r requirements.txt");
     println!("4. Install Additional Dependencies:");
     println!("   pip install gitpython==3.1.43");
     println!("5. Install PyTorch:");
-    println!("   pip install torch==2.4.1 torchvision==0.19.1\n");
+    println!("   pip install torch==2.4.1 torchvision==0.19.1");
     
     // Supported Pytorch and Torchvision versions
     println!("torch==2.4.1");
-    println!("torchvision==0.19.1\n");
+    println!("torchvision==0.19.1");
 
     // Cuda and CuDNN versions
     println!("CUDA Version: 11.8");
-    println!("cuDNN Version: 8.9.7\n");
+    println!("cuDNN Version: 8.9.7");
 
     // Python Version
-    println!("Python Version: 3.11.6\n");
+    println!("Python Version: 3.11.6");
 
     // Programming Languages Used
     println!("Programming Languages Used:");
-    println!("1. Python\n");
-    println!("2. JavaScript\n");
-    println!("3. Rust\n");
-    println!("4. Batchfile\n");
-    println!("5. PowerShell\n");
+    println!("1. Python");
+    println!("2. JavaScript");
+    println!("3. Rust");
+    println!("4. Batchfile");
+    println!("5. PowerShell");
 
     // Dependencies
     println!("Dependencies:");
@@ -67,25 +67,87 @@ fn main() {
     println!("3. OpenCV");
     println!("4. NumPy");
     println!("5. CUDA");
-    println!("6. cuDNN\n");
-    println!("7. GitPython\n");
-    println!("8. BetterCAM\n");
-    println!("9. Pandas\n");
-    println!("10. Colorama\n");
-    println!("11. OnnxRuntime\n");
+    println!("6. cuDNN");
+    println!("7. GitPython");
+    println!("8. BetterCAMn");
+    println!("9. Pandas");
+    println!("10. Colorama");
+    println!("11. OnnxRuntime");
+    println!("12. Requests");
 
     // Os Supported
     println!("OS Supported:");
     println!("1. Windows 10");
-    println!("2. Windows 11\n");
+    println!("2. Windows 11");
+
+    // Dependencies Versions
+    println!("Dependencies Versions:");
+    println!("BetterCam Version: BetterCam 1.0");
+    println!("PyTorch Version: 2.4.1");
+    println!("Torchvision Version: 0.19.1");
+    println!("Torch Audio Version: 2.4.1");
+    println!("OpenCV Version: 4.9.0.80");
+    println!("NumPy Version: 1.26.4");
+    println!("GitPython Version: 3.1.43");
+    println!("Pandas Version: 2.2.2");
+    println!("Colorama Version: 0.4.6");
+    println!("OnnxRuntime Version: 1.19.2");
+    println!("Requests Version: 2.32.3");
+
+
 
     // Yolo version
-    println!("YOLO Version: YOLOv5\n");
+    println!("YOLO Version: YOLOv5");
+
+    // CUDA Version
+    println!("CUDA Version: 11.8");
+
+    // cuDNN Version
+    println!("cuDNN Version: 8.9.7");
+
+    // Batchfile File Names
+    println!("Batchfile File Names:");
+    println!("1. requirements.bat");
+    println!("2. install_pytorch.bat");
+    println!("3. update_ultralytics.bat");
+
+    // PowerShell File Names
+    println!("PowerShell File Names:");
+    println!("1. nodejs-instructions.ps1");
+
+    // Rust File Names
+    println!("Rust File Names:");
+    println!("1. main.rs");
+
+    // JavaScript File Names
+    println!("JavaScript File Names:");
+    println!("1. cudnn_instruction.js");
+
+    // Python File Names
+    println!("Python File Names:");
+    println!("1. config.py");
+    println!("2. main.py");
+
+    // MD File Names
+    println!("MD File Names:");
+    println!("1. README.md");
+    println!("2. CONTRIBUTING.md");
+    println!("3. LICENSE.md");
+    println!("4. CODE_OF_CONDUCT.md");
+    println!("5. SECURITY.md");
+
+    // Txt File Names
+    println!("Txt File Names:");
+    println!("1. requirements.txt");
+
+    // PNG File Names
+    println!("PNG File Names:");
+    println!("1. Game_Vision_Aid.png");
   
     // Usage
     println!("Usage:");
     println!("After building the project, you can run the executable to start using the Game Vision Aid tools:");
-    println!("./target/release/game-vision-aid\n");
+    println!("./target/release/game-vision-aid");
 
     // JavaScript Code Explanation
     println!("JavaScript Code Explanation:");
@@ -132,21 +194,38 @@ fn main() {
     // Python Code Explanation
     println!("Python Code Explanation:");
     println!("The following Python code snippet provides instructions for installing the required Python dependencies:");
-    println!("The Python code has been written in Python 3.11.6\n");
+    println!("The Python code has been written in Python 3.11.6");
 
     // Contributing
     println!("Contributing:");
-    println!("Contributions are welcome! Please fork the repository and submit a pull request with your changes.\n");
+    println!("Contributions are welcome! Please fork the repository and submit a pull request with your changes.");
 
     // License
     println!("License:");
     println!("This project is proprietary and all rights are reserved by the author.");
     println!("Unauthorized copying, distribution, or modification of this project is strictly prohibited./n"); 
-    println!("Unless You have written permission from the Developer or the FNBUBBLES420 ORG./n");
+    println!("Unless You have written permission from the Developer or the FNBUBBLES420 ORG.");
+
+    // Developers
+    println!("Developers:");
+    println!("1. Bubbles The Dev");
+
+    // Members
+    println!("Members:");
+    println!("1. Bubbles The Dev");
+    println!("2. phillipealaksa");
+
+    // Triage
+    println!("Triage:");
+    println!("1. phillipealaksa");
+
+    // Organization
+    println!("Organization:");
+    println!("1. FNBUBBLES420 ORG");
 
     // Contact
     println!("Contact:");
-    println!("For any questions or issues, please open an issue on the GitHub repository or contact the maintainers directly.\n");
+    println!("For any questions or issues, please open an issue on the GitHub repository or contact the maintainers directly.");
 
     // Additional line
     println!("Welcome to Game Vision Aid!");
