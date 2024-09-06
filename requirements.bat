@@ -26,10 +26,10 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-echo Installing torchvision 0.19.1...
-pip install torchvision 0.19.1
+echo Installing torchvision==0.19.1...
+pip install torchvision==0.19.1
 if %errorlevel% neq 0 (
-    echo Failed to install torchvision 0.19.1
+    echo Failed to install torchvision==0.19.1
     pause
     exit /b 1
 )
