@@ -192,6 +192,7 @@ game-vision-aid/
 ├── notes.txt                             # Read Notes.txt
 ├── requirements.bat                      # Installs list of required Python packages
 ├── requirements.txt                      # List of required Python packages
+├── update_ultralytics.bat                # Update Batch Script for Ultralytics
 ```
 
 ## 🤖 Custom YOLOv5 Model (Optional)
