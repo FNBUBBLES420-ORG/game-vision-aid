@@ -43,17 +43,45 @@ dist/
 output/
 results/
 
-# Ignore Tkinter cache
-*.tcl
-*.tk
-
 # Ignore specific files in the project
 models/custom_model.onnx
 output_frame.jpg
 
-# Ignore batch script
-install_pytorch.bat
+# Ignore batch scripts
+install_pytorch_only.bat
+install_pytorch_cpu_only.bat
+main-launcher.bat
+config-launcher.bat
+update_ultralytics.bat
+requirements.bat
 
 # Ignore Rust target and debug directories
 target/
 debug/
+
+# Ignore main.py and config.py
+main.py
+config.py
+
+# Ignore instruction files
+nodejs-instructions.ps1
+cudnn_instructions.js
+
+# Ignore Rust files
+main.rs
+Cargo.lock
+Cargo.toml
+
+# Ignore zip files
+*.zip
+
+# Ignore text files
+*.txt
+
+# Ignore markdown files
+*.md
+
+# Ignore specific folders
+src/
+models/
+banner/
