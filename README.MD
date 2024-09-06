@@ -48,6 +48,12 @@ Follow these steps to set up and run **GameVisionAid**:
     ```
     python -m venv game-vision-aid_env
     ```
+  - If you want to turn off the virtual environment 
+     - type in `CMD.exe`
+
+      ```
+      deactivate
+      ```
 
    On Windows use:
     ```
