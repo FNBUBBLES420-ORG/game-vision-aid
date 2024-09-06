@@ -9,13 +9,80 @@ import os  # For handling OS-specific paths
 from colorama import Fore, Style, init  # For colored text output
 import config  # Import config file for screen size and confidence threshold
 
-def load_model(model_path='ultralytics/yolov5s'):
+# Enhanced BetterCam Initialization with multiple device support, error handling, and live feed
+class BetterCamEnhanced:
+    def __init__(self, max_buffer_len=config.maxBufferLen, target_fps=config.targetFPS, region=None):
+        self.camera = None
+        self.max_buffer_len = max_buffer_len
+        self.target_fps = target_fps
+        self.region = region
+        self.is_capturing = False
+        self.buffer = []
+
+    def start(self):
+        try:
+            self.camera = bettercam.create(max_buffer_len=self.max_buffer_len)
+            self.camera.start(target_fps=self.target_fps)
+            self.is_capturing = True
+            print(Fore.GREEN + f"BetterCam started with target FPS: {self.target_fps}")
+        except Exception as e:
+            print(Fore.RED + f"Error starting BetterCam: {e}")
+            sys.exit(1)
+
+    def grab_frame(self):
+        try:
+            if self.region:
+                frame = self.camera.grab(region=self.region)
+            else:
+                frame = self.camera.grab()
+            if frame is not None:
+                return frame
+            else:
+                print(Fore.RED + "Failed to grab frame.")
+                return None
+        except Exception as e:
+            print(Fore.RED + f"Error capturing frame: {e}")
+            return None
+
+    def show_live_feed(self):
+        """Show live feed using OpenCV's imshow."""
+        try:
+            while self.is_capturing:
+                frame = self.grab_frame()
+                if frame is not None:
+                    # Convert BGRA to BGR for OpenCV
+                    frame_bgr = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
+                    # Display the live feed window
+                    cv2.imshow("BetterCam Live Feed", frame_bgr)
+
+                    # Exit if 'q' is pressed
+                    if cv2.waitKey(1) & 0xFF == ord('q'):
+                        print(Fore.YELLOW + "Exiting live feed...")
+                        break
+                else:
+                    print(Fore.YELLOW + "No frame to display.")
+        except KeyboardInterrupt:
+            print(Fore.YELLOW + "Live feed interrupted.")
+        finally:
+            self.stop()
+            cv2.destroyAllWindows()
+
+    def stop(self):
+        try:
+            self.camera.stop()
+            self.is_capturing = False
+            print(Fore.GREEN + "BetterCam stopped.")
+        except Exception as e:
+            print(Fore.RED + f"Error stopping BetterCam: {e}")
+
+def load_model(model_path=None):
     """
     Load the YOLOv5 model.
     :param model_path: Path to the custom model (.pt or .onnx) or model name from the YOLOv5 repository.
     :return: Loaded YOLOv5 model or ONNX session.
     """
     try:
+        model_path = model_path or (config.torchModelPath if config.modelType == 'torch' else config.onnxModelPath)
         start_time = time.time()
         if model_path.endswith('.pt'):
             print(Fore.WHITE + "Loading PyTorch model...")
@@ -44,9 +111,11 @@ def capture_screen(camera, region=None):
     :return: Captured screen frame as a numpy array.
     """
     try:
-        frame = camera.grab(region=region)  # Capture a frame using BetterCam
-        frame_bgr = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)  # Convert BGRA to BGR for OpenCV
-        return frame_bgr
+        frame = camera.grab_frame()
+        if frame is not None:
+            frame_bgr = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)  # Convert BGRA to BGR for OpenCV
+            return frame_bgr
+        return None
     except Exception as e:
         print(Fore.WHITE + f"Error capturing screen: {e}")
         return None
@@ -197,15 +266,12 @@ def main():
         device = 'cpu'
         print(Fore.YELLOW + "No CUDA-enabled NVIDIA GPU found. Using CPU.")
 
-    # Set up BetterCam
-    camera = bettercam.create()  # Initialize the camera
-    camera.start()  # Start capturing
+    # Set up BetterCam Enhanced
+    camera = BetterCamEnhanced(target_fps=config.targetFPS)
+    camera.start()
 
     # Load YOLOv5 or ONNX model
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    model_path = os.path.join(script_dir, 'models', 'fn_v5.pt')  # Change to your custom model path if needed
-    
-    model, model_type = load_model(model_path)
+    model, model_type = load_model()
     if model_type == 'torch':
         model = model.to(device)
 
@@ -213,27 +279,8 @@ def main():
     overlay_color = get_color_from_input()
 
     try:
-        while camera.is_capturing:
-            # Capture the screen
-            frame = capture_screen(camera)
-            if frame is None:
-                continue
-            print(Fore.RED + "Screen captured.")
-
-            # Detect objects in the frame
-            results = detect_objects(model, model_type, frame, device)
-            print(Fore.GREEN + "Objects detected.")
-
-            # Draw bounding boxes around detected objects with the chosen color
-            frame_with_boxes = draw_bounding_boxes(frame, results, overlay_color, model_type)
-            print(Fore.BLUE + "Bounding boxes drawn.")
-
-            # Display the frame with the overlay
-            cv2.imshow("Overlay", frame_with_boxes)
-
-            # Exit if 'q' is pressed
-            if cv2.waitKey(1) & 0xFF == ord("q"):
-                break
+        # Show live feed
+        camera.show_live_feed()
 
     except KeyboardInterrupt:
         print(Fore.YELLOW + "Exiting program...")
