@@ -63,6 +63,10 @@ Follow these steps to set up and run **GameVisionAid**:
      ```
      pip3 install torch==2.4.1+cu118 torchvision==0.19.1+cu118 torchaudio==2.4.1+cu118 --index-url https://download.pytorch.org/whl/cu118
      ```
+
+5. **For CPU Only** aka laptops with no `GPU`
+   - Use the `install_pytorch_cpu_only.bat` to install `CPU` Pytorch
+
 ### Note 
   - If you get an Ultralytics error when installing 
   Run the Command below in `CMD.exe`
