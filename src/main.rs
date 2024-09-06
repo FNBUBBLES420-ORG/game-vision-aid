@@ -106,6 +106,29 @@ fn main() {
     println!("console.log(\"   - 'C:\\\\Program Files\\\\NVIDIA GPU Computing Toolkit\\\\CUDA\\\\v11.8\\\\lib'\");");
 
     
+    // Config.py
+    println!("Config.py:");
+    println!("# Configuration for BetterCam Screen Capture and YOLO model");
+    println!("# Screen Capture Settings");
+    println!("screenWidth = 480  # Updated screen width for better resolution");
+    println!("screenHeight = 480  # Updated screen height for better resolution");
+    println!("# Object Detection Settings");
+    println!("confidenceThreshold = 0.5  # Confidence threshold for object detection");
+    println!("nmsThreshold = 0.4  # Non-max suppression threshold to filter overlapping boxes");
+    println!("# YOLO Model Settings");
+    println!("modelType = 'onnx'  # Choose 'torch' or 'onnx' based on the model you want to load");
+    println!("torchModelPath = 'models/fn_v5.pt'  # Path to YOLOv5 PyTorch model");
+    println!("onnxModelPath = 'models/fn_v5.onnx'  # Path to YOLOv5 ONNX model");
+    println!("# BetterCam Settings");
+    println!("targetFPS = 60  # Frames per second for capturing");
+    println!("maxBufferLen = 512  # Max buffer length for storing frames");
+    println!("region = None  # Region for capture (set to None for full screen)");
+    println!("useNvidiaGPU = True  # Set to True to enable GPU acceleration if available");
+    println!("# Colors for Bounding Boxes");
+    println!("boundingBoxColor = (0, 255, 0)  # Default bounding box color in BGR format");
+    println!("highlightColor = (0, 0, 255)  # Color for highlighted objects");
+
+
     // Python Code Explanation
     println!("Python Code Explanation:");
     println!("The following Python code snippet provides instructions for installing the required Python dependencies:");
