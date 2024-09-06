@@ -85,3 +85,8 @@ Cargo.toml
 src/
 models/
 banner/
+
+# Ignore Rust files
+Game_Vision_Aid/main.rs
+Game_Vision_Aid/Cargo.lock
+Game_Vision_Aid/Cargo.toml
