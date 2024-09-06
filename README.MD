@@ -161,9 +161,9 @@ A prompt will appear. Enter the color name you want for the overlay boxes around
 
 The overlay will run in parallel with your game, highlighting detected enemies with the chosen color.
 
-4. **xit the overlay:**
+4. **Exit the overlay or the Program:**
 
-Press `q` at any time to close the overlay and exit the program.
+Press `q` or type `exit` at any time "after you've start the program of course" to close the overlay and exit the program.
 
 ## 📂 Project Structure
 
