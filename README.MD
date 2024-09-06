@@ -152,7 +152,7 @@ game-vision-aid/
 ├── SECURITY.md                           # Security documentation
 ├── config.py                             # Configuration file 
 ├── cudnn_instructions.js                 # Instructions in JavaScript
-├── important-build.bat                   # Build wheel for the script
+├── install_pytorch.bat                   # Pytorch Build wheel for the script
 ├── main.py                               # Main script file
 ├── model_v5s.pt                          # pt file goes in modelS folder
 ├── model_v5sv5480480Half.onnx            # onnx file goes in modelS folder
