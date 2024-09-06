@@ -12,14 +12,13 @@ Game-Vision-Aid
 ---------------------------------
 
 
-torch and torchvision
+torch and torchvision torchaudio
 |                 Version | Supported          |
 | ----------------------- | ------------------ |
-| updatednewest version   | :white_check_mark: |
-| updated newest version  | :white_check_mark: |
+| torch    2.4.1+cu118    | :white_check_mark: |
+| torchvision   0.19.1+cu118  | :white_check_mark: |
+| torchaudio    2.4.1+cu118  | :white_check_mark: |
 
-- we know there is an issue with those two version
-- we do support these two versions
 ---------------------------------
 
 
@@ -30,3 +29,8 @@ Use this section to tell people how to report a vulnerability.
 Tell them where to go, how often they can expect to get an update on a
 reported vulnerability, what to expect if the vulnerability is accepted or
 declined, etc.
+torch             2.4.1+cu118
+torchaudio    2.4.1+cu118
+torchvision   0.19.1+cu118
+torch    2.4.1+cu118
+
