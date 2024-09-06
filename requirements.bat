@@ -18,18 +18,18 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-echo Installing torch==2.0.1...
-pip install torch==2.0.1
+echo Installing torch...
+pip install torch
 if %errorlevel% neq 0 (
-    echo Failed to install torch==2.0.1
+    echo Failed to install torch
     pause
     exit /b 1
 )
 
-echo Installing torchvision==0.15.2...
-pip install torchvision==0.15.2
+echo Installing torchvision...
+pip install torchvision
 if %errorlevel% neq 0 (
-    echo Failed to install torchvision==0.15.2
+    echo Failed to install torchvision
     pause
     exit /b 1
 )
