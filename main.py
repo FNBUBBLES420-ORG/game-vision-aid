@@ -264,7 +264,7 @@ def main():
     # Ensure the game is running and visible on the screen before starting the script
     input(Fore.MAGENTA + "Make sure the game is running and visible on the screen. Press Enter to continue...")
     
-    print(Fore.RED + "Any issues? Join our Discord Server: https://discord.gg/3B49yCEauW")
+    print(Fore.RED + "Any issues? Join our Discord Server - FNBUBBLES420 ORG COMMUNITY: https://discord.gg/3B49yCEauW and head to the game-vision-aid & you may ping @Tech-Help or @Bubbles - Dont Spam Ping")
     print(Fore.GREEN + "The program was created & developed by Bubbles The Dev for FNBUBBLES420 ORG.")
 
     # Check for NVIDIA GPU availability with CUDA support
