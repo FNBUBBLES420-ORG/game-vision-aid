@@ -18,6 +18,7 @@ targetFPS = 60  # Frames per second for capturing
 maxBufferLen = 512  # Max buffer length for storing frames
 region = None  # Region for capture (set to None for full screen)
 useNvidiaGPU = True  # Set to True to enable GPU acceleration if available
+monitorIdx = 0  # Index for multi-monitor support, set 0 for primary monitor
 
 # Colors for Bounding Boxes
 boundingBoxColor = (0, 255, 0)  # Default bounding box color in BGR format
