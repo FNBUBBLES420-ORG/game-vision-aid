@@ -18,26 +18,27 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-echo Installing torch==2.4.1...
-pip install torch==2.4.1
+echo Installing torch==2.4.1+cu118...
+pip install torch==2.4.1+cu118
 if %errorlevel% neq 0 (
-    echo Failed to install torch==2.4.1
+    echo Failed to install torch==2.4.1+cu118
     pause
     exit /b 1
 )
 
-echo Installing torchvision==0.19.1...
-pip install torchvision==0.19.1
+echo Installing torchvision==0.19.1+cu118...
+pip install torchvision==0.19.1+cu118
 if %errorlevel% neq 0 (
-    echo Failed to install torchvision==0.19.1
+    echo Failed to install torchvision==0.19.1+cu118
+
     pause
     exit /b 1
 )
 
-echo Installing torchaudio==2.4.1...
-pip install torchaudio==2.4.1
+echo Installing torchaudio==2.4.1+cu118...
+pip install torchaudio==2.4.1+cu118
 if %errorlevel% neq 0 (
-    echo Failed to install torchaudio==2.4.1
+    echo Failed to install torchaudio==2.4.1+cu118
     pause
     exit /b 1
 )
@@ -50,18 +51,18 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-echo Installing pandas...
-pip install pandas
-if %errorlevel% neq 0 (
-    echo Failed to install pandas
-    pause
-    exit /b 1
-)
-
 echo Installing requests...
 pip install requests
 if %errorlevel% neq 0 (
     echo Failed to install requests
+    pause
+    exit /b 1
+)
+
+echo Installing pandas...
+pip install pandas
+if %errorlevel% neq 0 (
+    echo Failed to install pandas
     pause
     exit /b 1
 )
