@@ -89,6 +89,8 @@ Follow these steps to set up and run **GameVisionAid**:
      ```
    - [CUDA 11.8.0](https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_522.06_windows.exe).
 
+#### For `AMD GPU` it will work but you will have to use `CPU` Only. 
+
 ## ⚙️ Configuration: `config.py`
  - **Remember to `SAVE` your `config.py` or from the `config-launcher.bat` settings then re start `## Usage Section` on the `readme.md`
 The `config.py` file allows you to easily configure screen capture, object detection, YOLO model settings, and bounding box colors for your specific needs.
