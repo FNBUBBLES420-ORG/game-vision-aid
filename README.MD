@@ -154,9 +154,9 @@ game-vision-aid/
 ├── cudnn_instructions.js                 # Instructions in JavaScript
 ├── important-build.bat                   # Build wheel for the script
 ├── main.py                               # Main script file
-├── model_v5s.pt                          # pt file goes in model folder
-├── model_v5sv5480480Half.onnx            # onnx file goes in model folder
-├── model_fn_v5v5320320Half.onnx          # onnx file goes in model folder
+├── model_v5s.pt                          # pt file goes in modelS folder
+├── model_v5sv5480480Half.onnx            # onnx file goes in modelS folder
+├── model_fn_v5v5320320Half.onnx          # onnx file goes in modelS folder
 ├── models-fn_v5.zip                      # Compressed models to in main models folder 
 ├── nodejs-instructions.ps1               # Instructions in Powershell
 ├── notes.txt                             # Read Notes.txt
