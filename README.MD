@@ -131,6 +131,9 @@ highlightColor = (0, 0, 255)  # Color for highlighted objects
 
 7. Save the changes, and the settings will automatically be applied when you run the program
 
+- Use the `config-launcher.bat` to open the `config.py`
+- Make `sure` to run the `config-launcher.bat` in the same folder as the `config.py` 
+
 ### 🖼️ Region Capture
 
 - **Region for Capture** (`config.region` in `config.py`): This setting defines the area of the screen that BetterCam will capture for object detection.
@@ -147,6 +150,8 @@ By adjusting this setting, you can focus the capture on a particular region of t
 ```
 python main.py
 ```
+- Use the `main-launcher.bat` to run the `main.py`
+- Make `sure` to run the `main-launcher.bat` in the same folder of the `main.py`
 
 2. **Select the overlay color:**
 
@@ -182,9 +187,11 @@ game-vision-aid/
 ├── LICENSE                               # LICENSE
 ├── README.md                             # Project documentation
 ├── SECURITY.md                           # Security documentation
+├── config-launcher.bat                   # config-launcher batchfile to launches config.py in the root directory of folder
 ├── config.py                             # Configuration file 
 ├── cudnn_instructions.js                 # Instructions in JavaScript
 ├── install_pytorch.bat                   # Pytorch Build wheel for the script
+├── main-launcher.bat                     # main-launcher batchfile launches the main.py in the root directory of folder
 ├── main.py                               # Main script file
 ├── model_v5s.pt                          # pt file goes in modelS folder
 ├── model_v5sv5480480Half.onnx            # onnx file goes in modelS folder
