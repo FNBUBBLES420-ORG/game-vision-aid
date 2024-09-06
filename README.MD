@@ -8,6 +8,7 @@
 - 🎯 **Object Detection**: Utilizes `YOLOv5` for detecting enemies in video games.
 - 🟩 **Customizable Overlays**: Allows users to choose the `color of the overlay boxes` around detected enemies.
 - 🛠️ **GPU Acceleration**: Supports `GPU acceleration` for faster processing with `CUDA-enabled GPUs`.
+- 🎥 **Live Feed Support**: Displays a real-time live feed with object detection overlays.
 
 ## 🖥️ System Requirements
 
@@ -23,29 +24,29 @@
 Follow these steps to set up and run **GameVisionAid**:
 
 1. **Clone the repository**:
-    ```
+    ```bash
     git clone https://github.com/kernferm/game-vision-aid.git
     cd game-vision-aid
     ```
 
 2. **Set up a virtual environment (optional but recommended)**:
-    ```
+    ```bash
     python -m venv game-vision-aid_env
     ```
 
    On Windows use:
-    ```
+    ```bash
     game-vision-aid_env\Scripts\activate
     ```
 
 3. **Install dependencies**:
-    ```
+    ```bash
     pip install -r requirements.txt
     ```
 
 4. **For GPU Support (Optional)**:
    - If you have a CUDA-enabled GPU, install the version of PyTorch that supports your CUDA version:
-     ```
+     ```bash
      pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 -f https://download.pytorch.org/whl/torch_stable.html
      ```
      Replace `cu118` with your CUDA version.
@@ -62,21 +63,71 @@ Follow these steps to set up and run **GameVisionAid**:
      ```
    - [CUDA 11.8.0](https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_522.06_windows.exe).
 
+## ⚙️ Configuration: `config.py`
+
+The `config.py` file allows you to easily configure screen capture, object detection, YOLO model settings, and bounding box colors for your specific needs.
+
+```
+# Configuration for BetterCam Screen Capture and YOLO model
+
+# Screen Capture Settings
+screenWidth = 480  # Updated screen width for better resolution
+screenHeight = 480  # Updated screen height for better resolution
+
+# Object Detection Settings
+confidenceThreshold = 0.5  # Confidence threshold for object detection
+nmsThreshold = 0.4  # Non-max suppression threshold to filter overlapping boxes
+
+# YOLO Model Settings
+modelType = 'onnx'  # Choose 'torch' or 'onnx' based on the model you want to load
+torchModelPath = 'models/fn_v5.pt'  # Path to YOLOv5 PyTorch model
+onnxModelPath = 'models/fn_v5.onnx'  # Path to YOLOv5 ONNX model
+
+# BetterCam Settings
+targetFPS = 60  # Frames per second for capturing
+maxBufferLen = 512  # Max buffer length for storing frames
+region = None  # Region for capture (set to None for full screen)
+useNvidiaGPU = True  # Set to True to enable GPU acceleration if available
+
+# Colors for Bounding Boxes
+boundingBoxColor = (0, 255, 0)  # Default bounding box color in BGR format
+highlightColor = (0, 0, 255)  # Color for highlighted objects
+```
+
+## How to Use config.py
+1. Open the `config.py` file.
+
+2. Set the `screenWidth` and `screenHeight` to match your preferred screen resolution.
+
+3. Adjust `confidenceThreshold` to modify the object detection sensitivity (default is set to `0.5` for moderate confidence).
+
+4. Configure the `YOLO Model Settings` to specify whether you want to use the `PyTorch` or `ONNX` model.
+
+5. Set the desired `targetFPS`, and if you have an NVIDIA GPU, ensure `useNvidiaGPU` is set to `True` for optimal performance.
+
+6. Customize the `boundingBoxColor` and `highlightColor` to match your preference for object detection overlays.
+
+7. Save the changes, and the settings will automatically be applied when you run the program
+
 ## 📝 Usage
 
-1. **Run the GameVisionAid script**:
-    ```
-    python main.py
-    ```
+1. **Run the GameVisionAid script:**
 
-2. **Select the overlay color**:
-   - A prompt will appear. Enter the color name you want for the overlay boxes around detected enemies. You can type `exit` or `q` to quit the program.
+```
+python main.py
+```
 
-3. **Start your game**:
-   - The overlay will run in parallel with your game, highlighting detected enemies with the chosen color.
+2. **Select the overlay color:**
 
-4. **Exit the overlay**:
-   - Press `q` at any time to close the overlay and exit the program.
+A prompt will appear. Enter the color name you want for the overlay boxes around detected enemies. You can type `exit` or `q` to quit the program.
+
+3. **Start your game:**
+
+The overlay will run in parallel with your game, highlighting detected enemies with the chosen color.
+
+4. **xit the overlay:**
+
+Press `q` at any time to close the overlay and exit the program.
 
 ## 📂 Project Structure
 
@@ -106,41 +157,21 @@ game-vision-aid/
 ├── requirements.txt         # List of required Python packages
 ```
 
-## Installing Rust to View Notes
-
-Make sure to have `RUST` installed.
-The application was built on a `64-bit system`.
-Follow the instructions on the screen when installing `RUST`
-
-- [Official 64 Bit Installer](https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe)
-
-## Build the Project:
-
-- For `32-bit` systems:
-```
-cargo build
-cargo run
-```
-
-- For `64-bit` systems:
-
-```
-cargo build --target=i686-pc-windows-msvc
-```
-
 ## 🤖 Custom YOLOv5 Model (Optional)
 
 - If you have a custom-trained YOLOv5 model specifically for your game:
 
-1. Place your `.pt` or `.onnx` file in the model/ directory.
+1. Place your `.pt` or `.onnx` file in the models/ directory.
 
-2. Update the `main.py` script to load your custom model:
+2. Update the `config.py` file to load your custom model by setting:
 
 ```
-model_path = 'model/fn_v5.pt'  # or 'model/fn_v5.onnx'
+torchModelPath = 'models/your_model.pt'  # or
+onnxModelPath = 'models/your_model.onnx'
 ```
 
-#### ❗ MAKE SURE TO UNZIP THE `models.zip` in the same directory as the `main.py` script.
+#### ❗ MAKE SURE TO UNZIP THE models.zip in the same directory as the main.py script.
+
 
 ## ❗ Known Issues
 
@@ -158,18 +189,18 @@ Contributions are welcome! Feel free to submit a pull request or open an issue t
 
 ## 📧 Contact
 
-[Bubbles The Dev](kernferm@gmail.com)
-[mainoffice](mainoffice@fnbubbles420.org)
+- [Bubbles The Dev](kernferm@gmail.com)
+- [Main Office](mainoffice@fnbubbles420.org)
 
 ## 🙏 Acknowledgements
 
 Thanks to the developers of:
 
-- [Bettercam](https://github.com/RootKit-Org/BetterCam)
-- [Yolo v5](https://github.com/ultralytics/yolov5)
+- **[Bettercam](https://github.com/RootKit-Org/BetterCam)
 
+- **[Yolo v5](https://github.com/ultralytics/yolov5)
 
-### 👨‍💻 Developed by [Bubbles The Dev](https://github.com/kernferm) - Making gaming more accessible for everyone!
+## 👨‍💻 Developed by [Bubbles The Dev](https://github.com/kernferm) - Making gaming more accessible for everyone!
 
 ## ⚠️ Disclaimer
 
