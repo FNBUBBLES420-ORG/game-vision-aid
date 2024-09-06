@@ -1,8 +1,8 @@
 # Configuration for BetterCam Screen Capture and YOLO model
 
 # Screen Capture Settings
-screenWidth = 480  # Updated screen width for better resolution
-screenHeight = 480  # Updated screen height for better resolution
+screenWidth = 480  # Updated screen width for better resolution - (recommended 480)
+screenHeight = 480  # Updated screen height for better resolution - (recommended 480)
 
 # Object Detection Settings
 confidenceThreshold = 0.5  # Confidence threshold for object detection
