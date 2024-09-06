@@ -8,3 +8,4 @@ numpy
 gitpython==3.1.43  # Correct latest version of GitPython
 bettercam
 colorama
+requests
