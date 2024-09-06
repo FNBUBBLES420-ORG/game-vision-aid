@@ -46,11 +46,11 @@ Follow these steps to set up and run **GameVisionAid**:
 
 4. **For GPU Support (Optional)**:
    - If you have a CUDA-enabled GPU, install the version of PyTorch that supports your CUDA version:
-     ```bash
-     pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 -f https://download.pytorch.org/whl/torch_stable.html
+     ```
+     pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
      ```
      Replace `cu118` with your CUDA version.
-   - Use the `important-build.bat` as it is tied to `cu118`.
+   - Use the `install_pytorch.bat` as it is tied to `cu118`.
 
 5. **CUDA & cuDNN**:
    - You will have to **Download** and **Install** CUDA & cuDNN manually and extract the zip file.
