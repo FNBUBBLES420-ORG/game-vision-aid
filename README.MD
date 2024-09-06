@@ -133,28 +133,35 @@ Press `q` at any time to close the overlay and exit the program.
 
 ```
 game-vision-aid/ 
-├── .github/                 # For Issues
-├── src/                     # Part of RUST Application
-│   └── main.rs              # Part of RUST Application
-├── models/                  # Where the models go
-│   └── fn_v5.pt             # Custom YOLOv5 model (if available)
-│   └── fn_v5.onnx           # Custom ONNX model (if available)
-├── .gitignore               # gitignore
-├── Cargo.lock               # Part of RUST Application
-├── Cargo.toml               # Part of RUST Application
-├── CODE_OF_CONDUCT.md       # CODE_OF_CONDUCT.md
-├── LICENSE                  # LICENSE
-├── README.md                # Project documentation
-├── SECURITY.md              # Security documentation
-├── config.py                # Configuration file 
-├── cudnn_instructions.js    # Instructions in JavaScript
-├── important-build.bat      # Build wheel for the script
-├── main.py                  # Main script file
-├── models.zip               # Compressed models
-├── nodejs-instructions.ps1  # Instructions in Powershell
-├── notes.txt                # Read Notes.txt
-├── requirements.bat         # Installs list of required Python packages
-├── requirements.txt         # List of required Python packages
+├── .github/                        # For Issues
+├── src/                            # Part of RUST Application
+│   └── main.rs                     # Part of RUST Application
+├── models/                         # Where the models go
+│   └── fn_v5.pt                    # Custom YOLOv5 model (if available)
+│   └── model_v5m.pt                # Custom YOLOv5 model (if available)
+│    └── model_v5s.pt               # Custom YOLOv5 model (if available)
+│   └── fn_v5v5480480Half.onnx      # Custom ONNX model (if available) nvidia gpu 2060 super
+│    └── fn_v5v5320320Half.onnx     # Custom ONNX model (if available) nvidia gpu 2060 super
+│    └── model_v5mv5320320Half.onnx # Custom ONNX model (if available) nvidia gpu 2060 super
+│    └── model_v5sv5320320Half.onnx # Custom ONNX model (if available) nvidia gpu 2060 super
+│    └── model_v5mv5480480Half.onnx # Custom ONNX model (if available) nvidia gpu 2060 super
+│    └── model_v5sv5480480Half.onnx # Custom ONNX model (if available) nvidia gpu 2060 super
+├── .gitignore                      # gitignore
+├── Cargo.lock                      # Part of RUST Application
+├── Cargo.toml                      # Part of RUST Application
+├── CODE_OF_CONDUCT.md              # CODE_OF_CONDUCT.md
+├── LICENSE                         # LICENSE
+├── README.md                       # Project documentation
+├── SECURITY.md                     # Security documentation
+├── config.py                       # Configuration file 
+├── cudnn_instructions.js           # Instructions in JavaScript
+├── important-build.bat             # Build wheel for the script
+├── main.py                         # Main script file
+├── models.zip                      # Compressed models
+├── nodejs-instructions.ps1         # Instructions in Powershell
+├── notes.txt                       # Read Notes.txt
+├── requirements.bat                # Installs list of required Python packages
+├── requirements.txt                # List of required Python packages
 ```
 
 ## 🤖 Custom YOLOv5 Model (Optional)
