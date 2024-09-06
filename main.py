@@ -11,20 +11,29 @@ import config
 
 # Enhanced BetterCam Initialization with multiple device support, error handling, and live feed
 class BetterCamEnhanced:
-    def __init__(self, max_buffer_len=config.maxBufferLen, target_fps=config.targetFPS, region=None):
+    def __init__(self, max_buffer_len=config.maxBufferLen, target_fps=config.targetFPS, region=None, monitor_idx=0):
+        """
+        Initialize BetterCam with multi-monitor support.
+        :param max_buffer_len: Max buffer length for captured frames.
+        :param target_fps: Target frames per second.
+        :param region: Optional region for screen capture.
+        :param monitor_idx: The monitor index for multi-monitor support (default is 0 for primary monitor).
+        """
         self.camera = None
         self.max_buffer_len = max_buffer_len
         self.target_fps = target_fps
         self.region = region
+        self.monitor_idx = monitor_idx  # Monitor index for multi-monitor support
         self.is_capturing = False
         self.buffer = []
 
     def start(self):
         try:
-            self.camera = bettercam.create(max_buffer_len=self.max_buffer_len)
+            # Create BetterCam instance for the selected monitor
+            self.camera = bettercam.create(monitor_idx=self.monitor_idx, max_buffer_len=self.max_buffer_len)
             self.camera.start(target_fps=self.target_fps)
             self.is_capturing = True
-            print(Fore.GREEN + f"BetterCam started with target FPS: {self.target_fps}")
+            print(Fore.GREEN + f"BetterCam started on monitor {self.monitor_idx} with target FPS: {self.target_fps}")
         except Exception as e:
             print(Fore.RED + f"Error starting BetterCam: {e}")
             sys.exit(1)
@@ -266,8 +275,8 @@ def main():
         device = 'cpu'
         print(Fore.YELLOW + "No CUDA-enabled NVIDIA GPU found. Using CPU.")
 
-    # Set up BetterCam Enhanced
-    camera = BetterCamEnhanced(target_fps=config.targetFPS)
+    # Set up BetterCam Enhanced with multi-monitor support (monitor_idx can be changed in config.py)
+    camera = BetterCamEnhanced(target_fps=config.targetFPS, monitor_idx=config.monitorIdx)
     camera.start()
 
     # Load YOLOv5 or ONNX model
