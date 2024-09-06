@@ -14,7 +14,7 @@ torchModelPath = 'models/fn_v5.pt'  # Path to YOLOv5 PyTorch model
 onnxModelPath = 'models/fn_v5.onnx'  # Path to YOLOv5 ONNX model
 
 # BetterCam Settings
-targetFPS = 120  # Frames per second for capturing
+targetFPS = 60  # Frames per second for capturing
 maxBufferLen = 512  # Max buffer length for storing frames
 region = None  # Region for capture (set to None for full screen)
 useNvidiaGPU = True  # Set to True to enable GPU acceleration if available
