@@ -150,7 +150,15 @@ By adjusting this setting, you can focus the capture on a particular region of t
 ## 📝 Usage
 
 1. **Run the GameVisionAid script:**
-
+- Open up `CMD.exe` non admin mode , copy the file location 
+- `right click` on file `properties` `location` copy the entire location
+- go back to `CMD.exe` 
+- type `cd` 
+- `paste` the location you just `copied` to `CMD.exe`
+- `remove` the part where it says `main.py` at the end of the `file location` in `CMD.exe`
+- then `press enter` 
+- copy and paste `code below`
+- then `enter`
 ```
 python main.py
 ```
