@@ -8,15 +8,15 @@ currently being supported with security updates.
 Game-Vision-Aid
 | Version | Supported          |
 | ------- | ------------------ |
-| 0.1.0   | :white_check_mark: |
+| 0.2.0   | :white_check_mark: |
 ---------------------------------
 
 
 torch and torchvision
-| Version | Supported          |
-| ------- | ------------------ |
-| 2.0.1   | :white_check_mark: |
-| 0.15.2  | :white_check_mark: |
+|-----------------Version | Supported ---------|
+| ----------------------- | ------------------ |
+| updatednewest version   | :white_check_mark: |
+| updated newest version  | :white_check_mark: |
 
 - we know there is an issue with those two version
 - we do support these two versions
