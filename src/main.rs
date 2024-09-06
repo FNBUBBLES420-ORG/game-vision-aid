@@ -5,19 +5,20 @@ fn main() {
 
     // 🚀 Features
     println!("🚀 Features:");
-    println!("🖥️ Real-Time Screen Capture: Captures your screen in real-time using `mss` for fast and efficient screen capturing.");
+    println!("🖥️ Real-Time Screen Capture: Captures your screen in real-time using `bettercam` for fast and efficient screen capturing.");
     println!("🎯 Object Detection: Utilizes YOLOv5 for detecting enemies in video games.");
     println!("🟩 Customizable Overlays: Allows users to choose the color of the overlay boxes around detected enemies.");
     println!("🛠️ GPU Acceleration: Supports GPU acceleration for faster processing with CUDA-enabled GPUs.\n");
+    println!("🎥 Live Feed Support: Displays a real-time live feed with object detection overlays.");
 
     // 🖥️ System Requirements
     println!("🖥️ System Requirements:");
-    println!("- Operating System: Windows, Linux, or macOS");
+    println!("- Operating System: Windows 10, 11");
     println!("- Python Version: [Python 3.11.6](https://github.com/KernFerm/Py3.11.6installer)");
     println!("- Hardware:");
     println!("  - CPU: Multi-core processor (Intel i5 or equivalent)");
     println!("  - GPU (Optional, but recommended for better performance): NVIDIA GPU with CUDA support");
-    println!("  - RAM: 8 GB or more\n");
+    println!("  - RAM: 16 GB or more\n");
 
     // 📦 Installation
     println!("📦 Installation:");
@@ -36,10 +37,51 @@ fn main() {
     println!("3. Install Python Dependencies:");
     println!("   pip install -r requirements.txt");
     println!("4. Install Additional Dependencies:");
-    println!("   pip install gitpython>=5.0.1");
+    println!("   pip install gitpython==3.1.43");
     println!("5. Install PyTorch:");
-    println!("   pip install torch==2.0.1 torchvision==0.15.2\n");
+    println!("   pip install torch==2.4.1 torchvision==0.19.1\n");
+    
+    // Supported Pytorch and Torchvision versions
+    println!("torch==2.4.1");
+    println!("torchvision==0.19.1\n");
 
+    // Cuda and CuDNN versions
+    println!("CUDA Version: 11.8");
+    println!("cuDNN Version: 8.9.7\n");
+
+    // Python Version
+    println!("Python Version: 3.11.6\n");
+
+    // Programming Languages Used
+    println!("Programming Languages Used:");
+    println!("1. Python\n");
+    println!("2. JavaScript\n");
+    println!("3. Rust\n");
+    println!("4. Batchfile\n");
+    println!("5. PowerShell\n");
+
+    // Dependencies
+    println!("Dependencies:");
+    println!("1. PyTorch");
+    println!("2. Torchvision");
+    println!("3. OpenCV");
+    println!("4. NumPy");
+    println!("5. CUDA");
+    println!("6. cuDNN\n");
+    println!("7. GitPython\n");
+    println!("8. BetterCAM\n");
+    println!("9. Pandas\n");
+    println!("10. Colorama\n");
+    println!("11. OnnxRuntime\n");
+
+    // Os Supported
+    println!("OS Supported:");
+    println!("1. Windows 10");
+    println!("2. Windows 11\n");
+
+    // Yolo version
+    println!("YOLO Version: YOLOv5\n");
+  
     // Usage
     println!("Usage:");
     println!("After building the project, you can run the executable to start using the Game Vision Aid tools:");
@@ -63,21 +105,11 @@ fn main() {
     println!("console.log(\"   - 'C:\\\\Program Files\\\\NVIDIA GPU Computing Toolkit\\\\CUDA\\\\v11.8\\\\libnvvp'\");");
     println!("console.log(\"   - 'C:\\\\Program Files\\\\NVIDIA GPU Computing Toolkit\\\\CUDA\\\\v11.8\\\\lib'\");");
 
+    
     // Python Code Explanation
     println!("Python Code Explanation:");
-    println!("The following Python code snippet is part of the main functionality of the Game Vision Aid tool:");
-    println!("print(\"Screen captured.\");");
-    println!("results = detect_objects(model, model_type, frame, device);");
-    println!("print(\"Objects detected.\");");
-    println!("frame_with_boxes = draw_bounding_boxes(frame, results, overlay_color, model_type);");
-    println!("print(\"Bounding boxes drawn.\");");
-    println!("cv2.imshow(\"Overlay\", frame_with_boxes);");
-    println!("if cv2.waitKey(1) & 0xFF == ord(\"q\"):");
-    println!("   break;");
-    println!("except KeyboardInterrupt:");
-    println!("   print(\"Exiting program...\");");
-    println!("finally:");
-    println!("   cv2.destroyAllWindows();");
+    println!("The following Python code snippet provides instructions for installing the required Python dependencies:");
+    println!("The Python code has been written in Python 3.11.6\n");
 
     // Contributing
     println!("Contributing:");
@@ -85,7 +117,9 @@ fn main() {
 
     // License
     println!("License:");
-    println!("This project is licensed under the MIT License. See the LICENSE file for more details.\n");
+    println!("This project is proprietary and all rights are reserved by the author.");
+    println!("Unauthorized copying, distribution, or modification of this project is strictly prohibited./n"); 
+    println!("Unless You have written permission from the Developer or the FNBUBBLES420 ORG./n");
 
     // Contact
     println!("Contact:");
