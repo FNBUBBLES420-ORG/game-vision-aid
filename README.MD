@@ -64,7 +64,7 @@ Follow these steps to set up and run **GameVisionAid**:
      ```
 #### Note 
      - If you get an Ultralytics error when installing 
-      **Run the Command below in `CMD.exe`
+      **Run the Command below in `CMD.exe`**
       ```
       pip install --upgrade ultralytics
       ```
