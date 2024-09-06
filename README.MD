@@ -66,6 +66,11 @@ Follow these steps to set up and run **GameVisionAid**:
 
 5. **For CPU Only** aka laptops with no `GPU`
    - Use the `install_pytorch_cpu_only.bat` to install `CPU` Pytorch
+   - If the `install_pytorch_cpu_only.bat` doesnt work , you can use this command in `CMD.exe`
+  ```
+  pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu/torch_stable.html
+  ```
+
 #### For `AMD GPU` it will work , `auto detect` if you have a `cuda-enabled` GPU if not it will go to `CPU`.
 ### Note 
   - If you get an Ultralytics error when installing 
