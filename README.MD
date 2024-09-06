@@ -19,7 +19,7 @@
 ## 🖥️ System Requirements
 
 - **Operating System**: Windows
-- **Python Version**: [Python 3.11.6](https://github.com/KernFerm/Py3.11.6installer)
+- **Python Version**: [Python 3.11.6](https://github.com/KernFerm/Py3.11.6installer) Click to download
 - **Hardware**:
   - **CPU**: Multi-core processor (Intel i5 or Better)
   - **GPU** (Optional, but recommended for better performance): `NVIDIA GPU with CUDA support`
@@ -32,6 +32,7 @@
     ```
     python --version 
     ```
+- Use the `install_python.bat` it will auto add to `system path`. `V3.11.6`
 
 ## 📦 Installation
 
@@ -210,6 +211,7 @@ game-vision-aid/
 ├── config-launcher.bat                   # config-launcher batchfile to launches config.py in the root directory of folder
 ├── config.py                             # Configuration file 
 ├── cudnn_instructions.js                 # Instructions in JavaScript
+├── install_python.bat                    # Python 3.11.6 Batchfile
 ├── install_pytorch.bat                   # Pytorch Build wheel for the script GPU
 ├── install_pytorch_cpu_only.bat          # Pytorch Build for CPU 
 ├── main-launcher.bat                     # main-launcher batchfile launches the main.py in the root directory of folder
