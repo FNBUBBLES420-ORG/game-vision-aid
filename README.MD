@@ -24,6 +24,13 @@
   - **CPU**: Multi-core processor (Intel i5 or Better)
   - **GPU** (Optional, but recommended for better performance): `NVIDIA GPU with CUDA support`
   - **RAM**: 16 GB or more (games you have on your PC recommended RAM 16GB)
+- **Command Prompt** - Comes standard with `ALL` windows computers. 
+  - click `start menu` in the `search bar` type `cmd.exe` click enter. :) 
+  - to make sure you have installed `Python 3.11.6` correctly:
+      - type in `cmd.exe`
+      ```
+      python --version 
+      ```
 
 ## 📦 Installation
 
@@ -55,8 +62,15 @@ Follow these steps to set up and run **GameVisionAid**:
      ```
      pip3 install torch==2.4.1+cu118 torchvision==0.19.1+cu118 torchaudio==2.4.1+cu118 --index-url https://download.pytorch.org/whl/cu118
      ```
-     Replace `cu118` with your CUDA version.
-   - Use the `install_pytorch.bat` as it is tied to `cu118`.
+#### Note 
+     - If you get an Ultralytics error when installing 
+      **Run the Command below in `CMD.exe`
+      ```
+      pip install --upgrade ultralytics
+      ```
+     - Use the `install_pytorch.bat` as it is tied to `cu118`.
+     - Use the `update_ultralytics.bat` if you have `ultralytics error`
+
 
 5. **CUDA & cuDNN**:
    - You will have to **Download** and **Install** CUDA & cuDNN manually and extract the zip file.
