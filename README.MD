@@ -196,9 +196,9 @@ Contributions are welcome! Feel free to submit a pull request or open an issue t
 
 Thanks to the developers of:
 
-- **[Bettercam](https://github.com/RootKit-Org/BetterCam)
+- **[Bettercam](https://github.com/RootKit-Org/BetterCam)**
 
-- **[Yolo v5](https://github.com/ultralytics/yolov5)
+- **[Yolo v5](https://github.com/ultralytics/yolov5)**
 
 ## 👨‍💻 Developed by [Bubbles The Dev](https://github.com/kernferm) - Making gaming more accessible for everyone!
 
