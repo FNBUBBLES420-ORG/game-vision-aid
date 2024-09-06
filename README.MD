@@ -63,13 +63,13 @@ Follow these steps to set up and run **GameVisionAid**:
      pip3 install torch==2.4.1+cu118 torchvision==0.19.1+cu118 torchaudio==2.4.1+cu118 --index-url https://download.pytorch.org/whl/cu118
      ```
 #### Note 
-     - If you get an Ultralytics error when installing 
-      **Run the Command below in `CMD.exe`**
-      ```
-      pip install --upgrade ultralytics
-      ```
-     - Use the `install_pytorch.bat` as it is tied to `cu118`.
-     - Use the `update_ultralytics.bat` if you have `ultralytics error`
+    - If you get an Ultralytics error when installing 
+    **Run the Command below in `CMD.exe`**
+    ```
+    pip install --upgrade ultralytics
+    ```
+    - Use the `install_pytorch.bat` as it is tied to `cu118`.
+    - Use the `update_ultralytics.bat` if you have `ultralytics error`
 
 
 5. **CUDA & cuDNN**:
