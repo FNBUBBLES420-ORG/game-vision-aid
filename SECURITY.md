@@ -13,7 +13,7 @@ Game-Vision-Aid
 
 
 torch and torchvision
-|-------Version | Supported ---------|
+|                 Version | Supported          |
 | ----------------------- | ------------------ |
 | updatednewest version   | :white_check_mark: |
 | updated newest version  | :white_check_mark: |
