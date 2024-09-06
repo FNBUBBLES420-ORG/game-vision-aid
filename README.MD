@@ -134,6 +134,7 @@ Press `q` at any time to close the overlay and exit the program.
 ```
 game-vision-aid/ 
 ├── .github/                              # For Issues
+├── banner folder                         # Banner Image PNG
 ├── models/                               # Where the models go
 │   └── fn_v5.pt                          # Custom YOLOv5 model (if available)
 │    └── model_v5s.pt                     # Custom YOLOv5 model (if available)
