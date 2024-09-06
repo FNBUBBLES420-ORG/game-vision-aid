@@ -69,6 +69,7 @@ Follow these steps to set up and run **GameVisionAid**:
     ```
     pip install --upgrade ultralytics
     ```
+  - I did include the `Ultralytics` in the requirements.txt` and `requirements.bat`.
   - Use the `install_pytorch.bat` as it is tied to `cu118`. (Recommended)
   - Use the `update_ultralytics.bat` if you have `ultralytics error`
 
