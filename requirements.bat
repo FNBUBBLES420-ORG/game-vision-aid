@@ -58,26 +58,10 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-echo Installing gitpython>==5.0.1...
-pip install gitpython>==5.0.1
+echo Installing gitpython==3.1.43...
+pip install gitpython==3.1.43
 if %errorlevel% neq 0 (
-    echo Failed to install gitpython>==5.0.1
-    pause
-    exit /b 1
-)
-
-echo Installing mss...
-pip install mss
-if %errorlevel% neq 0 (
-    echo Failed to install mss
-    pause
-    exit /b 1
-)
-
-echo Installing colorama...
-pip install colorama
-if %errorlevel% neq 0 (
-    echo Failed to install colorama
+    echo Failed to install gitpython==3.1.43
     pause
     exit /b 1
 )
@@ -86,6 +70,14 @@ echo Installing bettercam...
 pip install bettercam
 if %errorlevel% neq 0 (
     echo Failed to install bettercam
+    pause
+    exit /b 1
+)
+
+echo Installing colorama...
+pip install colorama
+if %errorlevel% neq 0 (
+    echo Failed to install colorama
     pause
     exit /b 1
 )
