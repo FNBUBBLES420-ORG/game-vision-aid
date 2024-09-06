@@ -50,6 +50,7 @@ output_frame.jpg
 # Ignore batch scripts
 install_pytorch_only.bat
 install_pytorch_cpu_only.bat
+install_python.bat
 main-launcher.bat
 config-launcher.bat
 update_ultralytics.bat
