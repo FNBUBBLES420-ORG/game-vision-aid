@@ -194,7 +194,8 @@ game-vision-aid/
 ├── config-launcher.bat                   # config-launcher batchfile to launches config.py in the root directory of folder
 ├── config.py                             # Configuration file 
 ├── cudnn_instructions.js                 # Instructions in JavaScript
-├── install_pytorch.bat                   # Pytorch Build wheel for the script
+├── install_pytorch.bat                   # Pytorch Build wheel for the script GPU
+├── install_pytorch_cpu_only.bat          # Pytorch Build for CPU 
 ├── main-launcher.bat                     # main-launcher batchfile launches the main.py in the root directory of folder
 ├── main.py                               # Main script file
 ├── model_v5s.pt                          # pt file goes in modelS folder
