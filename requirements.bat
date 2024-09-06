@@ -58,6 +58,14 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
+echo Installing requests...
+pip install requests
+if %errorlevel% neq 0 (
+    echo Failed to install requests
+    pause
+    exit /b 1
+)
+
 echo Installing numpy...
 pip install numpy
 if %errorlevel% neq 0 (
