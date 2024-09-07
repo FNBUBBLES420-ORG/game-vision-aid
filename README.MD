@@ -95,6 +95,7 @@ If you have an **AMD GPU**, follow the steps below to set up DirectML support fo
 2. **Launch the application**:
    - After installing the dependencies, use the **`amdgpu-launcher.bat`** script to run the application with AMD GPU support.
 
+3. Check **How To Use 
 ---
 
 ### Troubleshooting
@@ -132,7 +133,7 @@ If you encounter any issues, such as an **Ultralytics error**, follow the steps 
      ```
    - [CUDA 11.8.0](https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_522.06_windows.exe).
 
-#### For `AMD GPU` it will work , `auto detect` if you have a `cuda-enabled` GPU if not it will go to `CPU`.
+---
 
 ## ⚙️ Configuration: `config.py`
  - **Remember to `SAVE` your `config.py` or from the `config-launcher.bat` settings then re start `## Usage Section` on the `readme.md`
