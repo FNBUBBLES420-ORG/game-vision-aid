@@ -1,5 +1,4 @@
 # Instructions for installing Node.js
-
 Write-Host "Please follow these steps to install Node.js:"
 
 # Step 1: Download Node.js
@@ -24,4 +23,5 @@ Write-Host "   node your_script_name.js"
 Write-Host "   Replace 'your_script_name.js' with the name of your JavaScript file."
 
 # Pause to allow the user to read the instructions
-Pause
+Write-Host "Press any key to continue..."
+[void][System.Console]::ReadKey($true)
