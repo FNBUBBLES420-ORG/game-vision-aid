@@ -95,7 +95,7 @@ If you have an **AMD GPU**, follow the steps below to set up DirectML support fo
 2. **Launch the application**:
    - After installing the dependencies, use the **`amdgpu-launcher.bat`** script to run the application with AMD GPU support.
 
-3. Check **How To Use 
+3. Check **## How to Use config.py** 
 ---
 
 ### Troubleshooting
