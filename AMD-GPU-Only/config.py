@@ -17,7 +17,7 @@ onnxModelPath = 'models/model_fn_v5v5320320Half.onnx'  # Path to YOLOv5 ONNX mod
 targetFPS = 60  # Frames per second for capturing
 maxBufferLen = 512  # Max buffer length for storing frames
 region = None  # Region for capture (set to None for full screen)
-useNvidiaGPU = True  # Set to True to enable GPU acceleration if available
+useNvidiaGPU = False  # Set to False If you do not have NVidia GPU
 
 # Colors for Bounding Boxes
 boundingBoxColor = (0, 255, 0)  # Default bounding box color in BGR format
