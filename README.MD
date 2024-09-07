@@ -209,6 +209,7 @@ By adjusting this setting, you can focus the capture on a particular region of t
 ```
 python main.py
 ```
+#### Or Use Below for Easy: 
 - Use the `main-launcher.bat` to run the `main.py`
 - Make `sure` to run the `main-launcher.bat` in the same folder of the `main.py`
 
