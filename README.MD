@@ -15,6 +15,7 @@
 - 🟩 **Customizable Overlays**: Allows users to choose the `color of the overlay boxes` around detected enemies.
 - 🛠️ **GPU Acceleration**: Supports `GPU acceleration` for faster processing with `CUDA-enabled GPUs`.
 - 🎥 **Live Feed Support**: Displays a real-time live feed with object detection overlays.
+- 🖥️ **AMD GPU with DirectML** support (for faster processing).
 
 ## 🖥️ System Requirements
 
@@ -48,14 +49,13 @@ Follow these steps to set up and run **GameVisionAid**:
     ```
     python -m venv game-vision-aid_env
     ```
-  - If you want to turn off the virtual environment 
-     - type in `CMD.exe`
 
-      ```
-      deactivate
-      ```
+   To deactivate the virtual environment:
+    ```
+    deactivate
+    ```
 
-   On Windows use:
+   On Windows, activate the environment:
     ```
     game-vision-aid_env\Scripts\activate
     ```
@@ -65,20 +65,51 @@ Follow these steps to set up and run **GameVisionAid**:
     pip install -r requirements.txt
     ```
 
-4. **For GPU Support (Optional)**:
+4. **For NVIDIA GPU Support (Optional)**:
    - If you have a CUDA-enabled GPU, install the version of PyTorch that supports your CUDA version:
      ```
      pip3 install torch==2.4.1+cu118 torchvision==0.19.1+cu118 torchaudio==2.4.1+cu118 --index-url https://download.pytorch.org/whl/cu118
      ```
 
-5. **For CPU Only** aka laptops with no `GPU`
-   - Use the `install_pytorch_cpu_only.bat` to install `CPU` Pytorch
-   - If the `install_pytorch_cpu_only.bat` doesnt work , you can use this command in `CMD.exe`
-  ```
-  pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu/torch_stable.html
-  ```
+5. **For CPU Only** (Laptops with no GPU):
+   - Use the `install_pytorch_cpu_only.bat` to install CPU-based PyTorch.
+   - If `install_pytorch_cpu_only.bat` doesn't work, you can manually run the following command in `CMD.exe`:
+     ```
+     pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu/torch_stable.html
+     ```
 
-#### For `AMD GPU` it will work , `auto detect` if you have a `cuda-enabled` GPU if not it will go to `CPU`.
+---
+
+## 💻 For `AMD GPU` Users
+
+If you have an **AMD GPU**, follow the steps below to set up DirectML support for faster processing:
+
+1. **Install AMD GPU dependencies**:
+   - Run the **`amd_gpu_requirements.bat`** script to install the necessary dependencies for AMD GPU:
+     ```
+     amd_gpu_requirements.bat
+     ```
+
+   This will install **DirectML** and other required packages, enabling the project to run efficiently on AMD hardware.
+
+2. **Launch the application**:
+   - After installing the dependencies, use the **`amdgpu-launcher.bat`** script to run the application with AMD GPU support.
+
+---
+
+### Troubleshooting
+
+If you encounter any issues, such as an **Ultralytics error**, follow the steps below:
+
+1. Run the following command in `CMD.exe` to upgrade Ultralytics:
+    ```
+    pip install --upgrade ultralytics
+    ```
+
+2. The `Ultralytics` package is already included in the `requirements.txt` and `requirements.bat` files.
+
+3. Use the `update_ultralytics.bat` script if you continue to experience Ultralytics errors.
+
 ### Note 
   - If you get an Ultralytics error when installing 
   Run the Command below in `CMD.exe`
@@ -197,6 +228,13 @@ Press `q` or type `exit` at any time "after you've start the program of course" 
 ```
 game-vision-aid/ 
 ├── .github/                              # For Issues
+├── AMD-GPU-Only folder                   # AMD GPU folder
+├──    └── amd_gpu_requirements.bat       # AMD GPU requirements batchfile
+├──    └── amdgpu-launcher.bat            # AMD GPU launcher batchfile
+├──    └── config-launcher.bat            # AMD config-launcher batchfile
+├──     └── config.py                     # AMD Python Configuration file
+├──     └── main.py                       # AMD Main script file
+├──     └── requirements.txt              # AMD List of required Python packages
 ├── banner folder                         # Banner Image PNG
 ├── models/                               # Where the models go
 │   └── fn_v5.pt                          # Custom YOLOv5 model (if available)
