@@ -50,7 +50,6 @@ output_frame.jpg
 # Ignore batch scripts
 install_pytorch_only.bat
 install_pytorch_cpu_only.bat
-install_python.bat
 main-launcher.bat
 config-launcher.bat
 update_ultralytics.bat
@@ -91,3 +90,11 @@ banner/
 Game_Vision_Aid/main.rs
 Game_Vision_Aid/Cargo.lock
 Game_Vision_Aid/Cargo.toml
+
+# Ignore AMD-GPU-ONLY folder and its contents
+AMD-GPU-ONLY/amg_gpu_requirements.bat
+AMD-GPU-ONLY/amdgpu-launcher.bat
+AMD-GPU-ONLY/config-launcher.bat
+AMD-GPU-ONLY/config.py
+AMD-GPU-ONLY/main.py
+AMD-GPU-ONLY/requirements.txt
