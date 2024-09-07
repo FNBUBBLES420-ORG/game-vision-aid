@@ -1,7 +1,7 @@
-console.log("cuDNN is not installed. Please follow these steps to download and install cuDNN 8.9.7 manually:");
+console.log("cuDNN is not installed. Please follow these steps to download and install cuDNN 8.9.6 manually:");
 console.log("1. Go to the NVIDIA cuDNN download page: https://developer.nvidia.com/rdp/cudnn-download");
 console.log("2. Log in with your NVIDIA Developer account.");
-console.log("3. Download the file 'cudnn-windows-x86_64-8.9.7.29_cuda11-archive.zip'.");
+console.log("3. Download the file 'cudnn-windows-x86_64-8.9.6.25_cuda11-archive.zip'.");
 console.log("4. Extract the contents of the downloaded zip file.");
 console.log("5. Copy the following files to the CUDA installation directory:");
 console.log("   - Copy 'cudnn64_8.dll' to 'C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v11.8\\bin'");
