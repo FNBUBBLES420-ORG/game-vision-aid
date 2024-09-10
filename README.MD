@@ -251,6 +251,7 @@ game-vision-aid/
 ├── CODE_OF_CONDUCT.md                    # CODE_OF_CONDUCT.md
 ├── Cargo.lock                            # Part of RUST Application
 ├── Cargo.toml                            # Part of RUST Application
+├── Contact.md                            # Contact
 ├── LICENSE                               # LICENSE
 ├── README.md                             # Project documentation
 ├── SECURITY.md                           # Security documentation
