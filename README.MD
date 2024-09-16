@@ -374,6 +374,48 @@ highlightColor = (0, 0, 255)  # Color for highlighted objects
 - Use the `config-launcher.bat` to open the `config.py`
 - Make `sure` to run the `config-launcher.bat` in the same folder as the `config.py` 
 
+# Color Dictionary
+
+This color dictionary includes a range of colors that are **high-contrast**, **colorblind-friendly**, and **visually impaired-friendly**. These colors have been selected to provide maximum accessibility and usability for a broad range of users.
+
+## High-Contrast, Colorblind-Friendly and Visually Impaired-Friendly Colors
+
+| Color        | RGB Values        | Notes                                                |
+|--------------|-------------------|------------------------------------------------------|
+| **Red**      | (0, 0, 255)       | Good contrast with green, blue, yellow                |
+| **Green**    | (0, 255, 0)       | High contrast with red, magenta                       |
+| **Blue**     | (255, 0, 0)       | Standard blue                                        |
+| **Yellow**   | (0, 255, 255)     | High contrast, suitable for colorblindness            |
+| **Cyan**     | (255, 255, 0)     | Good contrast with red, blue                         |
+| **Magenta**  | (255, 0, 255)     | High contrast                                        |
+| **Black**    | (0, 0, 0)         | High contrast with all light colors                  |
+| **White**    | (255, 255, 255)   | High contrast with dark colors                       |
+
+## Colorblind-Friendly and High Contrast Shades
+
+| Color            | RGB Values        | Notes                                                |
+|------------------|-------------------|------------------------------------------------------|
+| **Dark Red**     | (139, 0, 0)       | Distinguishable from green, easier for colorblind users |
+| **Orange**       | (0, 165, 255)     | Strong contrast with most colors                     |
+| **Light Blue**   | (173, 216, 230)   | Easily distinguishable from green                    |
+| **Purple**       | (128, 0, 128)     | High contrast, distinguishable for most users        |
+| **Brown**        | (165, 42, 42)     | Distinct and neutral color                           |
+| **Pink**         | (255, 182, 193)   | Good contrast, especially for colorblindness         |
+| **Lime**         | (0, 255, 128)     | Bright color, good contrast with red and blue        |
+| **Turquoise**    | (64, 224, 208)    | Strong contrast with most shades                     |
+| **Navy**         | (0, 0, 128)       | High contrast for visual impairment                  |
+| **Gold**         | (255, 215, 0)     | Bright and distinguishable                           |
+| **Silver**       | (192, 192, 192)   | Neutral, high contrast with darker colors            |
+| **Dark Orange**  | (255, 140, 0)     | High contrast and distinguishable                    |
+| **Indigo**       | (75, 0, 130)      | Deep color, good contrast with light shades          |
+| **Teal**         | (0, 128, 128)     | Strong contrast, good for visual impairments         |
+| **Olive**        | (128, 128, 0)     | Neutral, good for colorblind users                   |
+| **Maroon**       | (128, 0, 0)       | Distinct and high contrast                           |
+| **Sky Blue**     | (135, 206, 235)   | Bright and easily visible                            |
+| **Chartreuse**   | (127, 255, 0)     | High contrast for most users                         |
+
+
+
 ### 🖼️ Region Capture
 
 - **Region for Capture** (`config.region` in `config.py`): This setting defines the area of the screen that BetterCam will capture for object detection.
