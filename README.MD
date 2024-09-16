@@ -1,7 +1,6 @@
-
-![Game Vision Aid Banner](https://github.com/FNBUBBLES420-ORG/game-vision-aid/blob/main/banner/Game_Vision_Aid.png)
-
-
+<p align="center">
+  <img src="https://github.com/FNBUBBLES420-ORG/game-vision-aid/blob/main/banner/Game_Vision_Aid.png" alt="Game Vision Aid Banner" width="400"/>
+</p>
 
 
 ## READ EVERYTHING CAREFULLY
