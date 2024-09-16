@@ -181,11 +181,38 @@ def draw_bounding_boxes(frame, results, color, model_type):
 
 
 def get_color_from_input():
-    color_dict = {
-        "red": (0, 0, 255),
-        "green": (0, 255, 0),
-        "blue": (255, 0, 0),
-    }
+color_dict = {
+    # High-contrast, colorblind-friendly and visually impaired-friendly colors
+    "red": (0, 0, 255),         # Good contrast with green, blue, yellow
+    "green": (0, 255, 0),       # High contrast with red, magenta
+    "blue": (255, 0, 0),        # Standard blue
+    "yellow": (0, 255, 255),    # High contrast, suitable for colorblindness
+    "cyan": (255, 255, 0),      # Good contrast with red, blue
+    "magenta": (255, 0, 255),   # High contrast
+    "black": (0, 0, 0),         # High contrast with all light colors
+    "white": (255, 255, 255),   # High contrast with dark colors
+
+    # Colorblind-friendly and high contrast shades
+    "dark red": (139, 0, 0),    # Distinguishable from green, easier for colorblind users
+    "orange": (0, 165, 255),    # Strong contrast with most colors
+    "light blue": (173, 216, 230), # Easily distinguishable from green, suitable for colorblind
+    "purple": (128, 0, 128),    # High contrast, distinguishable for most users
+    "brown": (165, 42, 42),     # Distinct and neutral color
+    "pink": (255, 182, 193),    # Good contrast, especially for colorblindness
+    "lime": (0, 255, 128),      # Bright color, good contrast with red and blue
+    "turquoise": (64, 224, 208),# Strong contrast with most shades
+    "navy": (0, 0, 128),        # High contrast for visual impairment
+    "gold": (255, 215, 0),      # Bright and distinguishable
+    "silver": (192, 192, 192),  # Neutral, high contrast with darker colors
+    "dark orange": (255, 140, 0), # High contrast and distinguishable
+    "indigo": (75, 0, 130),     # Deep color, good contrast with light shades
+    "teal": (0, 128, 128),      # Strong contrast, good for visual impairments
+    "olive": (128, 128, 0),     # Neutral, good for colorblind users
+    "maroon": (128, 0, 0),      # Distinct and high contrast
+    "sky blue": (135, 206, 235),# Bright and easily visible
+    "chartreuse": (127, 255, 0),# High contrast for most users
+}
+
     while True:
         color_input = input("Enter the overlay color (red, green, blue): ").strip().lower()
         if color_input in color_dict:
