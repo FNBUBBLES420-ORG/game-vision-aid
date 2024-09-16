@@ -5,8 +5,11 @@ torchaudio==2.4.1+cu118
 onnxruntime
 pandas
 numpy
-gitpython==3.1.43  # Correct latest version of GitPython
+cupy-cuda118
+gitpython==3.1.43
 bettercam
 colorama
 requests
 ultralytics
+customtkinter
+pywin32  # Added for Windows API functions
