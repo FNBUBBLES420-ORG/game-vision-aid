@@ -29,6 +29,7 @@ will be adding the overlay.py into code
 
 **ADDED CUPY CU 11 BATCHFILE 
 
+**updated the banner image made it smaller and centered it in the readme.md
 
 
 **future updates 
