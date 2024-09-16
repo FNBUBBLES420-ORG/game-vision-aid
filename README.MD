@@ -126,19 +126,6 @@ If you encounter any issues, such as an **Ultralytics error**, follow the steps 
   - Use the `update_ultralytics.bat` if you have `ultralytics error`
 
 
-5. **CUDA & cuDNN**:
-   - You will have to **Download** and **Install** CUDA & cuDNN manually and extract the zip file.
-   - You will have to create a **Nvidia Developer Account**.
-   - Make sure to have **Node.js** installed from [Node JS](https://nodejs.org/dist/v20.17.0/node-v20.17.0-x64.msi).
-   - Run the `nodejs-instructions.ps1` in **NON ADMIN**.
-   - [cuDNN 8.9.6](https://developer.nvidia.com/downloads/compute/cudnn/secure/8.9.6/local_installers/11.x/cudnn-windows-x86_64-8.9.6.50_cuda11-archive.zip/):
-     ```
-     node cudnn_instruction.js
-     ```
-   - [CUDA 11.8.0](https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_522.06_windows.exe).
-
-
-
 # 🚀 NVIDIA CUDA Installation Guide
 
 ### 1. **Download the NVIDIA CUDA Toolkit 11.8**
