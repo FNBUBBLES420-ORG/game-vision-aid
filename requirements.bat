@@ -9,6 +9,21 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
+:: Initial CuPy installation prompt
+echo MAKE SURE TO HAVE THE WHL DOWNLOADED BEFORE YOU CONTINUE!!!
+pause
+echo Click the link to download the WHL: press ctrl then left click with mouse
+echo https://github.com/cupy/cupy/releases/download/v12.0.0b1/cupy_cuda11x-12.0.0b1-cp311-cp311-win_amd64.whl
+pause
+
+echo Installing CuPy from WHL...
+pip install https://github.com/cupy/cupy/releases/download/v12.0.0b1/cupy_cuda11x-12.0.0b1-cp311-cp311-win_amd64.whl
+if %errorlevel% neq 0 (
+    echo Failed to install CuPy from WHL
+    pause
+    exit /b 1
+)
+
 :: Install each package separately
 echo Installing opencv-python...
 pip install opencv-python
@@ -30,7 +45,6 @@ echo Installing torchvision==0.19.1+cu118...
 pip install torchvision==0.19.1+cu118
 if %errorlevel% neq 0 (
     echo Failed to install torchvision==0.19.1+cu118
-
     pause
     exit /b 1
 )
@@ -95,6 +109,30 @@ echo Installing colorama...
 pip install colorama
 if %errorlevel% neq 0 (
     echo Failed to install colorama
+    pause
+    exit /b 1
+)
+
+echo Installing ultralytics...
+pip install ultralytics
+if %errorlevel% neq 0 (
+    echo Failed to install ultralytics
+    pause
+    exit /b 1
+)
+
+echo Installing customtkinter...
+pip install customtkinter
+if %errorlevel% neq 0 (
+    echo Failed to install customtkinter
+    pause
+    exit /b 1
+)
+
+echo Installing pywin32...
+pip install pywin32
+if %errorlevel% neq 0 (
+    echo Failed to install pywin32
     pause
     exit /b 1
 )
