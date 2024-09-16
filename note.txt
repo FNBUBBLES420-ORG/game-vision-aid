@@ -24,7 +24,10 @@ updated to new 2.4.1 of torch==2.4.1 torchvision==0.19.1 and torchaudio==2.4.1
 
 added support for AMD GPU users
 
-will be adding the overlay.py into code 
+will be adding the overlay.py into code
+**ADDED OVERLAY2.PY IN MAIN.PY
+
+**ADDED CUPY CU 11 BATCHFILE 
 
 
 
