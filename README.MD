@@ -12,6 +12,58 @@
 
 Click the link to read [**Instructions**](https://www.gitprojects.fnbubbles420.org/how-to-download-repos) 📄.
 
+
+## 📂 Project Structure
+
+```
+game-vision-aid/ 
+├── .github/                              # For Issues
+├── AMD-GPU-Only folder                   # AMD GPU folder
+├──    └── amd_gpu_requirements.bat       # AMD GPU requirements batchfile
+├──    └── amdgpu-launcher.bat            # AMD GPU launcher batchfile
+├──    └── config-launcher.bat            # AMD config-launcher batchfile
+├──     └── config.py                     # AMD Python Configuration file
+├──     └── main.py                       # AMD Main script file
+├──     └── requirements.txt              # AMD List of required Python packages
+├── banner folder                         # Banner Image PNG
+├── models/                               # Where the models go
+│   └── fn_v5.pt                          # Custom YOLOv5 model (if available)
+│    └── model_v5s.pt                     # Custom YOLOv5 model (if available)
+│    └── fn_v5v5480480Half.onnx           # Custom ONNX model (if available) nvidia gpu 2060 super
+│    └── model_fn_v5v5320320Half.onnx     # Custom ONNX model (if available) nvidia gpu 2060 super
+│    └── model_v5sv5320320Half.onnx       # Custom ONNX model (if available) nvidia gpu 2060 super
+│    └── model_v5sv5480480Half.onnx       # Custom ONNX model (if available) nvidia gpu 2060 super
+├── src/                                  # Part of RUST Application
+│   └── main.rs                           # Part of RUST Application
+├── .gitignore                            # gitignore
+├── CODE_OF_CONDUCT.md                    # CODE_OF_CONDUCT.md
+├── Cargo.lock                            # Part of RUST Application
+├── Cargo.toml                            # Part of RUST Application
+├── Contact.md                            # Contact
+├── LICENSE                               # LICENSE
+├── README.md                             # Project documentation
+├── SECURITY.md                           # Security documentation
+├── config-launcher.bat                   # config-launcher batchfile to launches config.py in the root directory of folder
+├── config.py                             # Configuration file 
+├── cudnn_instructions.js                 # Instructions in JavaScript
+├── cupy_cuda11x.bat                      # Cupy Cuda 11x Batchfile
+├── install_python.bat                    # Python 3.11.6 Batchfile
+├── install_pytorch.bat                   # Pytorch Build wheel for the script GPU
+├── install_pytorch_cpu_only.bat          # Pytorch Build for CPU 
+├── main-launcher.bat                     # main-launcher batchfile launches the main.py in the root directory of folder
+├── main.py                               # Main script file
+├── model_v5s.pt                          # pt file goes in modelS folder
+├── model_v5sv5480480Half.onnx            # onnx file goes in modelS folder
+├── model_fn_v5v5320320Half.onnx          # onnx file goes in modelS folder
+├── models-fn_v5.zip                      # Compressed models to in main models folder 
+├── nodejs-instructions.ps1               # Instructions in Powershell
+├── notes.txt                             # Read Notes.txt
+├── requirements.bat                      # Installs list of required Python packages
+├── requirements.txt                      # List of required Python packages
+├── update_ultralytics.bat                # Update Batch Script for Ultralytics
+```
+
+
 ## 🚀 Features
 
 - 🖥️ **Real-Time Screen Capture**: Captures your screen in real-time using `BetterCam` for fast and efficient screen capturing.
@@ -341,54 +393,6 @@ The overlay will run in parallel with your game, highlighting detected enemies w
 
 Press `q` or type `exit` at any time "after you've start the program of course" to close the overlay and exit the program.
 
-## 📂 Project Structure
-
-```
-game-vision-aid/ 
-├── .github/                              # For Issues
-├── AMD-GPU-Only folder                   # AMD GPU folder
-├──    └── amd_gpu_requirements.bat       # AMD GPU requirements batchfile
-├──    └── amdgpu-launcher.bat            # AMD GPU launcher batchfile
-├──    └── config-launcher.bat            # AMD config-launcher batchfile
-├──     └── config.py                     # AMD Python Configuration file
-├──     └── main.py                       # AMD Main script file
-├──     └── requirements.txt              # AMD List of required Python packages
-├── banner folder                         # Banner Image PNG
-├── models/                               # Where the models go
-│   └── fn_v5.pt                          # Custom YOLOv5 model (if available)
-│    └── model_v5s.pt                     # Custom YOLOv5 model (if available)
-│    └── fn_v5v5480480Half.onnx           # Custom ONNX model (if available) nvidia gpu 2060 super
-│    └── model_fn_v5v5320320Half.onnx     # Custom ONNX model (if available) nvidia gpu 2060 super
-│    └── model_v5sv5320320Half.onnx       # Custom ONNX model (if available) nvidia gpu 2060 super
-│    └── model_v5sv5480480Half.onnx       # Custom ONNX model (if available) nvidia gpu 2060 super
-├── src/                                  # Part of RUST Application
-│   └── main.rs                           # Part of RUST Application
-├── .gitignore                            # gitignore
-├── CODE_OF_CONDUCT.md                    # CODE_OF_CONDUCT.md
-├── Cargo.lock                            # Part of RUST Application
-├── Cargo.toml                            # Part of RUST Application
-├── Contact.md                            # Contact
-├── LICENSE                               # LICENSE
-├── README.md                             # Project documentation
-├── SECURITY.md                           # Security documentation
-├── config-launcher.bat                   # config-launcher batchfile to launches config.py in the root directory of folder
-├── config.py                             # Configuration file 
-├── cudnn_instructions.js                 # Instructions in JavaScript
-├── install_python.bat                    # Python 3.11.6 Batchfile
-├── install_pytorch.bat                   # Pytorch Build wheel for the script GPU
-├── install_pytorch_cpu_only.bat          # Pytorch Build for CPU 
-├── main-launcher.bat                     # main-launcher batchfile launches the main.py in the root directory of folder
-├── main.py                               # Main script file
-├── model_v5s.pt                          # pt file goes in modelS folder
-├── model_v5sv5480480Half.onnx            # onnx file goes in modelS folder
-├── model_fn_v5v5320320Half.onnx          # onnx file goes in modelS folder
-├── models-fn_v5.zip                      # Compressed models to in main models folder 
-├── nodejs-instructions.ps1               # Instructions in Powershell
-├── notes.txt                             # Read Notes.txt
-├── requirements.bat                      # Installs list of required Python packages
-├── requirements.txt                      # List of required Python packages
-├── update_ultralytics.bat                # Update Batch Script for Ultralytics
-```
 
 ## 🤖 Custom YOLOv5 Model (Optional)
 
