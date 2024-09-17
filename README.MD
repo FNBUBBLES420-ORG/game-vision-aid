@@ -22,11 +22,13 @@ Click the link to read [**Instructions**](https://www.gitprojects.fnbubbles420.o
 game-vision-aid/ 
 ├── .github/                              # For Issues
 ├── AMD-GPU-Only folder                   # AMD GPU folder
+├──    └── IMPORTANT_FOR_AMD_GPU.md       # Important Readme.md for AMD GPU USERS
 ├──    └── amd_gpu_requirements.bat       # AMD GPU requirements batchfile
 ├──    └── amdgpu-launcher.bat            # AMD GPU launcher batchfile
 ├──    └── config-launcher.bat            # AMD config-launcher batchfile
 ├──     └── config.py                     # AMD Python Configuration file
 ├──     └── main.py                       # AMD Main script file
+├──     └── readme.md                     # Main Readme.md for AMD GPU USERS
 ├──     └── requirements.txt              # AMD List of required Python packages
 ├── banner folder                         # Banner Image PNG
 ├── models/                               # Where the models go
@@ -36,6 +38,8 @@ game-vision-aid/
 │    └── model_fn_v5v5320320Half.onnx     # Custom ONNX model (if available) nvidia gpu 2060 super
 │    └── model_v5sv5320320Half.onnx       # Custom ONNX model (if available) nvidia gpu 2060 super
 │    └── model_v5sv5480480Half.onnx       # Custom ONNX model (if available) nvidia gpu 2060 super
+├──  Export-Models                        # Export Models Folder
+├──    └── models                         # 
 ├── src/                                  # Part of RUST Application
 │   └── main.rs                           # Part of RUST Application
 ├── .gitignore                            # gitignore
