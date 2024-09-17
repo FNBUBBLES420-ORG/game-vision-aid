@@ -23,7 +23,28 @@ python .\export.py --weights ./"your_model_path.pt" --include onnx --half --imgs
 ```
 
 
+### Troubleshooting
 
+If you encounter any issues, such as an **Ultralytics error**, follow the steps below:
+
+1. Run the following command in `CMD.exe` to upgrade Ultralytics:
+    ```
+    pip install --upgrade ultralytics
+    ```
+
+2. The `Ultralytics` package is already included in the `requirements.txt` and `requirements.bat` files.
+
+3. Use the `update_ultralytics.bat` script if you continue to experience Ultralytics errors.
+
+### Note 
+  - If you get an Ultralytics error when installing 
+  Run the Command below in `CMD.exe`
+    ```
+    pip install --upgrade ultralytics
+    ```
+  - I did include the `Ultralytics` in the requirements.txt` and `requirements.bat`.
+  - Use the `install_pytorch.bat` as it is tied to `cu118`. (Recommended)
+  - Use the `update_ultralytics.bat` if you have `ultralytics error`
 
 
 
