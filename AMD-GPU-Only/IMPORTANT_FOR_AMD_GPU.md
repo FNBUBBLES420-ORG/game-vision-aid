@@ -48,21 +48,7 @@ If you encounter any issues, such as an **Ultralytics error**, follow the steps 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## If you have an AMD GPU and want to use ROCm:
+```
+pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/rocm5.0
+```
