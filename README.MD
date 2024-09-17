@@ -32,12 +32,12 @@ game-vision-aid/
 ├──     └── requirements.txt              # AMD List of required Python packages
 ├── banner folder                         # Banner Image PNG
 ├── models/                               # Where the models go
-│   └── fn_v5.pt                          # Custom YOLOv5 model (if available)
-│    └── model_v5s.pt                     # Custom YOLOv5 model (if available)
-│    └── fn_v5v5480480Half.onnx           # Custom ONNX model (if available) nvidia gpu 2060 super
-│    └── model_fn_v5v5320320Half.onnx     # Custom ONNX model (if available) nvidia gpu 2060 super
-│    └── model_v5sv5320320Half.onnx       # Custom ONNX model (if available) nvidia gpu 2060 super
-│    └── model_v5sv5480480Half.onnx       # Custom ONNX model (if available) nvidia gpu 2060 super
+├──   └── fn_v5.pt                        # Custom YOLOv5 model (if available)
+├──   └── model_v5s.pt                    # Custom YOLOv5 model (if available)
+├──   └── fn_v5v5480480Half.onnx          # Custom ONNX model (if available) nvidia gpu 2060 super
+├──   └── model_fn_v5v5320320Half.onnx    # Custom ONNX model (if available) nvidia gpu 2060 super
+├──   └── model_v5sv5320320Half.onnx      # Custom ONNX model (if available) nvidia gpu 2060 super
+├──   └── model_v5sv5480480Half.onnx      # Custom ONNX model (if available) nvidia gpu 2060 super
 ├──  Export-Models                        # Export Models Folder
 ├──    └── models                         # part of the exporting process
 ├──    └── ultralytics1/utils             # ultralytics/utils
@@ -45,7 +45,7 @@ game-vision-aid/
 ├──    └── export.py                      # export script
 ├──    └── update_ultralytics.bat         # update ultralytics batchfile
 ├── src/                                  # Part of RUST Application
-│   └── main.rs                           # Part of RUST Application
+├──   └── main.rs                         # Part of RUST Application
 ├── .gitignore                            # gitignore
 ├── CODE_OF_CONDUCT.md                    # CODE_OF_CONDUCT.md
 ├── Cargo.lock                            # Part of RUST Application
