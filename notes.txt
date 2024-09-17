@@ -34,6 +34,8 @@ will be adding the overlay.py into code
 **created a readme.md for amd gpu users in the AMD GPU ONLY folder
 - it is also in the main readme.md with the rest of the other
 
+**updated the readme.mds 
+
 
 **future updates 
  - support for YOLO v8
