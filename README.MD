@@ -39,7 +39,11 @@ game-vision-aid/
 │    └── model_v5sv5320320Half.onnx       # Custom ONNX model (if available) nvidia gpu 2060 super
 │    └── model_v5sv5480480Half.onnx       # Custom ONNX model (if available) nvidia gpu 2060 super
 ├──  Export-Models                        # Export Models Folder
-├──    └── models                         # 
+├──    └── models                         # part of the exporting process
+├──    └── ultralytics1/utils             # ultralytics/utils
+├──    └── utils                          # utils folder
+├──    └── export.py                      # export script
+├──    └── update_ultralytics.bat         # update ultralytics batchfile
 ├── src/                                  # Part of RUST Application
 │   └── main.rs                           # Part of RUST Application
 ├── .gitignore                            # gitignore
