@@ -6,6 +6,7 @@
 ## READ EVERYTHING CAREFULLY
 - **Including**: `Readme.md` , `License` , `Code_of_Conduct.md` , `Security.md`. 
 
+### FOR AMD GPU USERS
 
 # 🎮 GameVisionAid
 
