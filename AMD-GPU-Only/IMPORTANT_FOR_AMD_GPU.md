@@ -15,7 +15,7 @@ If you have an **AMD GPU**, follow the steps below to set up DirectML support fo
 
    
 2. `CD` the `export.pt` in `CMD.exe`
-3. If you want to `CD` the `export.py` in the `models` folder you can so you can keep track of your models
+3. If you want to `CD` the `export.py` in the `models` folder you can so you can keep track of your [models](https://github.com/FNBUBBLES420-ORG/game-vision-aid/tree/main/models)
 4. `models` folder is in the `root in the main directory of the repo` 
 - type the following command:
 ```
