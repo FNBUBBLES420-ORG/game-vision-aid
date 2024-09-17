@@ -2,11 +2,10 @@
   <img src="https://github.com/FNBUBBLES420-ORG/game-vision-aid/blob/main/banner/Game_Vision_Aid.png" alt="Game Vision Aid Banner" width="400"/>
 </p>
 
+# FOR AMD GPU USERS
 
 ## READ EVERYTHING CAREFULLY
 - **Including**: `Readme.md` , `License` , `Code_of_Conduct.md` , `Security.md`. 
-
-### FOR AMD GPU USERS
 
 # 🎮 GameVisionAid
 
