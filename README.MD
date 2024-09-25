@@ -20,6 +20,11 @@ Click the link to read [**Instructions**](https://www.gitprojects.fnbubbles420.o
 - make sure to check out the rest of the server
 **[Discord Link](https://discord.gg/bjbmWaP5p8)**
 
+## Support the Project ⭐
+
+If you find this project useful, please give it a star! Your support is appreciated and helps keep the project growing. 🌟
+
+
 ## 📂 Project Structure
 
 ```
