@@ -6,7 +6,7 @@
 - fork the repo if you want to contribute ONLY!!!
 - make a pull request
 - there are 5 branches - use `patch-1`
-- trying to get the live feed to work properly - shows up multiple times
+- trying to get the live feed to work properly - (shows up multiple times, i will double check)
 - trying to get the visual colors to work properly 
 
 #### if you find anything else, make a notes-2.txt.
