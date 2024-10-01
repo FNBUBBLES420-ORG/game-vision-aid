@@ -1,5 +1,4 @@
 pip==23.3
 Flask==3.0.3
 gunicorn==23.0.0
-werkzeug==3.0.1  # not directly required, pinned by Snyk to avoid a vulnerability
-
+Werkzeug==3.0.3  # Updated to patch the vulnerability
