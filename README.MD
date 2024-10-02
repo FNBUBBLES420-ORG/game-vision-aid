@@ -61,6 +61,7 @@ game-vision-aid/
 ├── Cargo.toml                            # Part of RUST Application
 ├── Contact.md                            # Contact
 ├── LICENSE                               # LICENSE
+├── List-of-Colors.md                     # List of colors for the Bounding Boxes
 ├── README.md                             # Project documentation
 ├── SECURITY.md                           # Security documentation
 ├── config-launcher.bat                   # config-launcher batchfile to launches config.py in the root directory of folder
