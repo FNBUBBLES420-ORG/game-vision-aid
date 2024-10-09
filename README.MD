@@ -18,7 +18,7 @@ Click the link to read [**Instructions**](https://www.gitprojects.fnbubbles420.o
 ## Discord Link
 - head to `game-vision-aid` channel if you need help
 - make sure to check out the rest of the server
-**[Discord Link](https://discord.gg/bjbmWaP5p8)**
+# **[Discord Link](https://discord.com/invite/8kbgcEugQu)**
 
 ## Support the Project ⭐
 
