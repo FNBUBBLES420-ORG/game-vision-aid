@@ -6,7 +6,7 @@ onnxruntime
 pandas
 numpy
 cupy-cuda118
-gitpython==3.1.43
+gitpython  # Use the latest version
 bettercam
 colorama
 requests
