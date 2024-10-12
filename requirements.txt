@@ -5,7 +5,7 @@ torchaudio==2.4.1+cu118
 onnxruntime
 pandas
 numpy
-cupy-cuda118
+cupy-cuda11x
 gitpython  # Use the latest version
 bettercam
 colorama
