@@ -75,7 +75,6 @@ game-vision-aid/
 ├── install_python.bat                    # Python 3.11.6 Batchfile
 ├── install_pytorch.bat                   # Pytorch Build wheel for the script GPU
 ├── install_pytorch_cpu_only.bat          # Pytorch Build for CPU 
-├── main-launcher.bat                     # main-launcher batchfile launches the main.py in the root directory of folder
 ├── main.py                               # Main script file
 ├── model_v5s.pt                          # pt file goes in modelS folder
 ├── model_v5sv5480480Half.onnx            # onnx file goes in modelS folder
