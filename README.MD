@@ -65,7 +65,7 @@ game-vision-aid/
 ├── Cargo.lock                            # Part of RUST Application
 ├── Cargo.toml                            # Part of RUST Application
 ├── Contact.md                            # Contact
-├── LICENSE                               # LICENSE
+├── LICENSE.md                            # LICENSE
 ├── List-of-Colors.md                     # List of colors for the Bounding Boxes
 ├── README.md                             # Project documentation
 ├── SECURITY.md                           # Security documentation
