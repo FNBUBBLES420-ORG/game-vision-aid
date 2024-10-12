@@ -74,10 +74,10 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-echo Installing gitpython==3.1.43...
-pip install gitpython==3.1.43
+echo Installing gitpython...
+pip install gitpython
 if %errorlevel% neq 0 (
-    echo Failed to install gitpython==3.1.43
+    echo Failed to install gitpython
     pause
     exit /b 1
 )
