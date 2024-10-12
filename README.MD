@@ -69,7 +69,6 @@ game-vision-aid/
 ├── List-of-Colors.md                     # List of colors for the Bounding Boxes
 ├── README.md                             # Project documentation
 ├── SECURITY.md                           # Security documentation
-├── config-launcher.bat                   # config-launcher batchfile to launches config.py in the root directory of folder
 ├── config.py                             # Configuration file 
 ├── cudnn_instructions.js                 # Instructions in JavaScript
 ├── cupy_cuda11x.bat                      # Cupy Cuda 11x Batchfile
