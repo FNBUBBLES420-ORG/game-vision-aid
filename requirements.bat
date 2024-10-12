@@ -1,127 +1,79 @@
 @echo off
-setlocal
 
-:: Check if Python is installed
-python --version >nul 2>&1
-if %errorlevel% neq 0 (
-    echo Python is not installed. Please install Python 3.11.6 or later.
-    pause
-    exit /b 1
-)
-
-:: Install each package separately
-echo Installing opencv-python...
+echo Installing opencv-python
 pip install opencv-python
-if %errorlevel% neq 0 (
-    echo Failed to install opencv-python
-    pause
-    exit /b 1
-)
+echo Press Enter to continue the rest of the install
+pause
 
-echo Installing torch==2.4.1+cu118...
+echo Installing torch==2.4.1+cu118
 pip install torch==2.4.1+cu118
-if %errorlevel% neq 0 (
-    echo Failed to install torch==2.4.1+cu118
-    pause
-    exit /b 1
-)
+echo Press Enter to continue the rest of the install
+pause
 
-echo Installing torchvision==0.19.1+cu118...
+echo Installing torchvision==0.19.1+cu118
 pip install torchvision==0.19.1+cu118
-if %errorlevel% neq 0 (
-    echo Failed to install torchvision==0.19.1+cu118
-    pause
-    exit /b 1
-)
+echo Press Enter to continue the rest of the install
+pause
 
-echo Installing torchaudio==2.4.1+cu118...
+echo Installing torchaudio==2.4.1+cu118
 pip install torchaudio==2.4.1+cu118
-if %errorlevel% neq 0 (
-    echo Failed to install torchaudio==2.4.1+cu118
-    pause
-    exit /b 1
-)
+echo Press Enter to continue the rest of the install
+pause
 
-echo Installing onnxruntime...
+echo Installing onnxruntime
 pip install onnxruntime
-if %errorlevel% neq 0 (
-    echo Failed to install onnxruntime
-    pause
-    exit /b 1
-)
+echo Press Enter to continue the rest of the install
+pause
 
-echo Installing requests...
-pip install requests
-if %errorlevel% neq 0 (
-    echo Failed to install requests
-    pause
-    exit /b 1
-)
-
-echo Installing pandas...
+echo Installing pandas
 pip install pandas
-if %errorlevel% neq 0 (
-    echo Failed to install pandas
-    pause
-    exit /b 1
-)
+echo Press Enter to continue the rest of the install
+pause
 
-echo Installing numpy...
+echo Installing numpy
 pip install numpy
-if %errorlevel% neq 0 (
-    echo Failed to install numpy
-    pause
-    exit /b 1
-)
+echo Press Enter to continue the rest of the install
+pause
 
-echo Installing gitpython...
+echo Installing cupy-cuda11x
+pip install cupy-cuda11x
+echo Press Enter to continue the rest of the install
+pause
+
+echo Installing gitpython
 pip install gitpython
-if %errorlevel% neq 0 (
-    echo Failed to install gitpython
-    pause
-    exit /b 1
-)
+echo Press Enter to continue the rest of the install
+pause
 
-echo Installing bettercam...
+echo Installing bettercam
 pip install bettercam
-if %errorlevel% neq 0 (
-    echo Failed to install bettercam
-    pause
-    exit /b 1
-)
+echo Press Enter to continue the rest of the install
+pause
 
-echo Installing colorama...
+echo Installing colorama
 pip install colorama
-if %errorlevel% neq 0 (
-    echo Failed to install colorama
-    pause
-    exit /b 1
-)
+echo Press Enter to continue the rest of the install
+pause
 
-echo Installing ultralytics...
+echo Installing requests
+pip install requests
+echo Press Enter to continue the rest of the install
+pause
+
+echo Installing ultralytics
 pip install ultralytics
-if %errorlevel% neq 0 (
-    echo Failed to install ultralytics
-    pause
-    exit /b 1
-)
+echo Press Enter to continue the rest of the install
+pause
 
-echo Installing customtkinter...
+echo Installing customtkinter
 pip install customtkinter
-if %errorlevel% neq 0 (
-    echo Failed to install customtkinter
-    pause
-    exit /b 1
-)
+echo Press Enter to continue the rest of the install
+pause
 
-echo Installing pywin32...
+echo Installing pywin32
 pip install pywin32
-if %errorlevel% neq 0 (
-    echo Failed to install pywin32
-    pause
-    exit /b 1
-)
+echo Press Enter to continue the rest of the install
+pause
 
 echo All packages installed successfully.
-endlocal
 pause
