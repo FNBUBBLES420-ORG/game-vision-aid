@@ -1,6 +1,6 @@
 import sys
 import numpy as np
-import cupy as cp  # Importing CuPy for GPU-accelerated operations
+import cupy as cp  # Importing CuPy for GPU-accelerated operations (NVIDIA GPU)
 import cv2
 import torch
 import onnxruntime as ort
@@ -13,7 +13,6 @@ import customtkinter as ctk
 import win32api
 import win32con
 import win32gui
-
 
 # Enhanced BetterCam Initialization with multiple device support, error handling
 class BetterCamEnhanced:
@@ -60,72 +59,30 @@ class BetterCamEnhanced:
         except Exception as e:
             print(Fore.RED + f"Error stopping BetterCam: {e}")
 
-
-# Overlay class from overlay2.py
-class Overlay:
-    def __init__(self, width=320, height=320, alpha=0.75):
-        self.overlay = None
-        self.canvas = None
-        self.width = width
-        self.height = height
-        self.alpha = alpha  # Alpha level can be passed in
-
-    def set_clickthrough(self, hwnd):
-        try:
-            styles = win32con.WS_EX_LAYERED | win32con.WS_EX_TRANSPARENT
-            win32gui.SetWindowLong(hwnd, win32con.GWL_EXSTYLE, styles)
-            win32gui.SetLayeredWindowAttributes(hwnd, 0, 255, 0x00000001)
-        except Exception as e:
-            print(f"Error setting clickthrough: {e}")
-
-    def toggle(self):
-        if self.overlay is None:
-            try:
-                left = int(win32api.GetSystemMetrics(0) / 2 - self.width / 2)
-                top = int(win32api.GetSystemMetrics(1) / 2 - self.height / 2)
-                self.overlay = ctk.CTkToplevel()
-                self.overlay.geometry(f"{self.width}x{self.height}+{left}+{top}")
-                self.overlay.overrideredirect(True)
-                self.overlay.config(bg='#000000')
-                self.overlay.attributes("-alpha", self.alpha)
-                self.overlay.wm_attributes("-topmost", 1)
-                self.overlay.attributes('-transparentcolor', '#000000', '-topmost', 1)
-                self.overlay.resizable(False, False)
-                self.set_clickthrough(self.overlay.winfo_id())
-                self.canvas = ctk.CTkCanvas(self.overlay, width=self.width, height=self.height, bg='black', highlightbackground='white')
-                self.canvas.pack()
-            except Exception as e:
-                print(f"Error creating overlay: {e}")
-        else:
-            self.overlay.destroy()
-            self.canvas.destroy()
-            self.overlay = None
-            self.canvas = None
-
-    def update(self, coordinates):
-        if self.overlay is not None:
-            self.overlay.update()
-            if self.canvas is not None:
-                self.canvas.delete("all")
-                if len(coordinates):
-                    for coord in coordinates:
-                        x_min, y_min, x_max, y_max = map(int, coord)
-                        self.canvas.create_rectangle(x_min, y_min, x_max, y_max, outline="white", width=2)
-
-
+# Model loading function with support for both CUDA and DirectML
 def load_model(model_path=None):
     try:
         model_path = model_path or (config.torchModelPath if config.modelType == 'torch' else config.onnxModelPath)
         start_time = time.time()
+
+        # Check for PyTorch model (.pt)
         if model_path.endswith('.pt'):
             model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=True)
             model_type = 'torch'
+
+        # Check for ONNX model (.onnx)
         elif model_path.endswith('.onnx'):
-            model = ort.InferenceSession(model_path)
+            # Try to load with DirectML if CUDA is not available
+            if torch.cuda.is_available():
+                providers = ['CUDAExecutionProvider']
+            else:
+                providers = ['DmlExecutionProvider']
+            model = ort.InferenceSession(model_path, providers=providers)
             model_type = 'onnx'
         else:
             model = torch.hub.load('ultralytics/yolov5', model_path, force_reload=True)
             model_type = 'torch'
+
         end_time = time.time()
         print(f"Model loaded in {end_time - start_time:.2f} seconds")
         return model, model_type
@@ -133,110 +90,53 @@ def load_model(model_path=None):
         print(f"Error loading model: {e}")
         sys.exit(1)
 
-
-def capture_screen(camera, region=None):
-    try:
-        frame = camera.grab_frame()
-        if frame is not None:
-            frame_bgr = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
-            return frame_bgr
-        return None
-    except Exception as e:
-        print(f"Error capturing screen: {e}")
-        return None
-
-
+# Object detection function with CUDA and DirectML support
 def detect_objects(model, model_type, frame, device):
     try:
         if model_type == 'torch':
-            # Use cupy for tensor conversion if necessary
+            # Use cupy for tensor conversion if necessary (CUDA)
             frame_tensor = torch.from_numpy(cp.asnumpy(frame)).to(device)
             results = model(frame_tensor)
+
         elif model_type == 'onnx':
             frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             frame_resized = cv2.resize(frame_rgb, (config.screenWidth, config.screenHeight))
-            input_tensor = frame_resized.astype(cp.float32)
-            input_tensor = cp.expand_dims(input_tensor, axis=0).transpose(0, 3, 1, 2)
+            input_tensor = frame_resized.astype(np.float32)  # Removed cp for non-CUDA GPUs
+            input_tensor = np.expand_dims(input_tensor, axis=0).transpose(0, 3, 1, 2)
             input_tensor /= 255.0
-            outputs = model.run(None, {model.get_inputs()[0].name: cp.asnumpy(input_tensor)})
+
+            # Use GPU-accelerated tensor processing with DirectML or CUDA
+            outputs = model.run(None, {model.get_inputs()[0].name: input_tensor})
+
             results = outputs[0]
         return results
     except Exception as e:
         print(f"Error during detection: {e}")
         return None
 
-
-def draw_bounding_boxes(frame, results, color, model_type):
-    if results is not None:
-        if model_type == 'torch':
-            for i, (xmin, ymin, xmax, ymax, conf, cls) in enumerate(results.xyxy[0]):
-                if conf > config.confidenceThreshold:
-                    cv2.rectangle(frame, (int(xmin), int(ymin)), (int(xmax), int(ymax)), color, 2)
-        elif model_type == 'onnx':
-            for i in range(len(results)):
-                if len(results[i]) >= 5 and results[i][4] > config.confidenceThreshold:
-                    xmin, ymin, xmax, ymax, conf = results[i][:5]
-                    cv2.rectangle(frame, (int(xmin), int(ymin)), (int(xmax), int(ymax)), color, 2)
-    return frame
-
-
-def get_color_from_input():
-color_dict = {
-    # High-contrast, colorblind-friendly and visually impaired-friendly colors
-    "red": (0, 0, 255),         # Good contrast with green, blue, yellow
-    "green": (0, 255, 0),       # High contrast with red, magenta
-    "blue": (255, 0, 0),        # Standard blue
-    "yellow": (0, 255, 255),    # High contrast, suitable for colorblindness
-    "cyan": (255, 255, 0),      # Good contrast with red, blue
-    "magenta": (255, 0, 255),   # High contrast
-    "black": (0, 0, 0),         # High contrast with all light colors
-    "white": (255, 255, 255),   # High contrast with dark colors
-
-    # Colorblind-friendly and high contrast shades
-    "dark red": (139, 0, 0),    # Distinguishable from green, easier for colorblind users
-    "orange": (0, 165, 255),    # Strong contrast with most colors
-    "light blue": (173, 216, 230), # Easily distinguishable from green, suitable for colorblind
-    "purple": (128, 0, 128),    # High contrast, distinguishable for most users
-    "brown": (165, 42, 42),     # Distinct and neutral color
-    "pink": (255, 182, 193),    # Good contrast, especially for colorblindness
-    "lime": (0, 255, 128),      # Bright color, good contrast with red and blue
-    "turquoise": (64, 224, 208),# Strong contrast with most shades
-    "navy": (0, 0, 128),        # High contrast for visual impairment
-    "gold": (255, 215, 0),      # Bright and distinguishable
-    "silver": (192, 192, 192),  # Neutral, high contrast with darker colors
-    "dark orange": (255, 140, 0), # High contrast and distinguishable
-    "indigo": (75, 0, 130),     # Deep color, good contrast with light shades
-    "teal": (0, 128, 128),      # Strong contrast, good for visual impairments
-    "olive": (128, 128, 0),     # Neutral, good for colorblind users
-    "maroon": (128, 0, 0),      # Distinct and high contrast
-    "sky blue": (135, 206, 235),# Bright and easily visible
-    "chartreuse": (127, 255, 0),# High contrast for most users
-}
-
-    while True:
-        color_input = input("Enter the overlay color (red, green, blue): ").strip().lower()
-        if color_input in color_dict:
-            return color_dict[color_input]
-        else:
-            print("Invalid color name. Please try again.")
-
-
+# Main function that sets up GPU support for both NVIDIA and AMD
 def main():
     init(autoreset=True)
     input("Make sure the game is running. Press Enter to continue...")
-    
+
+    # Determine if an NVIDIA (CUDA) or AMD (DirectML) GPU is available
     if torch.cuda.is_available():
         device = 'cuda'
-        print("CUDA-enabled GPU found. Using GPU.")
+        print("CUDA-enabled GPU found. Using NVIDIA GPU.")
     else:
-        device = 'cpu'
-        print("No CUDA-enabled GPU found. Using CPU.")
+        try:
+            # Check if DirectML for AMD GPUs is available
+            device = torch.device('dml')  # DirectML for PyTorch on AMD GPUs
+            print("Using AMD GPU with DirectML.")
+        except:
+            device = 'cpu'
+            print("No CUDA or DirectML GPU found. Using CPU.")
 
     camera = BetterCamEnhanced(target_fps=config.targetFPS, monitor_idx=config.monitorIdx)
     camera.start()
 
     model, model_type = load_model()
-    if model_type == 'torch':
+    if model_type == 'torch' and device != 'cpu':
         model = model.to(device)
 
     overlay = Overlay(width=config.overlayWidth, height=config.overlayHeight, alpha=config.overlayAlpha)
