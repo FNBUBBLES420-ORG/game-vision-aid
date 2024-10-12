@@ -76,4 +76,5 @@ echo Press Enter to continue the rest of the install
 pause
 
 echo All packages installed successfully.
+echo You May Now Close or Press Enter to Close CMD.exe
 pause
