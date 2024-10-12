@@ -46,7 +46,11 @@ coming soon
 
 still updating 
 
-
+- updated the requirements.txt
+- updated main.py to use both amd gpu and nvidia gpu 
+for amd gpu to use gpu of AMD users not cpu.
+- updated readme.md
+- updated Export-Models Folder
 
 ------------------------
 
