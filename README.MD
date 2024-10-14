@@ -29,6 +29,10 @@ Click the link to read [**Instructions**](https://www.gitprojects.fnbubbles420.o
 
 If you find this project useful, please give it a star! Your support is appreciated and helps keep the project growing. 🌟
 
+## Contact 
+
+**[Contact](https://github.com/FNBUBBLES420-ORG/game-vision-aid/blob/main/Contact.md)**
+
 
 ## 📂 Project Structure
 
@@ -536,10 +540,6 @@ Thanks to the developers of:
 - **[Yolo v5](https://github.com/ultralytics/yolov5)**
 
 ## 👨‍💻 Developed by [Bubbles The Dev](https://github.com/kernferm) - Making gaming more accessible for everyone!
-
-## Contact 
-
-[Contact](https://github.com/FNBUBBLES420-ORG/game-vision-aid/blob/main/Contact.md)
 
 ## ⚠️ Disclaimer
 
