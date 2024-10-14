@@ -537,6 +537,10 @@ Thanks to the developers of:
 
 ## 👨‍💻 Developed by [Bubbles The Dev](https://github.com/kernferm) - Making gaming more accessible for everyone!
 
+## Contact 
+
+[Contact](https://github.com/FNBUBBLES420-ORG/game-vision-aid/blob/main/Contact.md)
+
 ## ⚠️ Disclaimer
 
 `GameVisionAid` **is designed to assist visually impaired or color-blind gamers by enhancing visual cues in video games. It uses real-time object detection to create customizable overlays around enemy players, making it easier to identify and engage with them during gameplay.**
