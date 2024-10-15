@@ -58,3 +58,7 @@ for amd gpu to use gpu of AMD users not cpu.
  - support for YOLO v8
 
 
+----------------------------
+
+
+getting updated again soon 
