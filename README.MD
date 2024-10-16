@@ -9,7 +9,7 @@
 
 # **Including**: `Readme.md`, `License.md`, `Code_of_Conduct.md`, `Security.md`.
 
-- **[Contribute](https://github.com/KernFerm/game-vision-aid/blob/main/CONTRIBUTING.md)**
+### **[Contribute](https://github.com/KernFerm/game-vision-aid/blob/main/CONTRIBUTING.md)**
 
 </div>
 
