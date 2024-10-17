@@ -405,24 +405,74 @@ useCuda = True  # Enable CUDA support if available
 useDirectML = False  # Set to True to enable DirectML for AMD GPUs
 ```
 
-## How to Use config.py
-- **Remember to `SAVE` your `config.py` or from the `config-launcher.bat` settings then re start `## Usage Section` on the `readme.md`
-1. Open the `config.py` file.
+## How to Use `config.py`
 
-2. Set the `screenWidth` and `screenHeight` to match your preferred screen resolution.
+### Step-by-Step Instructions:
 
-3. Adjust `confidenceThreshold` to modify the object detection sensitivity (default is set to `0.5` for moderate confidence).
+1. **Open the `config.py` file:**
+   - Use any text editor to open the `config.py` file, or use the provided `config-launcher.bat` for convenience.
 
-4. Configure the `YOLO Model Settings` to specify whether you want to use the `PyTorch` or `ONNX` model.
+2. **Set Screen Resolution:**
+   - Adjust the `screenWidth` and `screenHeight` to match the resolution for your screen capture.
+   - Example (recommended settings): 
+     ```python
+     screenWidth = 480  
+     screenHeight = 480
+     ```
 
-5. Set the desired `targetFPS`, and if you have an NVIDIA GPU, ensure `useNvidiaGPU` is set to `True` for optimal performance.
+3. **Configure Object Detection Sensitivity:**
+   - Modify `confidenceThreshold` to adjust the sensitivity for object detection.
+   - A lower value will detect more objects (potentially with less accuracy), while a higher value will increase the confidence threshold.
+   - Example:
+     ```python
+     confidenceThreshold = 0.5  # Default moderate confidence
+     ```
 
-6. Customize the `boundingBoxColor` and `highlightColor` to match your preference for object detection overlays.
+4. **YOLO Model Settings:**
+   - Choose between `PyTorch`, `ONNX`, or `TensorRT` models by setting the `modelType` variable:
+     - `'torch'` for PyTorch models (`.pt`).
+     - `'onnx'` for ONNX models (`.onnx`).
+     - `'engine'` for TensorRT models (`.engine`).
 
-7. Save the changes, and the settings will automatically be applied when you run the program
+   - **Select the correct model path** by uncommenting the relevant lines for either YOLOv5 or YOLOv8, and set `modelType` appropriately.
+     - Example:
+       ```python
+       modelType = 'onnx'  # Set to 'torch' for PyTorch or 'engine' for TensorRT models.
+       torchModelPath = 'models/fn_v5.pt'  # YOLOv5 PyTorch model path (.pt)
+       onnxModelPath = 'models/fn_v5.onnx'  # YOLOv5 ONNX model path (.onnx)
+       ```
 
-- Use the `config-launcher.bat` to open the `config.py`
-- Make `sure` to run the `config-launcher.bat` in the same folder as the `config.py` 
+5. **Adjust Target FPS:**
+   - Set your target frames per second (FPS) for screen capture performance:
+     ```python
+     targetFPS = 60  # Example: 60 FPS
+     ```
+
+6. **Enable NVIDIA GPU Support:**
+   - If you have an NVIDIA GPU and want to enable CUDA support for faster processing, ensure `useNvidiaGPU` is set to `True`.
+     ```python
+     useNvidiaGPU = True  # Enable GPU acceleration
+     ```
+
+7. **Customize Bounding Box Colors:**
+   - You can change the color of the bounding boxes used for object detection by modifying the `boundingBoxColor` and `highlightColor` variables.
+     - Example:
+       ```python
+       boundingBoxColor = (0, 255, 0)  # Green bounding boxes
+       highlightColor = (0, 0, 255)  # Red for highlighted objects
+       ```
+
+8. **Save Your Changes:**
+   - Once you have updated the `config.py` file, save it.
+   - These changes will automatically take effect when you run the program.
+
+### Additional Tips:
+- **Use the `config-launcher.bat`** to quickly open and modify your `config.py`.
+- Make sure to **run `config-launcher.bat`** in the same folder as `config.py` to ensure it works correctly.
+- After updating your configuration, **restart the program** or follow any specific instructions in the `## Usage Section` of your `readme.md` file.
+
+This setup ensures you can customize your model and screen capture settings efficiently while making the most out of your system's GPU capabilities.
+
 
 # Color Dictionary
 
