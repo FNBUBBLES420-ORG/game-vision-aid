@@ -350,6 +350,15 @@ This should properly set up CUDA 11.8 to be used for your projects via `cmd.exe`
 - Ensure that your GPU drivers are up to date.
 - You can check CUDA compatibility with other software (e.g., PyTorch or TensorFlow) by referring to their documentation for specific versions supported by CUDA 11.8.
 
+```
+import torch
+
+print(torch.cuda.is_available())  # This will return True if CUDA is available
+print(torch.version.cuda)  # This will print the CUDA version being used
+print(torch.cuda.get_device_name(0))  # This will print the name of the GPU, e.g., 'NVIDIA GeForce RTX GPU Model'
+```
+run the `get_device.py` to see if you installed it correctly 
+
 ---
 
 ## ⚙️ Configuration: `config.py`
