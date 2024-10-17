@@ -79,6 +79,7 @@ game-vision-aid/
 ├── config.py                             # Configuration file 
 ├── cudnn_instructions.js                 # Instructions in JavaScript
 ├── cupy_cuda11x.bat                      # Cupy Cuda 11x Batchfile
+├── get_device.py                      # Lets you know if you installed CUDA
 ├── install_python.bat                    # Python 3.11.6 Batchfile
 ├── install_pytorch.bat                   # Pytorch Build wheel for the script GPU
 ├── install_pytorch_cpu_only.bat          # Pytorch Build for CPU 
