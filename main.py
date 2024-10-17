@@ -59,7 +59,7 @@ class BetterCamEnhanced:
         except Exception as e:
             print(Fore.RED + f"Error stopping BetterCam: {e}")
 
-# Model loading function with support for both CUDA and DirectML
+# Model loading function with support for both YOLOv5 and YOLOv8, CUDA, and DirectML
 def load_model(model_path=None):
     try:
         model_path = model_path or (config.torchModelPath if config.modelType == 'torch' else config.onnxModelPath)
@@ -67,7 +67,10 @@ def load_model(model_path=None):
 
         # Check for PyTorch model (.pt)
         if model_path.endswith('.pt'):
-            model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=True)
+            if 'yolov8' in model_path.lower():
+                model = torch.hub.load('ultralytics/yolov8', 'custom', path=model_path, force_reload=True)
+            else:
+                model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=True)
             model_type = 'torch'
 
         # Check for ONNX model (.onnx)
@@ -79,9 +82,16 @@ def load_model(model_path=None):
                 providers = ['DmlExecutionProvider']
             model = ort.InferenceSession(model_path, providers=providers)
             model_type = 'onnx'
+
+        # Check for TensorRT model (.engine)
+        elif model_path.endswith('.engine'):
+            # TensorRT model loading logic should be added here
+            print(Fore.YELLOW + "TensorRT model detected. Ensure the correct environment for TensorRT is set up.")
+            model = None  # Placeholder for TensorRT engine loading
+            model_type = 'engine'
+
         else:
-            model = torch.hub.load('ultralytics/yolov5', model_path, force_reload=True)
-            model_type = 'torch'
+            raise ValueError(f"Unsupported model format for {model_path}")
 
         end_time = time.time()
         print(f"Model loaded in {end_time - start_time:.2f} seconds")
@@ -109,6 +119,11 @@ def detect_objects(model, model_type, frame, device):
             outputs = model.run(None, {model.get_inputs()[0].name: input_tensor})
 
             results = outputs[0]
+
+        elif model_type == 'engine':
+            print(Fore.YELLOW + "TensorRT inference is not yet implemented. Placeholder code for TensorRT.")
+            results = None  # Placeholder for TensorRT inference results
+
         return results
     except Exception as e:
         print(f"Error during detection: {e}")
@@ -150,9 +165,9 @@ def main():
             if frame is not None:
                 results = detect_objects(model, model_type, frame, device)
                 frame = draw_bounding_boxes(frame, results, overlay_color, model_type)
-                cv2.imshow("YOLOv5 Detection", frame)
+                cv2.imshow("YOLO Detection", frame)
 
-                if results:
+                if results and model_type == 'torch':
                     coordinates = [[xmin, ymin, xmax, ymax] for xmin, ymin, xmax, ymax, _, _ in results.xyxy[0]]
                     overlay.update(coordinates)  # Update the overlay with bounding box coordinates
 
