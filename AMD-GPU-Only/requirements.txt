@@ -5,7 +5,7 @@ torchaudio  # Let pip choose the compatible version
 onnxruntime
 pandas
 numpy
-gitpython==3.1.43  # Correct latest version of GitPython
+gitpython
 bettercam
 colorama
 requests
