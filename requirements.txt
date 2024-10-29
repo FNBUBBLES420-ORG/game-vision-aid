@@ -1,6 +1,6 @@
 opencv-python
 torch==2.5.0
-torchvision==0.20.0+cu118
+torchvision==0.20.1
 torchaudio==2.5.0
 onnxruntime
 pandas
