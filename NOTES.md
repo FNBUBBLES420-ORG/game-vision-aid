@@ -40,6 +40,8 @@ It is only an overlay that displays boxes around the enemy for enhanced visuals 
 ### Future Updates
 - **Support for YOLO v8**
 
+### updates 
+- now uses `PyTorch 2.5.0+cu118+cu118, TorchVision 0.20.0+cu118, and Torchaudio 2.5.0+cu118+cu118 with CUDA 11.8 support`
 ---
 
 **COMING SOON!**
