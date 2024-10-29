@@ -10,7 +10,7 @@ if %errorlevel% neq 0 (
 
 echo Installing PyTorch, TorchVision, and Torchaudio...
 
-pip3 install torch==2.5.0+cu118 torchvision==0.20.0+cu118 torchaudio==2.5.0+cu118 --index-url https://download.pytorch.org/whl/cu118
+pip3 install torch==2.5.1+cu118 torchvision==0.20.1+cu118 torchaudio==2.5.1+cu118 --index-url https://download.pytorch.org/whl/cu118
 
 if %errorlevel% neq 0 (
     echo Installation failed.
