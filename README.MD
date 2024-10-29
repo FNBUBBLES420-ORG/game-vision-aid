@@ -37,7 +37,7 @@ If you find this project useful, please give it a star! Your support is apprecia
 
 **[Contact](https://github.com/FNBUBBLES420-ORG/game-vision-aid/blob/main/Contact.md)**
 
-### [Coming Soong - Assistive AimGuide](https://github.com/FNBUBBLES420-ORG/Assistive-AimGuide) 
+### [Coming Soon - Assistive AimGuide](https://github.com/FNBUBBLES420-ORG/Assistive-AimGuide) 
 
 ## 📂 Project Structure
 
