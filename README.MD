@@ -5,7 +5,7 @@
 
 <div align="center">
 
-# - 🚨COMING SOON🚨
+# 🚨COMING SOON🚨
 
 
 # **🛑** ***READ EVERYTHING CAREFULLY !!!*** **🛑**
