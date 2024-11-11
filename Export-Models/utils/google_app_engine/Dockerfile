@@ -1,25 +1,27 @@
-FROM gcr.io/google-appengine/python
+# Use a slim official Python image for better control over Python version and size
+FROM python:3.10-slim
 
-# Create a virtualenv for dependencies. This isolates these packages from
-# system-level packages.
-# Use -p python3 or -p python3.7 to select python version. Default is version 2.
-RUN virtualenv /env -p python3
+# Set up environment variables for the virtual environment
+ENV VIRTUAL_ENV=/env
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-# Setting these environment variables are the same as running
-# source /env/bin/activate.
-ENV VIRTUAL_ENV /env
-ENV PATH /env/bin:$PATH
+# Install system dependencies and required libraries
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libopencv-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install -y python-opencv
+# Copy the application's requirements.txt and install Python dependencies
+COPY requirements.txt /app/requirements.txt
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r /app/requirements.txt
 
-# Copy the application's requirements.txt and run pip to install all
-# dependencies into the virtualenv.
-ADD requirements.txt /app/requirements.txt
-RUN pip install -r /app/requirements.txt
+# Copy the application source code
+COPY . /app
+WORKDIR /app
 
-# Add the application source code.
-ADD . /app
+# Expose the port used by Gunicorn
+EXPOSE $PORT
 
-# Run a WSGI server to serve the application. gunicorn must be declared as
-# a dependency in requirements.txt.
-CMD gunicorn -b :$PORT main:app
+# Run Gunicorn to serve the application (ensure gunicorn is in requirements.txt)
+CMD ["gunicorn", "-b", ":$PORT", "main:app"]
