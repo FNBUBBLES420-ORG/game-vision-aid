@@ -1,38 +1,3 @@
-Skip to content
-Navigation Menu
-FNBUBBLES420-ORG
-/
-Assistive-AimGuide
-
-Type / to search
-Code
-Issues
-Pull requests
-Discussions
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-BreadcrumbsAssistive-AimGuide/main_tensorrt_script/dist/ultralytics1/utils/docker
-/Dockerfile
-Go to file
-t
-Latest commit
-KernFerm
-KernFerm
-Update Dockerfile
-a8a3345
- · 
-49 minutes ago
-History
-File metadata and controls
-
-Code
-
-Blame
-40 lines (30 loc) · 1.41 KB
 # Start with an official CUDA base image that is compatible with PyTorch 2.5.1
 FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu20.04
 
@@ -73,4 +38,3 @@ ENV OMP_NUM_THREADS=1
 # Usage Examples (commented for reference)
 # To build: docker build -t my-yolov5-image .
 # To run: docker run -it --ipc=host --gpus all my-yolov5-image
-Assistive-AimGuide/main_tensorrt_script/dist/ultralytics1/utils/docker/Dockerfile at main · FNBUBBLES420-ORG/Assistive-AimGuide
