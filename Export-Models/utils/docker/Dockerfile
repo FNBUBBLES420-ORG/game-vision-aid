@@ -2,72 +2,52 @@
 # Builds ultralytics/yolov5:latest image on DockerHub https://hub.docker.com/r/ultralytics/yolov5
 # Image is CUDA-optimized for YOLOv5 single/multi-GPU training and inference
 
-# Start FROM PyTorch image https://hub.docker.com/r/pytorch/pytorch
-FROM pytorch/pytorch:2.0.0-cuda11.7-cudnn8-runtime
+# Start FROM the latest compatible PyTorch image
+FROM pytorch/pytorch:2.1.0-cuda11.8-cudnn8-runtime
 
-# Downloads to user config dir
-ADD https://ultralytics.com/assets/Arial.ttf https://ultralytics.com/assets/Arial.Unicode.ttf /root/.config/Ultralytics/
-
-# Install linux packages
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt update
-RUN TZ=Etc/UTC apt install -y tzdata
-RUN apt install --no-install-recommends -y gcc git zip curl htop libgl1 libglib2.0-0 libpython3-dev gnupg
-# RUN alias python=python3
-
-# Security updates
-# https://security.snyk.io/vuln/SNYK-UBUNTU1804-OPENSSL-3314796
-RUN apt upgrade --no-install-recommends -y openssl
-
-# Create working directory
-RUN rm -rf /usr/src/app && mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-# Copy contents
-COPY . /usr/src/app
-
-# Install pip packages
-COPY requirements.txt .
-RUN python3 -m pip install --upgrade pip wheel
-RUN pip install --no-cache -r requirements.txt albumentations comet gsutil notebook \
-    coremltools onnx onnx-simplifier onnxruntime 'openvino-dev>=2023.0'
-    # tensorflow tensorflowjs \
-
-# Set environment variables
+# Set up environment variables for non-interactive installations
+ENV DEBIAN_FRONTEND=noninteractive
 ENV OMP_NUM_THREADS=1
 
-# Cleanup
-ENV DEBIAN_FRONTEND teletype
+# Install system dependencies and set timezone
+RUN apt update && \
+    apt install -y --no-install-recommends \
+    tzdata gcc git zip curl htop libgl1 libglib2.0-0 libpython3-dev gnupg && \
+    ln -fs /usr/share/zoneinfo/Etc/UTC /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata && \
+    apt upgrade -y openssl && \
+    rm -rf /var/lib/apt/lists/*
 
+# Download custom fonts
+ADD https://ultralytics.com/assets/Arial.ttf /root/.config/Ultralytics/
+ADD https://ultralytics.com/assets/Arial.Unicode.ttf /root/.config/Ultralytics/
 
-# Usage Examples -------------------------------------------------------------------------------------------------------
+# Create working directory and copy application files
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY . /usr/src/app
 
-# Build and Push
-# t=ultralytics/yolov5:latest && sudo docker build -f utils/docker/Dockerfile -t $t . && sudo docker push $t
-
-# Pull and Run
-# t=ultralytics/yolov5:latest && sudo docker pull $t && sudo docker run -it --ipc=host --gpus all $t
-
-# Pull and Run with local directory access
-# t=ultralytics/yolov5:latest && sudo docker pull $t && sudo docker run -it --ipc=host --gpus all -v "$(pwd)"/datasets:/usr/src/datasets $t
-
-# Kill all
-# sudo docker kill $(sudo docker ps -q)
-
-# Kill all image-based
-# sudo docker kill $(sudo docker ps -qa --filter ancestor=ultralytics/yolov5:latest)
-
-# DockerHub tag update
-# t=ultralytics/yolov5:latest tnew=ultralytics/yolov5:v6.2 && sudo docker pull $t && sudo docker tag $t $tnew && sudo docker push $tnew
+# Copy requirements file and install Python dependencies
+COPY requirements.txt .
+RUN python3 -m pip install --upgrade pip wheel && \
+    pip install --no-cache-dir -r requirements.txt albumentations comet gsutil notebook \
+    coremltools onnx onnx-simplifier onnxruntime 'openvino-dev>=2023.0'
 
 # Clean up
-# sudo docker system prune -a --volumes
+ENV DEBIAN_FRONTEND=teletype
+
+# Usage Examples (commented for reference)
+# Build and Push
+# t=ultralytics/yolov5:latest && docker build -t $t . && docker push $t
+
+# Pull and Run
+# t=ultralytics/yolov5:latest && docker pull $t && docker run -it --ipc=host --gpus all $t
+
+# Pull and Run with local directory access
+# t=ultralytics/yolov5:latest && docker pull $t && docker run -it --ipc=host --gpus all -v "$(pwd)"/datasets:/usr/src/datasets $t
+
+# Clean up
+# docker system prune -a --volumes
 
 # Update Ubuntu drivers
 # https://www.maketecheasier.com/install-nvidia-drivers-ubuntu/
-
-# DDP test
-# python -m torch.distributed.run --nproc_per_node 2 --master_port 1 train.py --epochs 3
-
-# GCP VM from Image
-# docker.io/ultralytics/yolov5:latest
