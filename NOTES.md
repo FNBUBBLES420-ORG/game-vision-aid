@@ -48,4 +48,4 @@ It is only an overlay that displays boxes around the enemy for enhanced visuals 
 
 
 
-# RELEASE DATE 2026-27
+# OFFICIAL RELEASE DATE 2026-27
