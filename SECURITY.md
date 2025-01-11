@@ -8,7 +8,7 @@ currently being supported with security updates.
 Game-Vision-Aid
 | Version | Supported          |
 | ------- | ------------------ |
-| 0.8.0   | :white_check_mark: |
+| 0.8.2   | :white_check_mark: |
 ---------------------------------
 
 
