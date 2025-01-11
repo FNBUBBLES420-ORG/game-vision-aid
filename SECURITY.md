@@ -15,9 +15,9 @@ Game-Vision-Aid
 torch and torchvision torchaudio
 |                 Version | Supported          |
 | ----------------------- | ------------------ |
-| torch    2.5.0+cu118    | :white_check_mark: |
-| torchvision   0.20.0+cu118  | :white_check_mark: |
-| torchaudio    2.5.0+cu118  | :white_check_mark: |
+| torch    2.5.1+cu118    | :white_check_mark: |
+| torchvision   0.20.1+cu118  | :white_check_mark: |
+| torchaudio    2.5.1+cu118  | :white_check_mark: |
 
 ---------------------------------
 
