@@ -3,6 +3,8 @@ torch  # Let pip choose the compatible version
 torchvision  # Let pip choose the compatible version
 torchaudio  # Let pip choose the compatible version
 onnxruntime
+onnx-simplifier
+onnx
 pandas
 numpy
 gitpython
