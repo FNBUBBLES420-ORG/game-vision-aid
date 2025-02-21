@@ -1,7 +1,0 @@
-put models from couple zip folders in the models folder 
-move the pt files and onnx files to models folder
-
-you may have to convert pt to onnx  to match your gpu 
-
-https://github.com/KernFerm/yolo-export-script
-pt to onnx converter
