@@ -1,6 +1,6 @@
 @echo off
 REM Directly set the file path to config.py
-set scriptPath="Paste your config.py path here"
+set scriptPath="config.py"
 
 REM Verify the entered file path exists
 if not exist %scriptPath% (

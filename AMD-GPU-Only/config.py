@@ -10,8 +10,8 @@ nmsThreshold = 0.4  # Non-max suppression threshold to filter overlapping boxes
 
 # YOLO Model Settings
 modelType = 'torch'  # Choose 'torch' or 'onnx' based on the model you want to load
-torchModelPath = 'models/fn_v5.pt'  # Path to YOLOv5 PyTorch model
-onnxModelPath = 'models/model_fn_v5v5320320Half.onnx'  # Path to YOLOv5 ONNX model
+torchModelPath = '../models/fn_v5.pt'  # Path to YOLOv5 PyTorch model
+onnxModelPath = '../models/model_fn_v5v5320320Half.onnx'  # Path to YOLOv5 ONNX model
 
 # BetterCam Settings
 targetFPS = 60  # Frames per second for capturing
