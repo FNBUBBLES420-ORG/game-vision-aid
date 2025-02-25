@@ -1,4 +1,5 @@
 # APPLICATION-UPDATES
+## Patch Updates
 
 
 **THIS IS NOT AN AI AIMBOT**  
