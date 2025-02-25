@@ -44,8 +44,9 @@ It is only an overlay that displays boxes around the enemy for enhanced visuals 
 - now uses `PyTorch 2.5.0+cu118+cu118, TorchVision 0.20.0+cu118, and Torchaudio 2.5.0+cu118+cu118 with CUDA 11.8 support`
 ---
 
-**COMING SOON!**
-
+### Updates as of 02-25-2025 12:17AM
+- AMD window for overlay - 
+- NVIDIA window for overlay - still needs to be adjusted and fixed , shows to many windows, only be one window over game window
 
 
 # OFFICIAL RELEASE DATE 2026-27
