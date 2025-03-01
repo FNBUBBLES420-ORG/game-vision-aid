@@ -3,7 +3,7 @@
 [bubblesthedev@fnbubbles420.org](bubblesthedev@fnbubbles420.org)
 
 ## Discord Support
-Join our Discord channel **Assistive AimGuide** for assistance, support, or to share your experience.  
+Join our Discord channel **Game Vision Aid** for assistance, support, or to share your experience.  
 
 - **[Discord Link](https://discord.fnbubbles420.org/invite)**
 - or Join to Support Fnbubbles420 Org & The Mission.
