@@ -2,7 +2,7 @@ opencv-python
 torch==2.6.0
 torchvision==0.21.0
 torchaudio==2.6.0
-onnxruntime
+onnxruntime==1.21.0
 pandas
 numpy
 cupy-cuda11x
