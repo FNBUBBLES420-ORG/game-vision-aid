@@ -43,9 +43,6 @@ If you find this project useful, please give it a star! Your support is apprecia
 
 **[Contact](https://github.com/FNBUBBLES420-ORG/game-vision-aid/blob/main/Contact.md)**
 
-### [Assistive AimGuide](https://github.com/FNBUBBLES420-ORG/Assistive-AimGuide) 
-
-
 ## 🚀 Features
 
 - 🖥️ **Real-Time Screen Capture**: Captures your screen in real-time using `BetterCam` for fast and efficient screen capturing.
