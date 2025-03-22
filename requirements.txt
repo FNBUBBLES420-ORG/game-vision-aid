@@ -13,3 +13,5 @@ requests
 ultralytics
 customtkinter
 pywin32  # Added for Windows API functions
+pycuda
+tensorrt
