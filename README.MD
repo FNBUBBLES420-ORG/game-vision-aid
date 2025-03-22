@@ -31,7 +31,7 @@
 ## Discord Link
 - head to `game-vision-aid` channel if you need help
 - make sure to check out the rest of the server
-# **[Discord Link](https://discord.gg/WvqTu92aMs)**
+# **[Discord Link](https://discord.gg/bjbmWaP5p8)**
 
 ## Support the Project ⭐
 If you find this project useful, please give it a star! Your support is appreciated and helps keep the project growing. 🌟
