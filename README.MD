@@ -39,14 +39,6 @@ If you find this project useful, please give it a star! Your support is apprecia
 ## Contact 
 **[Contact](https://github.com/FNBUBBLES420-ORG/game-vision-aid/blob/main/Contact.md)**
 
-## 🚀 Features
-- 🖥️ **Real-Time Screen Capture**: Captures your screen in real-time using `BetterCam` for fast and efficient screen capturing.
-- 🎯 **Object Detection**: Utilizes `YOLOv5` for detecting enemies in video games.
-- 🟩 **Customizable Overlays**: Allows users to choose the `color of the overlay boxes` around detected enemies.
-- 🛠️ **GPU Acceleration**: Supports `GPU acceleration` for faster processing with `CUDA-enabled GPUs`.
-- 🎥 **Live Feed Support**: Displays a real-time live feed with object detection overlays.
-- 🖥️ **AMD GPU with DirectML** support (for faster processing).
-
 ---
 ---
 
