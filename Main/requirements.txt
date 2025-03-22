@@ -21,7 +21,8 @@ onnxruntime==1.21.0
 onnxruntime-directml==1.21.0
 
 # ⚡ NVIDIA CUDA/Accelerated Backend
-cupy-cuda11x # Use this instead of generic cupy for CUDA 11.8
+# if you have nvidia gpu remove the # at the beginning of cupy-cuda11x to install cupy-cuda11x
+# cupy-cuda11x # Use this instead of generic cupy for CUDA 11.8
 
 # ⚙️ TensorRT Inference (for .engine models)
 # tensorrt==8.6.1  # Pinning version for stability and compatibility
