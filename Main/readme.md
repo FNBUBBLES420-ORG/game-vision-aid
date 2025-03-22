@@ -1,4 +1,8 @@
-# 🎯 Real-Time Object Detection Overlay with YOLO, TensorRT, and BetterCam
+<p align="center">
+  <img src="https://github.com/FNBUBBLES420-ORG/game-vision-aid/blob/main/banner/Game_Vision_Aid.png" alt="Game Vision Aid Banner" width="300"/>
+</p>
+
+## 🎯 Real-Time Object Detection Overlay with YOLO, TensorRT, and BetterCam
 
 This project enables **real-time object detection** using **YOLOv5/YOLOv8**, with support for **PyTorch**, **ONNX**, and **TensorRT** models. Bounding boxes are rendered using a **transparent overlay** that displays on top of your game or any screen — perfect for assistive tools, AI research, and accessibility-focused applications.
 
