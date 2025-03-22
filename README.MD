@@ -52,6 +52,10 @@ python check-device.py
 ```
 
 ---
+# If you Support us make sure to follow [https://github.com/FNBUBBLES420-ORG](https://github.com/FNBUBBLES420-ORG)
+---
+
+---
 ---
 ## 🛠️ Contributing
 Contributions are welcome! Feel free to submit a pull request or open an issue to discuss improvements, bugs, or new features.
