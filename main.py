@@ -1,185 +1,148 @@
-import sys
-import numpy as np
-import cupy as cp  # Importing CuPy for GPU-accelerated operations (NVIDIA GPU)
 import cv2
+import numpy as np
 import torch
-import onnxruntime as ort
-import time
-import bettercam
-import os
-from colorama import Fore, Style, init
 import config
-import customtkinter as ctk
-import win32api
-import win32con
-import win32gui
+import time
+from ultralytics import YOLO
+import onnxruntime as ort
+from overlay import Overlay
+import bettercam
+from colorama import Fore, init
+import pycuda.driver as cuda
+import pycuda.autoinit
+import tensorrt as trt
 
-# Enhanced BetterCam Initialization with multiple device support, error handling
 class BetterCamEnhanced:
     def __init__(self, max_buffer_len=config.maxBufferLen, target_fps=config.targetFPS, region=None, monitor_idx=0):
         self.camera = None
         self.max_buffer_len = max_buffer_len
         self.target_fps = target_fps
         self.region = region
-        self.monitor_idx = monitor_idx  # Monitor index for multi-monitor support
+        self.monitor_idx = monitor_idx
         self.is_capturing = False
-        self.buffer = []
 
     def start(self):
-        try:
-            # Create BetterCam instance for the selected monitor
-            self.camera = bettercam.create(monitor_idx=self.monitor_idx, max_buffer_len=self.max_buffer_len)
-            self.camera.start(target_fps=self.target_fps)
-            self.is_capturing = True
-            print(Fore.GREEN + f"BetterCam started on monitor {self.monitor_idx} with target FPS: {self.target_fps}")
-        except Exception as e:
-            print(Fore.RED + f"Error starting BetterCam: {e}")
-            sys.exit(1)
+        self.camera = bettercam.create(monitor_idx=self.monitor_idx, max_buffer_len=self.max_buffer_len)
+        self.camera.start(target_fps=self.target_fps)
+        self.is_capturing = True
 
     def grab_frame(self):
-        try:
-            if self.region:
-                frame = self.camera.grab(region=self.region)
-            else:
-                frame = self.camera.grab()
-            if frame is not None:
-                return frame
-            else:
-                print(Fore.RED + "Failed to grab frame.")
-                return None
-        except Exception as e:
-            print(Fore.RED + f"Error capturing frame: {e}")
-            return None
+        return self.camera.grab(region=self.region) if self.region else self.camera.grab()
 
     def stop(self):
-        try:
-            self.camera.stop()
-            self.is_capturing = False
-            print(Fore.GREEN + "BetterCam stopped.")
-        except Exception as e:
-            print(Fore.RED + f"Error stopping BetterCam: {e}")
+        self.camera.stop()
+        self.is_capturing = False
 
-# Model loading function with support for both YOLOv5 and YOLOv8, CUDA, and DirectML
-def load_model(model_path=None):
-    try:
-        model_path = model_path or (config.torchModelPath if config.modelType == 'torch' else config.onnxModelPath)
-        start_time = time.time()
+class TensorRTInference:
+    def __init__(self, engine_path):
+        self.logger = trt.Logger(trt.Logger.WARNING)
+        self.runtime = trt.Runtime(self.logger)
+        with open(engine_path, 'rb') as f:
+            self.engine = self.runtime.deserialize_cuda_engine(f.read())
+        self.context = self.engine.create_execution_context()
+        self.input_shape = self.engine.get_binding_shape(0)
+        self.output_shape = self.engine.get_binding_shape(1)
+        self.input_size = np.prod(self.input_shape).item() * np.float32().nbytes
+        self.output_size = np.prod(self.output_shape).item() * np.float32().nbytes
+        self.d_input = cuda.mem_alloc(self.input_size)
+        self.d_output = cuda.mem_alloc(self.output_size)
+        self.bindings = [int(self.d_input), int(self.d_output)]
 
-        # Check for PyTorch model (.pt)
-        if model_path.endswith('.pt'):
-            if 'yolov8' in model_path.lower():
-                model = torch.hub.load('ultralytics/yolov8', 'custom', path=model_path, force_reload=True)
-            else:
-                model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=True)
-            model_type = 'torch'
+    def infer(self, input_data: np.ndarray) -> np.ndarray:
+        input_data = input_data.astype(np.float32).ravel()
+        output_data = np.empty(self.output_shape, dtype=np.float32)
+        cuda.memcpy_htod(self.d_input, input_data)
+        self.context.execute_v2(self.bindings)
+        cuda.memcpy_dtoh(output_data, self.d_output)
+        return output_data.reshape(self.output_shape)
 
-        # Check for ONNX model (.onnx)
-        elif model_path.endswith('.onnx'):
-            # Try to load with DirectML if CUDA is not available
-            if torch.cuda.is_available():
-                providers = ['CUDAExecutionProvider']
-            else:
-                providers = ['DmlExecutionProvider']
-            model = ort.InferenceSession(model_path, providers=providers)
-            model_type = 'onnx'
+def load_model():
+    model_type = config.modelType.lower()
+    if model_type == 'torch':
+        model = YOLO(config.torchModelPath)
+    elif model_type == 'onnx':
+        providers = ['CUDAExecutionProvider'] if torch.cuda.is_available() else ['DmlExecutionProvider']
+        model = ort.InferenceSession(config.onnxModelPath, providers=providers)
+    elif model_type == 'engine':
+        model = TensorRTInference(config.tensorrtModelPath)
+    else:
+        raise ValueError("Invalid modelType in config.py")
+    return model, model_type
 
-        # Check for TensorRT model (.engine)
-        elif model_path.endswith('.engine'):
-            # TensorRT model loading logic should be added here
-            print(Fore.YELLOW + "TensorRT model detected. Ensure the correct environment for TensorRT is set up.")
-            model = None  # Placeholder for TensorRT engine loading
-            model_type = 'engine'
+def detect_objects(model, model_type, frame):
+    if model_type == 'torch':
+        return model.predict(source=frame, imgsz=(config.screenWidth, config.screenHeight), conf=config.confidenceThreshold, verbose=False)
+    elif model_type == 'onnx':
+        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        resized = cv2.resize(frame_rgb, (config.screenWidth, config.screenHeight)).astype(np.float32)
+        tensor = resized.transpose(2, 0, 1)[np.newaxis] / 255.0
+        return model.run(None, {model.get_inputs()[0].name: tensor})
+    elif model_type == 'engine':
+        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        resized = cv2.resize(frame_rgb, (config.screenWidth, config.screenHeight)).astype(np.float32)
+        tensor = resized.transpose(2, 0, 1)[np.newaxis] / 255.0
+        return model.infer(tensor)
+    return None
 
-        else:
-            raise ValueError(f"Unsupported model format for {model_path}")
+def draw_boxes(frame, results, model_type):
+    if model_type == 'torch':
+        for r in results:
+            for box in r.boxes.xyxy.cpu().numpy().astype(int):
+                x1, y1, x2, y2 = box[:4]
+                cv2.rectangle(frame, (x1, y1), (x2, y2), config.boundingBoxColor, 2)
+    elif model_type in ['onnx', 'engine']:
+        for det in results[0]:
+            if det[4] > config.confidenceThreshold:
+                x1, y1, x2, y2 = map(int, det[:4])
+                cv2.rectangle(frame, (x1, y1), (x2, y2), config.boundingBoxColor, 2)
+    return frame
 
-        end_time = time.time()
-        print(f"Model loaded in {end_time - start_time:.2f} seconds")
-        return model, model_type
-    except Exception as e:
-        print(f"Error loading model: {e}")
-        sys.exit(1)
+def extract_boxes(results, model_type):
+    boxes = []
+    if model_type == 'torch':
+        for r in results:
+            for box in r.boxes.xyxy.cpu().numpy().astype(int):
+                x1, y1, x2, y2 = box[:4]
+                boxes.append([x1, y1, x2, y2])
+    elif model_type in ['onnx', 'engine']:
+        for det in results[0]:
+            if det[4] > config.confidenceThreshold:
+                x1, y1, x2, y2 = map(int, det[:4])
+                boxes.append([x1, y1, x2, y2])
+    return boxes
 
-# Object detection function with CUDA and DirectML support
-def detect_objects(model, model_type, frame, device):
-    try:
-        if model_type == 'torch':
-            # Use cupy for tensor conversion if necessary (CUDA)
-            frame_tensor = torch.from_numpy(cp.asnumpy(frame)).to(device)
-            results = model(frame_tensor)
-
-        elif model_type == 'onnx':
-            frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            frame_resized = cv2.resize(frame_rgb, (config.screenWidth, config.screenHeight))
-            input_tensor = frame_resized.astype(np.float32)  # Removed cp for non-CUDA GPUs
-            input_tensor = np.expand_dims(input_tensor, axis=0).transpose(0, 3, 1, 2)
-            input_tensor /= 255.0
-
-            # Use GPU-accelerated tensor processing with DirectML or CUDA
-            outputs = model.run(None, {model.get_inputs()[0].name: input_tensor})
-
-            results = outputs[0]
-
-        elif model_type == 'engine':
-            print(Fore.YELLOW + "TensorRT inference is not yet implemented. Placeholder code for TensorRT.")
-            results = None  # Placeholder for TensorRT inference results
-
-        return results
-    except Exception as e:
-        print(f"Error during detection: {e}")
-        return None
-
-# Main function that sets up GPU support for both NVIDIA and AMD
 def main():
     init(autoreset=True)
-    input("Make sure the game is running. Press Enter to continue...")
-
-    # Determine if an NVIDIA (CUDA) or AMD (DirectML) GPU is available
-    if torch.cuda.is_available():
-        device = 'cuda'
-        print("CUDA-enabled GPU found. Using NVIDIA GPU.")
-    else:
-        try:
-            # Check if DirectML for AMD GPUs is available
-            device = torch.device('dml')  # DirectML for PyTorch on AMD GPUs
-            print("Using AMD GPU with DirectML.")
-        except:
-            device = 'cpu'
-            print("No CUDA or DirectML GPU found. Using CPU.")
+    input("Start your game. Press Enter to launch overlay and detection...")
 
     camera = BetterCamEnhanced(target_fps=config.targetFPS, monitor_idx=config.monitorIdx)
     camera.start()
 
     model, model_type = load_model()
-    if model_type == 'torch' and device != 'cpu':
-        model = model.to(device)
-
-    overlay = Overlay(width=config.overlayWidth, height=config.overlayHeight, alpha=config.overlayAlpha)
-    overlay.toggle()  # Start the overlay
-
-    overlay_color = get_color_from_input()
+    overlay = Overlay(config.overlayWidth, config.overlayHeight, config.overlayAlpha)
+    overlay.toggle()
 
     try:
         while True:
-            frame = capture_screen(camera)
-            if frame is not None:
-                results = detect_objects(model, model_type, frame, device)
-                frame = draw_bounding_boxes(frame, results, overlay_color, model_type)
-                cv2.imshow("YOLO Detection", frame)
+            frame = camera.grab_frame()
+            if frame is None:
+                continue
 
-                if results and model_type == 'torch':
-                    coordinates = [[xmin, ymin, xmax, ymax] for xmin, ymin, xmax, ymax, _, _ in results.xyxy[0]]
-                    overlay.update(coordinates)  # Update the overlay with bounding box coordinates
+            results = detect_objects(model, model_type, frame)
+            frame = draw_boxes(frame, results, model_type)
 
-                if cv2.waitKey(1) & 0xFF == ord('q'):
-                    break
+            boxes = extract_boxes(results, model_type)
+            overlay.update(boxes)
+
+            cv2.imshow("YOLO Detection", frame)
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
     except KeyboardInterrupt:
         pass
     finally:
         camera.stop()
-        overlay.toggle()  # Close the overlay
+        overlay.toggle()
         cv2.destroyAllWindows()
-
 
 if __name__ == "__main__":
     main()
