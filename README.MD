@@ -56,6 +56,9 @@ python check-device.py
 # If you Support us make sure to follow [https://github.com/FNBUBBLES420-ORG](https://github.com/FNBUBBLES420-ORG)
 ---
 
+### PyCuda and Tensorrt
+- make sure to have the correct version if you have issue join the discord link is on the `README.MD`. 
+
 ---
 ---
 ## 🛠️ Contributing
