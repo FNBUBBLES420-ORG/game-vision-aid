@@ -21,12 +21,7 @@ import win32gui
 from ultralytics import YOLO
 from colorama import Fore, Style, init
 from overlay import Overlay
-
-# Only import if using TensorRT (.engine)
-import pycuda.driver as cuda
-import pycuda.autoinit
 import tensorrt as trt
-
 
 # ------------------ TensorRT Inference Class ------------------ #
 class TensorRTInference:
@@ -40,16 +35,16 @@ class TensorRTInference:
         self.output_shape = self.engine.get_binding_shape(1)
         self.input_size = np.prod(self.input_shape) * np.float32().nbytes
         self.output_size = np.prod(self.output_shape) * np.float32().nbytes
-        self.d_input = cuda.mem_alloc(self.input_size)
-        self.d_output = cuda.mem_alloc(self.output_size)
-        self.bindings = [int(self.d_input), int(self.d_output)]
+        self.d_input = cp.cuda.alloc(self.input_size)
+        self.d_output = cp.cuda.alloc(self.output_size)
+        self.bindings = [int(self.d_input.ptr), int(self.d_output.ptr)]
 
     def infer(self, input_data: np.ndarray) -> np.ndarray:
         input_data = input_data.astype(np.float32).ravel()
         output_data = np.empty(self.output_shape, dtype=np.float32)
-        cuda.memcpy_htod(self.d_input, input_data)
+        cp.cuda.runtime.memcpy(self.d_input.ptr, input_data.ctypes.data, self.input_size, cp.cuda.runtime.memcpyHostToDevice)
         self.context.execute_v2(self.bindings)
-        cuda.memcpy_dtoh(output_data, self.d_output)
+        cp.cuda.runtime.memcpy(output_data.ctypes.data, self.d_output.ptr, self.output_size, cp.cuda.runtime.memcpyDeviceToHost)
         return output_data.reshape(self.output_shape)
 
 # ------------------ BetterCam Enhanced ------------------ #
@@ -83,14 +78,12 @@ def load_model():
         return YOLO(config.torchModelPath), 'torch'
 
     elif model_type == 'onnx':
-        # Check GPU support order: CUDA (NVIDIA) > DirectML (AMD) > CPU
         available_providers = ort.get_available_providers()
 
         if 'CUDAExecutionProvider' in available_providers:
             providers = ['CUDAExecutionProvider']
             print(Fore.GREEN + "[INFO] ONNX model will use CUDAExecutionProvider (NVIDIA GPU).")
         elif 'DmlExecutionProvider' in available_providers or 'DirectMLExecutionProvider' in available_providers:
-            # Compatibility across versions
             providers = ['DmlExecutionProvider'] if 'DmlExecutionProvider' in available_providers else ['DirectMLExecutionProvider']
             print(Fore.YELLOW + "[INFO] ONNX model will use DirectMLExecutionProvider (AMD GPU).")
         else:
@@ -101,7 +94,7 @@ def load_model():
         return session, 'onnx'
 
     elif model_type == 'engine':
-        print(Fore.MAGENTA + "[INFO] Loading TensorRT engine...")
+        print(Fore.MAGENTA + "[INFO] Loading TensorRT engine with CuPy...")
         return TensorRTInference(config.tensorrtModelPath), 'engine'
 
     else:
