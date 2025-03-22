@@ -56,6 +56,7 @@ If you find this project useful, please give it a star! Your support is apprecia
 ---
 
 # [Main Folder README.MD](https://github.com/FNBUBBLES420-ORG/game-vision-aid/blob/main/Main/readme.md)
+# [Game-Vision-Auto-Setup](https://github.com/FNBUBBLES420-ORG/game-vision-aid/tree/main/Game-Vision-Auto-Setup)
 
 ---
 ---
