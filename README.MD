@@ -44,65 +44,6 @@ If you find this project useful, please give it a star! Your support is apprecia
 
 ### [Assistive AimGuide](https://github.com/FNBUBBLES420-ORG/Assistive-AimGuide) 
 
-## 📂 Project Structure
-
-```
-game-vision-aid/ 
-├── .github/                              # For Issues
-├── AMD-GPU-Only folder                   # AMD GPU folder
-├──    └── IMPORTANT_FOR_AMD_GPU.md       # Important Readme.md for AMD GPU USERS
-├──    └── amd_gpu_requirements.bat       # AMD GPU requirements batchfile
-├──    └── amdgpu-launcher.bat            # AMD GPU launcher batchfile
-├──    └── config-launcher.bat            # AMD config-launcher batchfile
-├──     └── config.py                     # AMD Python Configuration file
-├──     └── main.py                       # AMD Main script file
-├──     └── readme.md                     # Main Readme.md for AMD GPU USERS
-├──     └── requirements.txt              # AMD List of required Python packages
-├── banner folder                         # Banner Image PNG
-├── models/                               # Where the models go
-├──   └── fn_v5.pt                        # Custom YOLOv5 model (if available)
-├──   └── model_v5s.pt                    # Custom YOLOv5 model (if available)
-├──   └── fn_v5v5480480Half.onnx          # Custom ONNX model (if available) nvidia gpu 2060 super
-├──   └── model_fn_v5v5320320Half.onnx    # Custom ONNX model (if available) nvidia gpu 2060 super
-├──   └── model_v5sv5320320Half.onnx      # Custom ONNX model (if available) nvidia gpu 2060 super
-├──   └── model_v5sv5480480Half.onnx      # Custom ONNX model (if available) nvidia gpu 2060 super
-├──  Export-Models                        # Export Models Folder
-├──    └── models                         # part of the exporting process
-├──    └── ultralytics1/utils             # ultralytics/utils
-├──    └── utils                          # utils folder
-├──    └── export.py                      # export script
-├──    └── update_ultralytics.bat         # update ultralytics batchfile
-├── src/                                  # Part of RUST Application
-├──   └── main.rs                         # Part of RUST Application
-├── .gitignore                            # gitignore
-├── CODE_OF_CONDUCT.md                    # CODE_OF_CONDUCT.md
-├── Cargo.lock                            # Part of RUST Application
-├── Cargo.toml                            # Part of RUST Application
-├── Contact.md                            # Contact
-├── LICENSE.md                            # LICENSE
-├── List-of-Colors.md                     # List of colors for the Bounding Boxes
-├── README.md                             # Project documentation
-├── SECURITY.md                           # Security documentation
-├── config-launcher.bat                   # Batchfile to launch the config.py script
-├── config.py                             # Configuration file 
-├── cudnn_instructions.js                 # Instructions in JavaScript
-├── cupy_cuda11x.bat                      # Cupy Cuda 11x Batchfile
-├── get_device.py                         # Lets you know if you installed CUDA
-├── install_python.bat                    # Python 3.11.6 Batchfile
-├── install_pytorch.bat                   # Pytorch Build wheel for the script GPU
-├── install_pytorch_cpu_only.bat          # Pytorch Build for CPU 
-├── main.py                               # Main script file
-├── model_v5s.pt                          # pt file goes in modelS folder
-├── model_v5sv5480480Half.onnx            # onnx file goes in modelS folder
-├── model_fn_v5v5320320Half.onnx          # onnx file goes in modelS folder
-├── models-fn_v5.zip                      # Compressed models to in main models folder 
-├── nodejs-instructions.ps1               # Instructions in Powershell
-├── notes.txt                             # Read Notes.txt
-├── requirements.bat                      # Installs list of required Python packages
-├── requirements.txt                      # List of required Python packages
-├── update_ultralytics.bat                # Update Batch Script for Ultralytics
-```
-
 
 ## 🚀 Features
 
@@ -116,20 +57,20 @@ game-vision-aid/
 ## 🖥️ System Requirements
 
 - **Operating System**: Windows
-- **Python Version**: [Python 3.11.6](https://github.com/KernFerm/Py3.11.6installer) Click to download
+- **Python Version**: 3.11.9
 - **Hardware**:
   - **CPU**: Multi-core processor (Intel i5 or Better)
   - **GPU** (Optional, but recommended for better performance): `NVIDIA GPU with CUDA support`
   - **RAM**: 16 GB or more (games you have on your PC recommended RAM 16GB)
 - **Command Prompt** - Comes standard with `ALL` windows computers. 
   - click `start menu` in the `search bar` type `cmd.exe` click enter. :) 
-  - to make sure you have installed `Python 3.11.6` correctly:
+  - to make sure you have installed `Python 3.11.9` correctly:
     - type in `cmd.exe`
 
     ```
     python --version 
     ```
-- Use the `install_python.bat` it will auto add to `system path`. `V3.11.6`
+- Use the `install_python.bat` it will auto add to `system path`. `V3.11.9`
 
 ## 📦 Installation
 
@@ -163,16 +104,16 @@ Follow these steps to set up and run **GameVisionAid**:
 
 4. **For NVIDIA GPU Support (Optional)**:
    - If you have a CUDA-enabled GPU, install the version of PyTorch that supports your CUDA version:
-     ```
-     pip3 install torch==2.4.1+cu118 torchvision==0.19.1+cu118 torchaudio==2.4.1+cu118 --index-url https://download.pytorch.org/whl/cu118
-     ```
+```
+pip3 install torch==2.6.0+cu118 torchvision==0.21.0+cu118 torchaudio==2.6.0+cu118 --index-url https://download.pytorch.org/whl/cu118
+```
 
 5. **For CPU Only** (Laptops with no GPU):
    - Use the `install_pytorch_cpu_only.bat` to install CPU-based PyTorch.
    - If `install_pytorch_cpu_only.bat` doesn't work, you can manually run the following command in `CMD.exe`:
-     ```
-     pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu/torch_stable.html
-     ```
+```
+pip3 install torch==2.6.0+cpu torchvision==0.21.0+cpu torchaudio==2.6.0+cpu --index-url https://download.pytorch.org/whl/cpu/torch_stable.html
+```
 
 ---
 
@@ -378,112 +319,42 @@ The `config.py` file allows you to easily configure screen capture, object detec
 # Configuration for BetterCam Screen Capture and YOLO model
 
 # Screen Capture Settings
-screenWidth = 480  # Updated screen width for better resolution - (recommended 480)
-screenHeight = 480  # Updated screen height for better resolution - (recommended 480)
+screenWidth = 640
+screenHeight = 640
 
 # Object Detection Settings
-confidenceThreshold = 0.5  # Confidence threshold for object detection
-nmsThreshold = 0.4  # Non-max suppression threshold to filter overlapping boxes
+confidenceThreshold = 0.5
+nmsThreshold = 0.4
 
 # YOLO Model Selection
-# Choose the type of model you want to use: 'torch', 'onnx', or 'engine'
-# 'torch' is for PyTorch models (.pt), 'onnx' is for ONNX models (.onnx), and 'engine' is for TensorRT models (.engine)
-modelType = 'onnx'  # Example: Set to 'torch' for PyTorch models, 'onnx' for ONNX models, 'engine' for TensorRT models
+# Choose one: 'torch', 'onnx', or 'engine'
+modelType = 'torch'
 
-# Model Paths (YOLOv5 and YOLOv8)
-# Uncomment the model path corresponding to the version of YOLO you want to use
-# YOLOv5 PyTorch and ONNX models
-torchModelPath = 'models/fn_v5.pt'  # YOLOv5 PyTorch model path (.pt)
-onnxModelPath = 'models/fn_v5.onnx'  # YOLOv5 ONNX model path (.onnx)
-
-# YOLOv8 PyTorch and ONNX models
-# torchModelPath = 'models/fn_v8.pt'  # YOLOv8 PyTorch model path (.pt)
-# onnxModelPath = 'models/fn_v8.onnx'  # YOLOv8 ONNX model path (.onnx)
-
-# TensorRT Model
-# tensorrtModelPath = 'models/fn_model.engine'  # Path to TensorRT model (.engine)
+# Model Paths
+torchModelPath = 'models/yolov8n.pt'           # Supports YOLOv5/YOLOv8 PyTorch models
+onnxModelPath = 'models/yolov8n.onnx'           # ONNX model
+tensorrtModelPath = 'models/yolov8n.engine'     # TensorRT engine
 
 # BetterCam Settings
-targetFPS = 60  # Frames per second for capturing
-maxBufferLen = 512  # Max buffer length for storing frames
-region = None  # Region for capture (set to None for full screen)
-useNvidiaGPU = True  # Set to True to enable GPU acceleration if available
-monitorIdx = 0  # Index for multi-monitor support, set 0 for primary monitor
+targetFPS = 60
+maxBufferLen = 512
+region = None
+useNvidiaGPU = True
+monitorIdx = 0
 
 # Colors for Bounding Boxes
-boundingBoxColor = (0, 255, 0)  # Default bounding box color in BGR format
-highlightColor = (0, 0, 255)  # Color for highlighted objects
+boundingBoxColor = (0, 255, 0)
+highlightColor = (0, 0, 255)
 
 # Overlay Settings
-overlayWidth = 1920  # Overlay window width
-overlayHeight = 1080  # Overlay window height
-overlayAlpha = 0.6  # Transparency of overlay
+overlayWidth = 1920
+overlayHeight = 1080
+overlayAlpha = 200  # Range: 0–255
 
 # GPU Support
-useCuda = True  # Enable CUDA support if available
-useDirectML = False  # Set to True to enable DirectML for AMD GPUs
+useCuda = True
+useDirectML = False
 ```
-
-## How to Use `config.py`
-
-### Step-by-Step Instructions:
-
-1. **Open the `config.py` file:**
-   - Use any text editor to open the `config.py` file, or use the provided `config-launcher.bat` for convenience.
-
-2. **Set Screen Resolution:**
-   - Adjust the `screenWidth` and `screenHeight` to match the resolution for your screen capture.
-   - Example (recommended settings): 
-     ```python
-     screenWidth = 480  
-     screenHeight = 480
-     ```
-
-3. **Configure Object Detection Sensitivity:**
-   - Modify `confidenceThreshold` to adjust the sensitivity for object detection.
-   - A lower value will detect more objects (potentially with less accuracy), while a higher value will increase the confidence threshold.
-   - Example:
-     ```python
-     confidenceThreshold = 0.5  # Default moderate confidence
-     ```
-
-4. **YOLO Model Settings:**
-   - Choose between `PyTorch`, `ONNX`, or `TensorRT` models by setting the `modelType` variable:
-     - `'torch'` for PyTorch models (`.pt`).
-     - `'onnx'` for ONNX models (`.onnx`).
-     - `'engine'` for TensorRT models (`.engine`).
-
-   - **Select the correct model path** by uncommenting the relevant lines for either YOLOv5 or YOLOv8, and set `modelType` appropriately.
-     - Example:
-       ```python
-       modelType = 'onnx'  # Set to 'torch' for PyTorch or 'engine' for TensorRT models.
-       torchModelPath = 'models/fn_v5.pt'  # YOLOv5 PyTorch model path (.pt)
-       onnxModelPath = 'models/fn_v5.onnx'  # YOLOv5 ONNX model path (.onnx)
-       ```
-
-5. **Adjust Target FPS:**
-   - Set your target frames per second (FPS) for screen capture performance:
-     ```python
-     targetFPS = 60  # Example: 60 FPS
-     ```
-
-6. **Enable NVIDIA GPU Support:**
-   - If you have an NVIDIA GPU and want to enable CUDA support for faster processing, ensure `useNvidiaGPU` is set to `True`.
-     ```python
-     useNvidiaGPU = True  # Enable GPU acceleration
-     ```
-
-7. **Customize Bounding Box Colors:**
-   - You can change the color of the bounding boxes used for object detection by modifying the `boundingBoxColor` and `highlightColor` variables.
-     - Example:
-       ```python
-       boundingBoxColor = (0, 255, 0)  # Green bounding boxes
-       highlightColor = (0, 0, 255)  # Red for highlighted objects
-       ```
-
-8. **Save Your Changes:**
-   - Once you have updated the `config.py` file, save it.
-   - These changes will automatically take effect when you run the program.
 
 ### Additional Tips:
 - **Use the `config-launcher.bat`** to quickly open and modify your `config.py`.
@@ -580,13 +451,15 @@ Press `q` or type `exit` at any time "after you've start the program of course" 
 
 - If you have a custom-trained YOLOv5 model specifically for your game:
 
-1. Place your `.pt` or `.onnx` file in the models/ directory.
+1. Place your `.pt` or `.onnx` or .`engine` file in the models/ directory.
 
 2. Update the `config.py` file to load your custom model by setting:
 
 ```
-torchModelPath = 'models/your_model.pt'  # or
-onnxModelPath = 'models/your_model.onnx'
+# Model Paths
+torchModelPath = 'models/yolov8n.pt'           # Supports YOLOv5/YOLOv8 PyTorch models
+onnxModelPath = 'models/yolov8n.onnx'           # ONNX model
+tensorrtModelPath = 'models/yolov8n.engine'     # TensorRT engine
 ```
 
 #### ❗ MAKE SURE TO UNZIP THE models.zip in the same directory as the main.py script.
