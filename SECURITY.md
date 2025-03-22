@@ -8,16 +8,16 @@ currently being supported with security updates.
 Game-Vision-Aid
 | Version | Supported          |
 | ------- | ------------------ |
-| 0.8.2   | :white_check_mark: |
+| 2.0.1   | :white_check_mark: |
 ---------------------------------
 
 
 torch and torchvision torchaudio
 |                 Version | Supported          |
 | ----------------------- | ------------------ |
-| torch    2.5.1+cu118    | :white_check_mark: |
-| torchvision   0.20.1+cu118  | :white_check_mark: |
-| torchaudio    2.5.1+cu118  | :white_check_mark: |
+| torch    2.6.0+cu118    | :white_check_mark: |
+| torchvision   0.21.0+cu118  | :white_check_mark: |
+| torchaudio    2.6.0+cu118  | :white_check_mark: |
 
 ---------------------------------
 
