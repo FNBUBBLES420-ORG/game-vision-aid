@@ -50,6 +50,10 @@ If you find this project useful, please give it a star! Your support is apprecia
 ```bash
 python check-device.py
 ```
+## Support the Project ⭐
+
+# **If you find this project useful, Please Join Our Discord , We Have Lots to Offer, great community , supportive community, mental health support, and more [CLICK TO JOIN DISCORD SERVER](https://discord.gg/8kbgcEugQu)** your support is appreciated.
+## FNBubbles420 Org is committed to creating an inclusive environment that supports all individuals, especially those dealing with mental health issues or physical disabilities. Our efforts are focused on providing adaptive technology, mental health resources, peer support groups, and creating educational programs that promote accessibility and mental wellness.
 
 ---
 # If you Support us make sure to follow [https://github.com/FNBUBBLES420-ORG](https://github.com/FNBUBBLES420-ORG)
