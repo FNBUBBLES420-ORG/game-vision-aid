@@ -12,7 +12,7 @@ pywin32==310
 torch==2.6.0
 torchvision==0.21.1
 torchaudio==2.6.0
-torch-directml==2.6.0
+torch-directml==0.2.5.dev240914
 
 # 🧠 ONNX Support (NVIDIA/AMD/CPU)
 onnx==1.17.0
