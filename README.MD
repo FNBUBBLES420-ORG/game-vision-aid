@@ -9,8 +9,9 @@
 # **🚨COMING SOON🚨**
 # **🚨🚨🚨 OFFICIAL RELEASE DATE 2026-27 🚨🚨🚨**
 # **🚨🚨🚨BETA TESTING , YOU WILL RECIEVE ROLE WHEN YOU COME INTO OUR DISCORD SERVER 🚨🚨🚨**
-## IF YOU HAVE ANY ISSUES WITH GAME VISION AID JOIN THE DISCORD THANKS [CLICK HERE](https://github.com/FNBUBBLES420-ORG/game-vision-aid/blob/main/GOT-ISSUES%3F.MD)
-
+---
+# IF YOU HAVE ANY ISSUES WITH GAME VISION AID JOIN THE DISCORD THANKS [CLICK HERE](https://github.com/FNBUBBLES420-ORG/game-vision-aid/blob/main/GOT-ISSUES%3F.MD)
+---
 # **🛑** ***READ EVERYTHING CAREFULLY !!!*** **🛑**
 
 # **Including**: `Readme.md`, `License.md`, `Code_of_Conduct.md`, `Security.md`.
