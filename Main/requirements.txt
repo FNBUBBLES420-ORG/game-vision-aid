@@ -1,5 +1,5 @@
 # 🎯 Core Detection Framework
-ultralytics==8.3.105
+ultralytics==8.3.107
 opencv-python==4.11.0.86
 numpy==2.1.1
 colorama==0.4.6
