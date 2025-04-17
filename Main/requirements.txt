@@ -9,10 +9,13 @@ customtkinter==5.2.2
 pywin32==310
 
 # ⚙️ PyTorch + DirectML (AMD) + NVIDIA
-torch==2.6.0
-torchvision==0.21.0
-torchaudio==2.6.0
-torch-directml==0.2.5.dev240914
+torch==2.6.0+cu118 # Nvidia
+torchvision==0.21.0+cu118 # Nvidia
+torchaudio==2.6.0+cu118 # Nvidia
+torch==2.6.0 # AMD
+torchvision==0.21.0 # AMD
+torchaudio==2.6.0 # AMD
+torch-directml==0.2.5.dev240914 # AMD
 
 # 🧠 ONNX Support (NVIDIA/AMD/CPU)
 onnx==1.17.0
