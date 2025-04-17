@@ -10,7 +10,7 @@ pywin32==310
 
 # ⚙️ PyTorch + DirectML (AMD) + NVIDIA
 torch==2.6.0
-torchvision==0.21.1
+torchvision==0.21.0
 torchaudio==2.6.0
 torch-directml==0.2.5.dev240914
 
